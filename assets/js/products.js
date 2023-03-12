@@ -1,0 +1,92 @@
+const products = [
+   {
+      id: 0,
+      name: "Navitimer B01 Chronograph 46",
+      price: 1050,
+      oldprice: 1300,
+      instock: 100,
+      imgSrc: "./assets/img/featured1.png",
+   },
+   {
+      id: 1,
+      name: "Premier Automatic 40",
+      price: 850,
+      oldprice: 1000,
+      instock: 43,
+      imgSrc: "./assets/img/featured2.png",
+   },
+   {
+      id: 2,
+      name: "SuperOcean Heritage",
+      price: 980,
+      oldprice: 1100,
+      instock: 10,
+      imgSrc: "./assets/img/featured3.png",
+   },
+];
+
+const products2 = [
+   {
+      id: 3,
+      name: "Two Tone Gold",
+      price: 1500,
+      instock: 100,
+      imgSrc: "./assets/img/product1.png",
+   },
+   {
+      id: 4,
+      name: "Silver Shadow",
+      price: 1350,
+      instock: 43,
+      imgSrc: "./assets/img/product2.png",
+   },
+   {
+      id: 5,
+      name: "Black Blue",
+      price: 870,
+      instock: 10,
+      imgSrc: "./assets/img/product3.png",
+   },
+   {
+      id: 6,
+      name: "Rose Gold Black",
+      price: 650,
+      instock: 10,
+      imgSrc: "./assets/img/product4.png",
+   },
+   {
+      id: 7,
+      name: "Chronograph",
+      price: 950,
+      instock: 10,
+      imgSrc: "./assets/img/product5.png",
+   },
+   {
+      id: 8,
+      name: "Avenger",
+      price: 1500,
+      instock: 100,
+      imgSrc: "./assets/img/product6.png",
+   },
+   {
+      id: 9,
+      name: "TOURBILLON",
+      price: 1350,
+      instock: 43,
+      imgSrc: "./assets/img/product7.png",
+   },
+   {
+      id: 10,
+      name: "Night Mission",
+      price: 870,
+      instock: 10,
+      imgSrc: "./assets/img/product8.png",
+   },
+   {
+      id: 11,
+      name: "Super Chronomat",
+      price: 650,
+      instock: 10,
+      imgSrc: "./assets/img/product9.png",
+   },
+];

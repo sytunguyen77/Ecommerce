@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+      <!--=============== FAVICON ===============-->
+      <link rel="stylesheet" href="assets/img/favicon.png" />
+
+      <!--=============== BOXICONS ===============-->
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+
+      <!--=============== FONT AWESOME ===============-->
+      <link
+         rel="stylesheet"
+         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      />
+
+      <!--=============== SWIPER CSS ===============-->
+      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+
+      <!--=============== CSS ===============-->
+      <link rel="stylesheet" href="assets/css/styles.css" />
+
+      <title>Responsive watches website - Bedimcode</title>
+   </head>
+   <body>
+      <!--==================== HEADER ====================-->
+      <header class="header" id="header">
+         <nav class="nav container">
+            <a href="#" class="nav__logo"> <img src="assets/img/icon.gif" alt="" />Shinpi </a>
+
+            <div class="nav__menu" id="nav-menu">
+               <ul class="nav__list">
+                  <li class="nav__item">
+                     <a href="#home" class="nav__link active-link">Home</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#featured" class="nav__link">Featured</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#products" class="nav__link">Products</a>
+                  </li>
+                  <li class="nav__item">
+                     <a href="#footer" class="nav__link">Contact</a>
+                  </li>
+               </ul>
+
+               <div class="nav__close" id="nav-close">
+                  <i class="bx bx-x"></i>
+               </div>
+            </div>
+
+            <div class="nav__btns">
+               <!-- Theme change button -->
+
+               <div class="nav__shop" id="wishlist-shop">
+                  <i class="bx bx-heart"></i>
+                  <span class="nav__badge total-items-in-wishlist">0</span>
+               </div>
+
+               <div class="nav__shop" id="cart-shop">
+                  <i class="bx bx-shopping-bag"></i>
+                  <span class="nav__badge total-items-in-cart">0</span>
+               </div>
+
+               <i class="bx bx-moon change-theme" id="theme-button"></i>
+
+               <div class="nav__shop search-box" id="search-shop">
+                  <i class="bx bx-search"></i>
+                  <div class="input-box">
+                     <input type="text" placeholder="Search..." id="search-input" />
+                  </div>
+               </div>
+
+               <div class="nav__toggle" id="nav-toggle">
+                  <i class="bx bx-grid-alt"></i>
+               </div>
+            </div>
+         </nav>
+      </header>
+
+      <!--==================== WISHLIST ====================-->
+      <div class="wishlist" id="wishlist">
+         <i class="bx bx-x cart__close" id="wishlist-close"></i>
+
+         <h2 class="wishlist__title-center">My Wishlist</h2>
+
+         <div class="wishlist__container wishlist-items">
+            <!-- render wishlist items here -->
+         </div>
+      </div>
+
+      <!--==================== CART ====================-->
+      <div class="cart" id="cart">
+         <i class="bx bx-x cart__close" id="cart-close"></i>
+
+         <h2 class="cart__title-center">My Cart</h2>
+
+         <div class="cart__container cart-items">
+            <!-- render cart items here -->
+         </div>
+
+         <div class="cart__prices">
+            <span class="cart__prices-item subitem">0 items</span>
+            <span class="cart__prices-total subtotal">$0</span>
+         </div>
+      </div>
+
+      <!--==================== MAIN ====================-->
+      <main class="main">
+         <!--==================== HOME ====================-->
+         <section class="home" id="home">
+            <div class="home__container container grid">
+               <div class="home__img-bg">
+                  <img src="assets/img/home.png" alt="" class="home__img" />
+               </div>
+
+               <div class="home__social">
+                  <a href="https://www.facebook.com/" target="_blank" class="home__social-link">Facebook </a>
+                  <a href="https://twitter.com/" target="_blank" class="home__social-link">Twitter </a>
+                  <a href="https://www.instagram.com/" target="_blank" class="home__social-link"
+                     >Instagram
+                  </a>
+               </div>
+
+               <div class="home__data">
+                  <h1 class="home__title">
+                     LIMITED EDITION <br />
+                     BULLION GOLD
+                  </h1>
+                  <p class="home__description">
+                     A perfectly proportioned timepiece, this timepiece is suited to almost any wrist.
+                  </p>
+                  <div class="home__btns">
+                     <a href="#products" class="button button--gray button--small"> Shop Now</a>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== ICONS =======================-->
+         <section class="icon section container">
+            <div class="icons__container grid">
+               <div class="box">
+                  <i class="fas fa-shipping-fast"></i>
+                  <div class="info">
+                     <h3>free delivery</h3>
+                     <span>on all orders</span>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <i class="fas fa-undo"></i>
+                  <div class="info">
+                     <h3>30 days returns</h3>
+                     <span>moneyback guarantee</span>
+                  </div>
+               </div>
+
+               <div class="box">
+                  <i class="fas fa-credit-card"></i>
+                  <div class="info">
+                     <h3>Secure Payments</h3>
+                     <span>Protected By Paypal</span>
+                  </div>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== FEATURED ====================-->
+         <section class="featured section container" id="featured">
+            <h2 class="section__title">Featured</h2>
+
+            <div class="featured__container grid products">
+               <!-- render products here -->
+            </div>
+         </section>
+
+         <!--==================== STORY ====================-->
+         <section class="story section container">
+            <div class="story__container grid">
+               <div class="story__data">
+                  <h2 class="section__title story__section-title">Our Story</h2>
+
+                  <h1 class="story__title">
+                     Inspirational Watch of <br />
+                     this year
+                  </h1>
+
+                  <p class="story__description">
+                     The latest and modern watches of this year, is available in various presentations in this
+                     store, discover them now.
+                  </p>
+
+                  <a href="#" class="button button--small">Discover</a>
+               </div>
+
+               <div class="story__images">
+                  <img src="assets/img/story.png" alt="" class="story__img" />
+                  <div class="story__square"></div>
+               </div>
+            </div>
+         </section>
+
+         <!--==================== PRODUCTS ====================-->
+         <section class="products section container" id="products">
+            <h2 class="section__title">Products</h2>
+
+            <div class="products__container grid products2">
+               <!-- render products2 here -->
+               <!-- <article class="products__card">
+                  <img src="assets/img/product1.png" alt="" class="products__img" />
+
+                  <h3 class="products__title">Spirit rose</h3>
+                  <span class="products__price">$1500</span>
+
+                  <button class="products__button">
+                     <i class="bx bx-shopping-bag"></i>
+                  </button>
+               </article> -->
+            </div>
+         </section>
+
+         <!--==================== TESTIMONIAL ====================-->
+         <section class="testimonial section container">
+            <div class="testimonial__container grid">
+               <div class="swiper testimonial-swiper">
+                  <div class="swiper-wrapper">
+                     <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__quote">
+                           <i class="bx bxs-quote-alt-left"></i>
+                        </div>
+
+                        <p class="testimonial__description">
+                           They are the best watches that one acquires, also they are always with the latest
+                           news and trends, with a very comfortable price and especially with the attention
+                           you receive, they are always attentive to your questions.
+                        </p>
+
+                        <h3 class="testimonial__date">March 27. 2021</h3>
+
+                        <div class="testimonial__perfil">
+                           <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img" />
+
+                           <div class="testimonial__perfil-data">
+                              <span class="testimonial__perfil-name">Lee Doe</span>
+                              <span class="testimonial__perfil-detail">Director of a company</span>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__quote">
+                           <i class="bx bxs-quote-alt-left"></i>
+                        </div>
+
+                        <p class="testimonial__description">
+                           They are the best watches that one acquires, also they are always with the latest
+                           news and trends, with a very comfortable price and especially with the attention
+                           you receive, they are always attentive to your questions.
+                        </p>
+
+                        <h3 class="testimonial__date">March 27. 2021</h3>
+
+                        <div class="testimonial__perfil">
+                           <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img" />
+
+                           <div class="testimonial__perfil-data">
+                              <span class="testimonial__perfil-name">Samantha Mey</span>
+                              <span class="testimonial__perfil-detail">Director of a company</span>
+                           </div>
+                        </div>
+                     </div>
+
+                     <div class="testimonial__card swiper-slide">
+                        <div class="testimonial__quote">
+                           <i class="bx bxs-quote-alt-left"></i>
+                        </div>
+
+                        <p class="testimonial__description">
+                           They are the best watches that one acquires, also they are always with the latest
+                           news and trends, with a very comfortable price and especially with the attention
+                           you receive, they are always attentive to your questions.
+                        </p>
+
+                        <h3 class="testimonial__date">March 27. 2021</h3>
+
+                        <div class="testimonial__perfil">
+                           <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img" />
+
+                           <div class="testimonial__perfil-data">
+                              <span class="testimonial__perfil-name">Raul Zaman </span>
+                              <span class="testimonial__perfil-detail">Director of a company</span>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="swiper-button-next">
+                     <i class="bx bx-right-arrow-alt"></i>
+                  </div>
+                  <div class="swiper-button-prev">
+                     <i class="bx bx-left-arrow-alt"></i>
+                  </div>
+               </div>
+
+               <div class="testimonial__images">
+                  <div class="testimonial__square"></div>
+                  <img src="assets/img/testimonial.png" alt="" class="testimonial__img" />
+               </div>
+            </div>
+         </section>
+
+         <!--==================== NEWSLETTER ====================-->
+         <section class="newsletter section container">
+            <div class="newsletter__bg grid">
+               <div>
+                  <h2 class="newsletter__title">
+                     Subscribe Our <br />
+                     Newsletter
+                  </h2>
+                  <p class="newsletter__description">
+                     Don't miss out on your discounts. Subscribe to our email newsletter to get the best
+                     offers, discounts, coupons, gifts and much more.
+                  </p>
+               </div>
+
+               <form action="" class="newsletter__subscribe">
+                  <input type="email" placeholder="Enter your email" class="newsletter__input" />
+                  <button class="button">SUBSCRIBE</button>
+               </form>
+            </div>
+         </section>
+      </main>
+
+      <!--==================== FOOTER ====================-->
+      <footer class="footer section" id="footer">
+         <div class="footer__container container grid">
+            <div class="footer__content">
+               <h3 class="footer__title">Locations</h3>
+
+               <ul class="footer__list">
+                  <li>USA</li>
+                  <li>Germany</li>
+                  <li>Italy</li>
+                  <li>France</li>
+               </ul>
+            </div>
+
+            <div class="footer__content">
+               <h3 class="footer__title">About</h3>
+
+               <ul class="footer__links">
+                  <li>
+                     <a href="#" class="footer__link">Shipping & Returns</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Terms & Conditions</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Refund Policy</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Privacy Policy</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">(253) 285-2840</a>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="footer__content">
+               <h3 class="footer__title">Shop</h3>
+
+               <ul class="footer__links">
+                  <li>
+                     <a href="#" class="footer__link">Watches</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Straps</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Tools & Accessories</a>
+                  </li>
+                  <li>
+                     <a href="#" class="footer__link">Gift Card</a>
+                  </li>
+               </ul>
+            </div>
+
+            <div class="footer__content">
+               <ul class="footer__social">
+                  <img src="assets/img/payment.png" alt="" />
+               </ul>
+            </div>
+         </div>
+
+         <span class="footer__copy">&#169; Sy Tu. All rigths reserved</span>
+      </footer>
+
+      <!--=============== SCROLL UP ===============-->
+      <a href="#" class="scrollup" id="scroll-up">
+         <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+      </a>
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/swiper-bundle.min.js"></script>
+
+      <!--=============== MAIN JS ===============-->
+      <!-- <script src="assets/js/app.js"></script> -->
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/products.js"></script>
+      <script src="assets/js/addToCart.js"></script>
+      <script src="assets/js/addToList.js"></script>
+   </body>
+</html>
