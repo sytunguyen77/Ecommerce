@@ -42,7 +42,7 @@ function renderWistListTotal() {
 // render wishlist items
 function renderWishListItems() {
    if (wishlist.length === 0) {
-      wishListItemsEl.innerHTML = `<h3 style="text-align:center">Your wishlist is currently empty.</h3>`;
+      wishListItemsEl.innerHTML = `<h3 style="text-align:center">Your wishlist is currently empty</h3>`;
    } else {
       wishListItemsEl.innerHTML = ``; // clear wishlist element
       wishlist.forEach((item) => {

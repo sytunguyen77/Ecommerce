@@ -8,6 +8,7 @@ const products = [
       oldprice: 1300,
       instock: 100,
       imgSrc: "./assets/img/featured1.png",
+      subImgSrc: "./assets/img/sub1.png",
    },
    {
       id: 1,
@@ -17,6 +18,7 @@ const products = [
       oldprice: 1000,
       instock: 43,
       imgSrc: "./assets/img/featured2.png",
+      subImgSrc: "./assets/img/sub2.png",
    },
    {
       id: 2,
@@ -26,6 +28,7 @@ const products = [
       oldprice: 1100,
       instock: 10,
       imgSrc: "./assets/img/featured3.png",
+      subImgSrc: "./assets/img/sub3.png",
    },
 ];
 

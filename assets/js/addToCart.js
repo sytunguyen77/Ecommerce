@@ -4,6 +4,7 @@ const productsEl2 = document.querySelector(".products2");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const subItemsEl = document.querySelector(".subitem");
+const checkoutBtn = document.querySelector(".checkout-btn");
 const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 // RENDER PRODUCTS
 function renderProducts() {
@@ -11,7 +12,7 @@ function renderProducts() {
       productsEl.innerHTML += `
         <article class="featured__card">
                   <span class="featured__tag">Sale</span>
-                  <img src="${product.imgSrc}" alt="" class="featured__img" />
+                  <img src="${product.imgSrc}" alt="" class="featured__img" onmouseover="this.src='${product.subImgSrc}'" onmouseout="this.src='${product.imgSrc}'"/>
 
                   <div class="featured__data">
                      <h3 class="featured__title">${product.name}</h3>
@@ -89,6 +90,13 @@ function updateCart() {
    renderCartItems();
    renderSubtotal();
 
+   // add or remove checkout button
+   if (cart.length > 0) {
+      checkoutBtn.style.display = "block";
+   } else {
+      checkoutBtn.style.display = "none";
+   }
+
    // save cart to local storage
    localStorage.setItem("CART", JSON.stringify(cart));
 }
@@ -109,9 +117,10 @@ function renderSubtotal() {
 // render cart items
 function renderCartItems() {
    if (cart.length === 0) {
-      cartItemsEl.innerHTML = `<h3 style="text-align:center">Your cart is currently empty.</h3>`;
+      cartItemsEl.innerHTML = `<h3 style="text-align:center">Your cart is currently empty</h3>`;
+      checkoutBtn.style.display = "none"; // hide checkout button
    } else {
-      cartItemsEl.innerHTML = `<button class="button home__button" id="checkout">CONTINUE TO CHECKOUT</button>`; // clear cart element
+      cartItemsEl.innerHTML = ``; // clear cart element
       cart.forEach((item) => {
          cartItemsEl.innerHTML += `
          <article class="cart__card">

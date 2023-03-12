@@ -1,7 +1,13 @@
-const stripe = Stripe(
+var stripe = Stripe(
    // Stripe Account Required
    "pk_test_51MkrFtFVdPT8iFZdIBMtRtFoj3pzdPyGEBK9Tb6T6fw1BvJzoCdY2pD3O1bWyl5dw3Ly3cn5eWGj6HPqf2rnX5S900LwN1jHIe"
 );
+
+// Check if Stripe has loaded
+if (!stripe) {
+   alert("Stripe failed to load. Please try again later.");
+}
+
 document.getElementById("checkout").addEventListener("click", function () {
    stripe
       .redirectToCheckout({
@@ -15,5 +21,7 @@ document.getElementById("checkout").addEventListener("click", function () {
          successUrl: "https://www.google.com",
          cancelUrl: "https://www.twitter.com",
       })
-      .then(function (result) {});
+      .then(function (result) {
+         alert(result);
+      });
 });
