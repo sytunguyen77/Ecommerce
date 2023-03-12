@@ -111,7 +111,7 @@ function renderCartItems() {
    if (cart.length === 0) {
       cartItemsEl.innerHTML = `<h3 style="text-align:center">Your cart is currently empty.</h3>`;
    } else {
-      cartItemsEl.innerHTML = `<button class="button home__button">CONTINUE TO CHECKOUT</button>`; // clear cart element
+      cartItemsEl.innerHTML = `<button class="button home__button" id="checkout">CONTINUE TO CHECKOUT</button>`; // clear cart element
       cart.forEach((item) => {
          cartItemsEl.innerHTML += `
          <article class="cart__card">
