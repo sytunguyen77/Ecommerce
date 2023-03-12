@@ -345,9 +345,8 @@ body.dark-theme {
 
 .home__img {
    width: 240px;
-   /* background: url(./assets/img/gold.png) no-repeat;
-   background-size: cover;
-   background-position: center; */
+   transition: 0.5s;
+   cursor: pointer;
 }
 
 .home__img-bg {
@@ -360,6 +359,35 @@ body.dark-theme {
    align-items: flex-end;
    justify-self: flex-end;
    transform: translateX(1.5rem);
+   overflow: hidden;
+   position: relative;
+}
+
+.home__img-bg::after {
+   content: "";
+   position: absolute;
+   width: 40%;
+   height: 100%;
+   top: 0;
+   background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3));
+   left: -75%;
+   z-index: 2;
+   transform: skew(22deg);
+   animation: light 2s infinite;
+}
+
+@keyframes light {
+   0% {
+      left: -75%;
+   }
+   100% {
+      left: 175%;
+   }
+}
+
+.home__img-bg:hover img {
+   transform: scale(1.05);
+   filter: brightness(1.2);
 }
 
 .home__social {
@@ -940,6 +968,39 @@ body.dark-theme {
    border-radius: 4px;
    padding: 0 15px;
    font-size: 16px;
+}
+
+/* search bar for products section */
+.search-bar {
+   display: flex;
+   align-items: center;
+   background-color: #f2f2f2;
+   padding: 10px;
+   border-radius: 5px;
+   width: 300px;
+   margin: 0 auto;
+   margin-bottom: 2rem;
+}
+
+.search-bar input[type="text"] {
+   border: none;
+   background-color: transparent;
+   outline: none;
+   font-size: 16px;
+   margin-left: 10px;
+   width: 100%;
+   color: #333;
+}
+
+.search-bar input[type="text"]::placeholder {
+   color: #333;
+}
+
+.search-bar input[type="text"]:focus {
+   border: none;
+   outline: none;
+   background-color: #fff;
+   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
 /*=============== WISHLIST ===============*/

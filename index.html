@@ -69,7 +69,7 @@
                <div class="nav__shop search-box" id="search-shop">
                   <i class="bx bx-search"></i>
                   <div class="input-box">
-                     <input type="text" placeholder="Search..." id="search-input" />
+                     <input type="text" placeholder="Search products..." id="search-input" />
                   </div>
                </div>
 
@@ -108,6 +108,7 @@
       </div>
 
       <!--==================== MAIN ====================-->
+
       <main class="main">
          <!--==================== HOME ====================-->
          <section class="home" id="home">
@@ -207,7 +208,11 @@
          <section class="products section container" id="products">
             <h2 class="section__title">Products</h2>
 
-            <div class="products__container grid products2">
+            <div class="search-bar">
+               <input type="text" placeholder="Search..." id="find" />
+            </div>
+
+            <div class="products__container grid products2 product-list">
                <!-- render products2 here -->
                <!-- <article class="products__card">
                   <img src="assets/img/product1.png" alt="" class="products__img" />
@@ -412,5 +417,6 @@
       <script src="assets/js/products.js"></script>
       <script src="assets/js/addToCart.js"></script>
       <script src="assets/js/addToList.js"></script>
+      <script src="assets/js/filter.js"></script>
    </body>
 </html>
