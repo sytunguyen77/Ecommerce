@@ -109,6 +109,7 @@ searchBox.addEventListener("click", () => {
 /*===== Automatic show popup after 2 seconds of page load =======*/
 const popup = document.querySelector(".popup");
 const close = document.querySelector(".close");
+const deal = document.querySelector(".deal");
 
 window.onload = function () {
    setTimeout(function () {
@@ -119,7 +120,14 @@ window.onload = function () {
    }, 2000);
 };
 
+// Close button onclick
 close.addEventListener("click", () => {
+   popup.style.display = "none";
+   document.querySelector(".overlay").remove(); // remove the overlay div
+});
+
+// Deal button onclick
+deal.addEventListener("click", () => {
    popup.style.display = "none";
    document.querySelector(".overlay").remove(); // remove the overlay div
 });

@@ -1104,6 +1104,20 @@ body.dark-theme {
    border-radius: 10px;
 }
 
+.contentBox .content .expire-time {
+   display: flex;
+}
+
+.contentBox .content .expire-time div {
+   position: relative;
+   padding: 10px;
+   color: #333;
+}
+
+.contentBox .content .expire-time p {
+   font-size: 2.5rem;
+}
+
 /* Close button for popup */
 .close {
    position: absolute;
