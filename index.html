@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
       <!--=============== FAVICON ===============-->
-      <link rel="stylesheet" href="assets/img/favicon.png" />
+      <link rel="icon" type="image/x-icon" href="assets/img/icon.png" />
 
       <!--=============== BOXICONS ===============-->
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
@@ -25,7 +25,7 @@
       <!--=============== Library for Stripe Checkout ===============-->
       <script src="https://js.stripe.com/v3/"></script>
 
-      <title>Responsive watches website - Bedimcode</title>
+      <title>Ecommerce - Sy</title>
    </head>
    <body>
       <!--==================== HEADER ====================-->
@@ -83,6 +83,24 @@
          </nav>
       </header>
 
+      <!--========= AUTOMATIC POPUP WHEN PAGE IS LOADED ======-->
+      <div class="popup">
+         <div class="contentBox">
+            <div class="close"></div>
+            <div class="imgBx">
+               <img src="./assets/img/gift.gif" alt="" />
+            </div>
+            <div class="content">
+               <div>
+                  <h3>Special Offer</h3>
+                  <h2>30<sup>%</sup><span> Off</span></h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam, iure.</p>
+                  <a href="#featured">Get The Deal</a>
+               </div>
+            </div>
+         </div>
+      </div>
+
       <!--==================== WISHLIST ====================-->
       <div class="wishlist" id="wishlist">
          <i class="bx bx-x cart__close" id="wishlist-close"></i>
@@ -114,7 +132,7 @@
 
       <!--==================== MAIN ====================-->
 
-      <main class="main">
+      <main class="main" id="overlay">
          <!--==================== HOME ====================-->
          <section class="home" id="home">
             <div class="home__container container grid">
@@ -255,7 +273,7 @@
 
                            <div class="testimonial__perfil-data">
                               <span class="testimonial__perfil-name">Lee Doe</span>
-                              <span class="testimonial__perfil-detail">Director of a company</span>
+                              <span class="testimonial__perfil-detail">Verified Customer</span>
                            </div>
                         </div>
                      </div>
@@ -278,7 +296,7 @@
 
                            <div class="testimonial__perfil-data">
                               <span class="testimonial__perfil-name">Samantha Mey</span>
-                              <span class="testimonial__perfil-detail">Director of a company</span>
+                              <span class="testimonial__perfil-detail">Verified Customer</span>
                            </div>
                         </div>
                      </div>
@@ -301,7 +319,7 @@
 
                            <div class="testimonial__perfil-data">
                               <span class="testimonial__perfil-name">Raul Zaman </span>
-                              <span class="testimonial__perfil-detail">Director of a company</span>
+                              <span class="testimonial__perfil-detail">Verified Customer</span>
                            </div>
                         </div>
                      </div>

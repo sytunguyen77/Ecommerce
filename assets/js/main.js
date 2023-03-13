@@ -106,6 +106,24 @@ searchBox.addEventListener("click", () => {
    }
 });
 
+/*===== Automatic show popup after 2 seconds of page load =======*/
+const popup = document.querySelector(".popup");
+const close = document.querySelector(".close");
+
+window.onload = function () {
+   setTimeout(function () {
+      popup.style.display = "block";
+      document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`); // insert the overlay div
+
+      // Add some time delay to show popup
+   }, 2000);
+};
+
+close.addEventListener("click", () => {
+   popup.style.display = "none";
+   document.querySelector(".overlay").remove(); // remove the overlay div
+});
+
 /*=============== SHOW WISHLIST ===============*/
 const wishlist1 = document.getElementById("wishlist"),
    wishlistShop = document.getElementById("wishlist-shop"),
