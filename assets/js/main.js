@@ -132,6 +132,12 @@ deal.addEventListener("click", () => {
    document.querySelector(".overlay").remove(); // remove the overlay div
 });
 
+/*=============== SHOW LOGIN ===============*/
+const loginShop = document.getElementById("login-shop");
+loginShop.addEventListener("click", () => {
+   window.location.href = "../login.html";
+});
+
 /*=============== SHOW WISHLIST ===============*/
 const wishlist1 = document.getElementById("wishlist"),
    wishlistShop = document.getElementById("wishlist-shop"),

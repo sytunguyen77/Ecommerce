@@ -248,7 +248,7 @@ body.dark-theme {
 .nav__btns {
    display: flex;
    align-items: center;
-   column-gap: 1rem;
+   column-gap: 0.85rem;
 }
 
 .nav__btns .bx {
