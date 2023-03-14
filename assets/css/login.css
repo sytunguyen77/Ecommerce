@@ -31,6 +31,8 @@
    padding: 40px 30px 50px 30px;
 }
 
+/* Hide  Signup section */
+
 .form.signup {
    opacity: 0;
    pointer-events: none;
@@ -42,6 +44,22 @@
 }
 
 .forms.show-signup .form.login {
+   opacity: 0;
+   pointer-events: none;
+}
+
+/* Hide Forgot Password Section */
+.form.forgot-password {
+   opacity: 0;
+   pointer-events: none;
+}
+
+.forms.show-forgot-password .form.forgot-password {
+   opacity: 1;
+   pointer-events: auto;
+}
+
+.forms.show-forgot-password .form.login {
    opacity: 0;
    pointer-events: none;
 }
