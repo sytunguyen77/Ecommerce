@@ -18,7 +18,7 @@
       <section class="container forms">
          <!-- Login Form -->
          <div class="form login">
-            <header>Login Form</header>
+            <header>Login</header>
             <form action="#">
                <div class="field email">
                   <div class="input-area">
@@ -41,7 +41,7 @@
                <div class="pass-txt"><a href="#">Forgot password?</a></div>
                <input type="submit" value="Login" />
             </form>
-            <div class="sign-txt">Don't have an account? <a href="#" class="link">Signup now</a></div>
+            <div class="sign-txt">Don't have an account? <a href="#" class="link">Signup</a></div>
 
             <div class="line"></div>
 
@@ -62,7 +62,7 @@
 
          <!-- Signup Form -->
          <div class="form signup">
-            <header>Signup Form</header>
+            <header>Signup</header>
             <form action="#">
                <div class="field email">
                   <div class="input-area">
@@ -73,23 +73,25 @@
                   <div class="error error-txt">Email is required</div>
                </div>
 
+               <!-- Create Password -->
                <div class="field password">
                   <div class="input-area">
                      <input type="password" placeholder="Create password" class="pw" />
                      <i class="icon fas fa-lock"></i>
                      <i class="error error-icon fas fa-exclamation-circle"></i>
                   </div>
-                  <div class="error error-txt">Password can't be blank</div>
+                  <div class="error error-txt">Password is required</div>
                </div>
 
+               <!-- Confirm password -->
                <div class="field password">
                   <div class="input-area">
-                     <input type="password" placeholder="Confirm password" class="pw" />
+                     <input type="password" placeholder="Confirm password" class="cpw" />
                      <i class="icon fas fa-lock"></i>
                      <!-- <i class="bx bx-hide eye-icon"></i> -->
                      <i class="error error-icon fas fa-exclamation-circle"></i>
                   </div>
-                  <div class="error error-txt">Password can't be blank</div>
+                  <div class="error error-txt">Password is required</div>
                </div>
 
                <input type="submit" value="Signup" />
