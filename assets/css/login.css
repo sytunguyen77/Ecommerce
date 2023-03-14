@@ -23,7 +23,7 @@
 }
 
 .form {
-   position: absolute; /* to place signup form on top of login form*/
+   position: absolute;
    width: 430px;
    background: #fff;
    text-align: center;
@@ -61,7 +61,7 @@ form .field {
 }
 
 form .field.shake {
-   animation: shake 0.3s ease-in-out infinite;
+   animation: shake 0.3s ease-in-out;
 }
 
 @keyframes shake {
