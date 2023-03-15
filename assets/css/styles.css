@@ -261,8 +261,8 @@ body.dark-theme {
 
 .nav__badge {
    position: absolute;
-   left: 24px;
-   bottom: 16px;
+   left: 20px;
+   bottom: 20px;
    display: inline-flex;
    justify-content: center;
    align-items: center;
@@ -1136,14 +1136,14 @@ body.dark-theme {
 
 @media screen and (max-width: 767px) {
    .contentBox {
-      width: 300px !important;
-      height: auto !important;
+      width: 300px;
+      height: auto;
       flex-direction: column;
    }
 
    .contentBox .imgBx {
-      height: 200px !important;
-      transform: translateY(-50px) !important;
+      height: 200px;
+      transform: translateY(-50px);
    }
 
    .contentBox .imgBx::before {
@@ -1151,7 +1151,7 @@ body.dark-theme {
    }
 
    .contentBox .content {
-      height: auto !important;
+      height: auto;
       text-align: center;
       padding: 20px;
       padding-top: 0;
