@@ -1383,8 +1383,17 @@ body.dark-theme {
 }
 
 @media screen and (max-width: 576px) {
-   .nav__btns .bx {
-      font-size: 1.3rem;
+   body {
+      background-color: var(--body-color);
+   }
+
+   .nav__btns #theme-button,
+   .nav__btns #search-shop {
+      display: none;
+   }
+
+   .home__img-bg {
+      margin-right: 1rem;
    }
 }
 
