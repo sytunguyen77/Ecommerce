@@ -1382,6 +1382,12 @@ body.dark-theme {
    }
 }
 
+@media screen and (max-width: 576px) {
+   .nav__btns .bx {
+      font-size: 1.3rem;
+   }
+}
+
 /* For medium devices */
 @media screen and (min-width: 576px) {
    .home__img-bg {
