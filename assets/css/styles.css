@@ -978,13 +978,7 @@ body.dark-theme {
 }
 /* Show Scroll Up*/
 .show-scroll {
-   bottom: 3rem;
-}
-
-/* Facebook Plugin */
-.fb_customer_chat_bounce_in_v2 {
-   right: auto !important;
-   left: 18px !important;
+   bottom: 6rem;
 }
 
 /*=============== SCROLL BAR ===============*/
