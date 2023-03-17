@@ -1,6 +1,7 @@
 const wishListItemsEl = document.querySelector(".wishlist-items");
 const totalItemsInWishListEl = document.querySelector(".total-items-in-wishlist");
 const clearAllWishListItemsEl = document.querySelector(".wishlist__clear-button");
+const subWishListEl = document.querySelector(".wishlist__item");
 
 // Wishlist Array
 let wishlist = JSON.parse(localStorage.getItem("WISHLIST")) || [];
@@ -54,7 +55,7 @@ function renderWistListTotal() {
       totalWishList += item.numberOfWishList;
    });
    totalItemsInWishListEl.innerHTML = totalWishList;
-   subItemsEl.innerHTML = `${totalItems} items`;
+   subWishListEl.innerHTML = `${totalWishList} items`;
 }
 
 // render wishlist items
@@ -62,6 +63,7 @@ function renderWishListItems() {
    if (wishlist.length === 0) {
       wishListItemsEl.innerHTML = `<h3 style="text-align:center">Your wishlist is currently empty</h3>`;
       clearAllWishListItemsEl.style.display = "none"; // Hide clear button when wishlist is empty
+      subWishListEl.style.display = "none";
    } else {
       wishListItemsEl.innerHTML = ``; // clear wishlist element
       wishlist.forEach((item) => {
@@ -82,7 +84,8 @@ function renderWishListItems() {
          </article>
     `;
       });
-      clearAllWishListItemsEl.style.display = "block";
+      clearAllWishListItemsEl.style.display = "block"; //  Show clear button when there's at least one item in the wishlist
+      subWishListEl.style.display = "block";
    }
 }
 

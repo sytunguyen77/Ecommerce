@@ -1411,6 +1411,14 @@ body.dark-theme {
    cursor: pointer;
 }
 
+.wishlist__sub {
+   margin-top: 2rem;
+}
+
+.wishlist__item {
+   font-size: var(--small-font-size);
+}
+
 .wishlist__clear-button {
    font-size: var(--small-font-size);
    cursor: pointer;
