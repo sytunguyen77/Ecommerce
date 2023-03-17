@@ -33,7 +33,7 @@ const displayModal = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart2(${product.id})"class="button button--modal">ADD TO CART</a>
+               <a onclick="addToCart(${product.id})"class="button button--modal">ADD TO CART</a>
                <button  class="close-modal" id="close-modal"></button>
             </div>
       </div>

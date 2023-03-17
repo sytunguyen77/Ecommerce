@@ -1102,7 +1102,7 @@ body.dark-theme {
    border: 0.1rem solid var(--border-color);
    border-radius: 0.5rem;
    width: 35rem;
-   height: 42rem;
+   min-height: 42rem;
    position: relative;
 }
 
