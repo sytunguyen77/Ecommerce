@@ -978,7 +978,12 @@ body.dark-theme {
 }
 /* Show Scroll Up*/
 .show-scroll {
-   bottom: 8rem;
+   bottom: 3rem;
+}
+
+/* Facebook Plugin */
+#fb-customer-chat {
+   transform: translateX(-100%);
 }
 
 /*=============== SCROLL BAR ===============*/
@@ -1576,6 +1581,16 @@ body.dark-theme {
 
    .home__img-bg {
       margin-right: 1rem;
+   }
+
+   .modal .modal-content {
+      min-height: 30rem;
+   }
+}
+
+@media screen and (max-width: 720px) {
+   .featured__button {
+      padding: 1.4rem;
    }
 }
 
