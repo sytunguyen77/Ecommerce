@@ -141,6 +141,10 @@
          <div class="wishlist__container wishlist-items">
             <!-- render wishlist items here -->
          </div>
+
+         <div class="wishlist__sub">
+            <span class="wishlist__clear-button" onclick="clearList()">Clear List</span>
+         </div>
       </div>
 
       <!--==================== CART ====================-->
@@ -156,6 +160,7 @@
          <div class="cart__prices">
             <span class="cart__prices-item subitem">0 items</span>
             <span class="cart__prices-total subtotal">$0</span>
+            <span class="cart__clear-button" onclick="clearCart()">Clear Cart</span>
          </div>
 
          <button class="button home__button checkout-btn" id="checkout">CONTINUE TO CHECKOUT</button>

@@ -1,5 +1,6 @@
 const wishListItemsEl = document.querySelector(".wishlist-items");
 const totalItemsInWishListEl = document.querySelector(".total-items-in-wishlist");
+const clearAllWishListItemsEl = document.querySelector(".wishlist__clear-button");
 
 // Wishlist Array
 let wishlist = JSON.parse(localStorage.getItem("WISHLIST")) || [];
@@ -53,12 +54,14 @@ function renderWistListTotal() {
       totalWishList += item.numberOfWishList;
    });
    totalItemsInWishListEl.innerHTML = totalWishList;
+   subItemsEl.innerHTML = `${totalItems} items`;
 }
 
 // render wishlist items
 function renderWishListItems() {
    if (wishlist.length === 0) {
       wishListItemsEl.innerHTML = `<h3 style="text-align:center">Your wishlist is currently empty</h3>`;
+      clearAllWishListItemsEl.style.display = "none"; // Hide clear button when wishlist is empty
    } else {
       wishListItemsEl.innerHTML = ``; // clear wishlist element
       wishlist.forEach((item) => {
@@ -79,11 +82,18 @@ function renderWishListItems() {
          </article>
     `;
       });
+      clearAllWishListItemsEl.style.display = "block";
    }
 }
 
 // remove item from wislist
 function removeItemFromWishList(id) {
    wishlist = wishlist.filter((item) => item.id !== id);
+   updateWishList();
+}
+
+// clear all items in the wishlist
+function clearList() {
+   wishlist = [];
    updateWishList();
 }

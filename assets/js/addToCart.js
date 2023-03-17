@@ -5,7 +5,9 @@ const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const subItemsEl = document.querySelector(".subitem");
 const checkoutBtn = document.querySelector(".checkout-btn");
+const clearAllItemsBtn = document.querySelector(".cart__clear-button");
 const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
+
 // RENDER PRODUCTS
 function renderProducts() {
    products.forEach((product) => {
@@ -73,7 +75,6 @@ function renderProducts() {
          `;
    });
 }
-
 renderProducts();
 
 // cart array
@@ -120,11 +121,13 @@ function updateCart() {
    renderCartItems();
    renderSubtotal();
 
-   // add or remove checkout button
+   // add or remove checkout and clear button
    if (cart.length > 0) {
-      checkoutBtn.style.display = "block";
+      checkoutBtn.style.display = "block"; // show checkout button
+      clearAllItemsBtn.style.display = "block"; // show clear cart button
    } else {
-      checkoutBtn.style.display = "none";
+      checkoutBtn.style.display = "none"; // remove checkout button when cart is empty
+      clearAllItemsBtn.style.display = "none"; // hide clear cart button when cart is empty
    }
 
    // save cart to local storage
@@ -148,49 +151,56 @@ function renderSubtotal() {
 function renderCartItems() {
    if (cart.length === 0) {
       cartItemsEl.innerHTML = `<h3 style="text-align:center">Your cart is currently empty</h3>`;
-      checkoutBtn.style.display = "none"; // hide checkout button
    } else {
       cartItemsEl.innerHTML = ``; // clear cart element
       cart.forEach((item) => {
          cartItemsEl.innerHTML += `
-         <article class="cart__card">
-                  <div class="cart__box">
-                     <img src="${item.imgSrc}" alt="" class="cart__img" />
+        <article class="cart__card">
+            <div class="cart__box">
+               <img src="${item.imgSrc}" alt="" class="cart__img" />
+            </div>
+
+            <div class="cart__details">
+               <h3 class="cart__title">${item.name}</h3>
+               <span class="cart__price">$${item.price}</span>
+
+               <div class="cart__amount">
+                  <div class="cart__amount-content">
+                     <span class="cart__amount-box" onclick="changeNumberOfUnits('minus', ${item.id})">
+                        <i class="bx bx-minus"></i>
+                     </span>
+
+                     <span class="cart__amount-number">${item.numberOfUnits}</span>
+
+                     <span class="cart__amount-box" onclick="changeNumberOfUnits('plus', ${item.id})">
+                        <i class="bx bx-plus"> </i>
+                     </span>
                   </div>
 
-                  <div class="cart__details">
-                     <h3 class="cart__title">${item.name}</h3>
-                     <span class="cart__price">$${item.price}</span>
-
-                     <div class="cart__amount">
-                        <div class="cart__amount-content">
-                           <span class="cart__amount-box" onclick="changeNumberOfUnits('minus', ${item.id})">
-                              <i class="bx bx-minus"></i>
-                           </span>
-
-                           <span class="cart__amount-number">${item.numberOfUnits}</span>
-
-                           <span class="cart__amount-box" onclick="changeNumberOfUnits('plus', ${item.id})">
-                              <i class="bx bx-plus"> </i>
-                           </span>
-                        </div>
-
-                        <div class="deleteItem"          onclick="removeItemFromCart(${item.id})"><i class="bx bx-trash-alt cart__amount-trash "></i></div>
-
-                     </div>
+                  <div class="deleteItem" onclick="removeItemFromCart(${item.id})">
+                     <i class="bx bx-trash-alt cart__amount-trash "></i>
                   </div>
+               </div>
+            </div>
          </article>
     `;
       });
    }
 }
 
-// remove item from cart
+// remove an item from cart
 function removeItemFromCart(id) {
    cart = cart.filter((item) => item.id !== id);
    updateCart();
 }
-// change number of units for an item
+
+// clear all items in the cart
+function clearCart() {
+   cart = [];
+   updateCart();
+}
+
+// change number of units for an item (increase and decrease)
 function changeNumberOfUnits(action, id) {
    cart = cart.map((item) => {
       let numberOfUnits = item.numberOfUnits;

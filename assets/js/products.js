@@ -80,8 +80,7 @@ const products2 = [
       name: "Rose",
       price: 870,
       instock: 10,
-      description:
-         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
+      description: "An openworked dial demonstrates the sheer beauty and opulence of this remarkable watch. ",
       imgSrc: "./assets/img/product3.png",
       smallImgSrc_1: "./assets/img/product3.png",
       smallImgSrc_2: "./assets/gallery/no-image.png",

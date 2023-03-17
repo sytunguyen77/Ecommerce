@@ -1411,6 +1411,14 @@ body.dark-theme {
    cursor: pointer;
 }
 
+.wishlist__clear-button {
+   font-size: var(--small-font-size);
+   cursor: pointer;
+   position: absolute;
+   top: 7rem;
+   right: 2rem;
+}
+
 /* Show wishlist */
 .show-wishlist {
    right: 0;
@@ -1520,6 +1528,14 @@ body.dark-theme {
 .cart__prices-total {
    font-size: var(--h3-font-size);
    font-weight: var(--font-medium);
+}
+
+.cart__clear-button {
+   font-size: var(--small-font-size);
+   cursor: pointer;
+   position: absolute;
+   top: 7rem;
+   right: 2rem;
 }
 
 /* Show cart */
