@@ -594,7 +594,7 @@ body.dark-theme {
 }
 /*=============== STORY ===============*/
 .story__container {
-   row-gap: 7.5rem;
+   row-gap: 4.5rem;
 }
 
 .story__title {
@@ -606,6 +606,12 @@ body.dark-theme {
    margin-bottom: var(--mb-2-5);
 }
 
+#myVideo {
+   max-width: 100%;
+   border: 0.1rem solid var(--first-color);
+   display: block;
+}
+/* 
 .story__images {
    position: relative;
 }
@@ -629,7 +635,7 @@ body.dark-theme {
    position: absolute;
    left: 4rem;
    top: -5rem;
-}
+} */
 
 /*=============== PRODUCTS ===============*/
 .products__container {
@@ -1347,6 +1353,10 @@ body.dark-theme {
       background-size: 10px;
       background-position: center;
    }
+
+   #myVideo {
+      max-width: 70%;
+   }
 }
 
 /*=============== WISHLIST ===============*/
@@ -1588,6 +1598,9 @@ body.dark-theme {
    }
 }
 
+@media screen and (max-width: 496px) {
+}
+
 @media screen and (max-width: 576px) {
    body {
       background-color: var(--body-color);
@@ -1709,12 +1722,20 @@ body.dark-theme {
       align-items: center;
    }
 
+   .story__container {
+      gap: 2rem;
+   }
+
    .story__section-title {
       text-align: initial;
    }
 
    .story__section-title:before {
       margin: initial;
+   }
+
+   .story__video {
+      order: -1;
    }
 
    .story__images {
