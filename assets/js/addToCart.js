@@ -10,20 +10,38 @@ const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 function renderProducts() {
    products.forEach((product) => {
       productsEl.innerHTML += `
-        <article class="featured__card">
-                  <span class="featured__tag">Sale</span>
-                  <img src="${product.imgSrc}" alt="" class="featured__img" onmouseover="this.src='${product.subImgSrc}'" onmouseout="this.src='${product.imgSrc}'"/>
+      <article class="featured__card">
+         <span class="featured__tag">Sale</span>
+         <img
+            src="${product.imgSrc}"
+            alt=""
+            class="featured__img"
+         />
 
-                  <div class="featured__data">
-                     <h3 class="featured__title">${product.name}</h3>
-                     <span class="featured__price">$${product.price} <span class="featured__original">$${product.oldprice}</span> </span>
-                  </div>
+         <div class="featured__data">
+            <h3 class="featured__title">${product.name}</h3>
+            <span class="featured__price"
+               >$${product.price} <span class="featured__original">$${product.oldprice}</span>
+            </span>
+         </div>
 
-                  <button class="button featured__button" onclick="addToCart(${product.id})">ADD TO CART</button>
-        </article>
-        
+         <div class="featured__btn-container">
+            <button class="button featured__button" onclick="addToWishList(${product.id})">
+               <i class="fa-regular fa-heart"></i>
+            </button>
+
+            <button class="button featured__button" onclick="addToCart(${product.id})">
+               <span>ADD TO CART</span>
+            </button>
+
+            <button class="button featured__button" onclick="displayModal(${product.id})">
+               <i class="fa-regular fa-eye"></i>
+            </button>
+         </div>
+      </article>  
       `;
    });
+   // the productsEl2.innerHTML in filter.js has overwritten products2 here
    products2.forEach((product) => {
       productsEl2.innerHTML += `
             <article class="products__card">
@@ -32,14 +50,25 @@ function renderProducts() {
                      <h3 class="products__title">${product.name}</h3>
                      <span class="products__price">$${product.price}</span>
 
-                     <button class="products__button" onclick="addToCart2(${product.id})">
-                        <i class="bx bx-shopping-bag"></i>
-                     </button>
+                     < class="products__card">
+                     <img src="${product.imgSrc}" alt="" class="products__img" />
 
-                     <button class="products-wishlist__button" onclick="addToWishList(${product.id})">
-                        <i class="bx bx-heart"></i>
-                     </button>
-                     
+                     <h3 class="products__title">${product.name}</h3>
+                     <span class="products__price">$${product.price}</span>
+
+                     <div class="products__btn-container">
+                        <button class="products__button" onclick="addToCart2(${product.id})">
+                           <i class="bx bx-shopping-bag"></i>
+                        </button>
+
+                        <button class="products-wishlist__button" onclick="addToWishList2(${product.id})">
+                           <i class="bx bx-heart"></i>
+                        </button>
+
+                        <button class="products-view__button" onclick="displayModal2(${product.id})">
+                           <i class="fa-regular fa-eye"></i>
+                        </button>
+                     </div>           
             </article>
          `;
    });
@@ -63,12 +92,13 @@ function addToCart(id) {
          ...item,
          numberOfUnits: 1,
       });
+      alert(`${item.name} has been added to your cart!`);
    }
 
    updateCart();
 }
 
-// ADD TO CART (PRODUCTS)
+// ADD TO CART (PRODUCTS SECTION)
 function addToCart2(id) {
    // check if product already exist in cart
    if (cart.some((item) => item.id === id)) {
@@ -80,8 +110,8 @@ function addToCart2(id) {
          ...item,
          numberOfUnits: 1,
       });
+      alert(`${item.name} has been added to your cart!`);
    }
-
    updateCart();
 }
 
@@ -110,7 +140,7 @@ function renderSubtotal() {
       totalItems += item.numberOfUnits;
    });
    subItemsEl.innerHTML = `${totalItems} items`;
-   subtotalEl.innerHTML = `Subtotal: $${totalPrice.toFixed()}`;
+   subtotalEl.innerHTML = `Your Total: $${totalPrice.toFixed()}`;
    totalItemsInCartEl.innerHTML = totalItems;
 }
 
@@ -145,7 +175,7 @@ function renderCartItems() {
                            </span>
                         </div>
 
-                        <div class="deleteItem" onclick="removeItemFromCart(${item.id})"><i class="bx bx-trash-alt cart__amount-trash "></i></div>
+                        <div class="deleteItem"          onclick="removeItemFromCart(${item.id})"><i class="bx bx-trash-alt cart__amount-trash "></i></div>
 
                      </div>
                   </div>

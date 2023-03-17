@@ -1,4 +1,4 @@
-/*=============== AN ARRAY OF PRODUCTS TO DISPLAY ===============*/
+/*========================== ARRAY LIST FOR FEATURED SECTION =======================*/
 const products = [
    {
       id: 0,
@@ -7,8 +7,14 @@ const products = [
       price: 1050,
       oldprice: 1300,
       instock: 100,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/featured1.png",
       subImgSrc: "./assets/img/sub1.png",
+      smallImgSrc_1: "./assets/img/featured1.png",
+      smallImgSrc_2: "./assets/gallery/featured-1.1.png",
+      smallImgSrc_3: "./assets/gallery/no-image.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 1,
@@ -17,8 +23,14 @@ const products = [
       price: 850,
       oldprice: 1000,
       instock: 43,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/featured2.png",
       subImgSrc: "./assets/img/sub2.png",
+      smallImgSrc_1: "./assets/img/product1.png",
+      smallImgSrc_2: "./assets/gallery/no-image.png",
+      smallImgSrc_3: "./assets/gallery/no-image.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 2,
@@ -27,94 +39,173 @@ const products = [
       price: 980,
       oldprice: 1100,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/featured3.png",
       subImgSrc: "./assets/img/sub3.png",
+      smallImgSrc_1: "./assets/img/product1.png",
+      smallImgSrc_2: "./assets/gallery/no-image.png",
+      smallImgSrc_3: "./assets/gallery/no-image.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
 ];
 
+/*========================== ARRAY LIST FOR PRODUCTS SECTION =======================*/
 const products2 = [
    {
       id: 3,
       name: "Two Tone Gold",
       price: 1500,
       instock: 100,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product1.png",
+      smallImgSrc_1: "./assets/img/product1.png",
+      smallImgSrc_2: "./assets/gallery/no-image.png",
+      smallImgSrc_3: "./assets/gallery/no-image.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 4,
       name: "Silver Shadow",
       price: 1350,
       instock: 43,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product2.png",
+      smallImgSrc_1: "./assets/img/product2.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 5,
       name: "Rose",
       price: 870,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product3.png",
+      smallImgSrc_1: "./assets/img/product3.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 6,
       name: "Black Blue",
       price: 920,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product4.png",
+      smallImgSrc_1: "./assets/img/product4.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 7,
       name: "Silver White",
       price: 699,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product5.png",
+      smallImgSrc_1: "./assets/img/product5.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 8,
       name: "Gunnary Black",
       price: 789,
       instock: 100,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product6.png",
+      smallImgSrc_1: "./assets/img/product6.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 9,
       name: "Visage",
       price: 549,
       instock: 43,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product7.png",
+      smallImgSrc_1: "./assets/img/product7.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 10,
       name: "Ghost Steel",
       price: 469,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product8.png",
+      smallImgSrc_1: "./assets/img/product8.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 11,
       name: "Nomad",
       price: 249,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product9.png",
+      smallImgSrc_1: "./assets/img/product9.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 12,
       name: "Ghost",
       price: 299,
       instock: 43,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product10.png",
+      smallImgSrc_1: "./assets/img/product10.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 13,
       name: "Rogue",
       price: 299,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product11.png",
+      smallImgSrc_1: "./assets/img/product11.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
    {
       id: 14,
       name: "Centurion",
       price: 320,
       instock: 10,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
       imgSrc: "./assets/img/product12.png",
+      smallImgSrc_1: "./assets/img/product12.png",
+      smallImgSrc_2: "./assets/gallery/product-1.2.png",
+      smallImgSrc_3: "./assets/gallery/product-1.3.png",
+      smallImgSrc_4: "./assets/gallery/no-image.png",
    },
 ];

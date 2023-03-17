@@ -1,5 +1,5 @@
 // Define a message for when there are no results
-const noResultsMessage = "No results found";
+const noResultsMessage = "Sorry! No products found";
 
 // Function to display the products or a message if there are no results
 const displayProductsOrMessage = (productsToShow) => {
@@ -15,14 +15,19 @@ const displayProductsOrMessage = (productsToShow) => {
                      <h3 class="products__title">${product.name}</h3>
                      <span class="products__price">$${product.price}</span>
 
-                     <button class="products__button" onclick="addToCart2(${product.id})">
-                        <i class="bx bx-shopping-bag"></i>
-                     </button>
+                     <div class="products__btn-container">
+                        <button class="products__button" onclick="addToCart2(${product.id})">
+                           <i class="bx bx-shopping-bag"></i>
+                        </button>
 
-                     <button class="products-wishlist__button" onclick="addToWishList(${product.id})">
-                        <i class="bx bx-heart"></i>
-                     </button>
-                     
+                        <button class="products-wishlist__button" onclick="addToWishList2(${product.id})">
+                           <i class="bx bx-heart"></i>
+                        </button>
+
+                        <button class="products-view__button" onclick="displayModal2(${product.id})">
+                           <i class="fa-regular fa-eye"></i>
+                        </button>
+                     </div>           
             </article>
          `;
       });

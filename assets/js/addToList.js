@@ -5,8 +5,24 @@ const totalItemsInWishListEl = document.querySelector(".total-items-in-wishlist"
 let wishlist = JSON.parse(localStorage.getItem("WISHLIST")) || [];
 updateWishList();
 
-// ADD TO WISHLIST (FEATURED)
+// ADD TO WISHLIST (FEATURED SECTION)
 function addToWishList(id) {
+   // check if wishlist already exist in cart
+   if (wishlist.some((item) => item.id === id)) {
+      alert("Product already in wishlist");
+   } else {
+      const item = products.find((product) => product.id === id);
+      wishlist.push({
+         ...item,
+         numberOfWishList: 1,
+      });
+   }
+
+   updateWishList();
+}
+
+// ADD TO WISHLIST (PRODUCTS SECTION)
+function addToWishList2(id) {
    // check if wishlist already exist in cart
    if (wishlist.some((item) => item.id === id)) {
       alert("Product already in wishlist");
@@ -30,7 +46,7 @@ function updateWishList() {
    localStorage.setItem("WISHLIST", JSON.stringify(wishlist));
 }
 
-// calculate and render subtotal
+// calculate and render total of wishlist items
 function renderWistListTotal() {
    let totalWishList = 0;
    wishlist.forEach((item) => {

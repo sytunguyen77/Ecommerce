@@ -561,10 +561,22 @@ body.dark-theme {
    font-size: 0.8rem;
 }
 
+.featured__btn-container {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 0.2rem;
+}
+
 .featured__button {
    font-size: small;
    transform: translateY(1rem);
+   height: 3.5rem;
    opacity: 0;
+}
+
+.featured__button i {
+   font-size: 1.3em;
 }
 
 .featured__card:hover {
@@ -683,19 +695,82 @@ body.dark-theme {
    transition: 0.3s;
 }
 
-.products__card:hover .products__button,
-.products__card:hover .products-wishlist__button {
-   right: 0.5rem;
+.products-view__button {
+   background-color: var(--button-color);
+   border-radius: 0.5rem;
+   padding: 0.4rem;
+   color: #fff;
+   font-size: 1rem;
+   position: absolute;
+   right: -2rem;
+   top: 5.2rem;
+   transition: 0.3s;
 }
 
-.products-wishlist__button:hover,
-.products__button:hover {
-   background-color: var(--button-color-alt);
+.products-view__button .fa-eye {
+   font-size: 0.88rem;
+}
+
+.products__card:hover .products__button,
+.products__card:hover .products-wishlist__button,
+.products__card:hover .products-view__button {
+   right: 0.5rem;
 }
 
 .products__card:hover {
    box-shadow: 0 8px 32px rgba(26, 26, 26, 0.1);
 }
+
+.products-wishlist__button:hover,
+.products__button:hover,
+.products-view__button:hover {
+   background-color: var(--button-color-alt);
+}
+
+@keyframes shake {
+   0% {
+      transform: translate(1px, 1px) rotate(0deg);
+   }
+   10% {
+      transform: translate(-1px, -1px) rotate(-1deg);
+   }
+   20% {
+      transform: translate(-1px, 1px) rotate(1deg);
+   }
+   30% {
+      transform: translate(1px, -1px) rotate(0deg);
+   }
+   40% {
+      transform: translate(1px, 1px) rotate(1deg);
+   }
+   50% {
+      transform: translate(-1px, 1px) rotate(-1deg);
+   }
+   60% {
+      transform: translate(-1px, -1px) rotate(0deg);
+   }
+   70% {
+      transform: translate(1px, 1px) rotate(-1deg);
+   }
+   80% {
+      transform: translate(-1px, -1px) rotate(1deg);
+   }
+   90% {
+      transform: translate(1px, 1px) rotate(0deg);
+   }
+   100% {
+      transform: translate(1px, -1px) rotate(-1deg);
+   }
+}
+/* To create a little shaking animation when clicking on a button, we can add a CSS keyframes animation and apply it to the button when it's in the :active state. */
+
+.products-wishlist__button:active,
+.products__button:active,
+.products-view__button:active {
+   animation: shake 0.3s;
+   animation-iteration-count: 1;
+}
+
 /*=============== TESTIMONIAL ===============*/
 .testimonial__container {
    row-gap: 4rem;
@@ -1006,7 +1081,114 @@ body.dark-theme {
    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
 }
 
-/*=============== POPUP ===============*/
+/*=============== MODAL POPUP PRODUCTS ===============*/
+.modal {
+   position: fixed;
+   top: 0;
+   left: 0;
+   right: 0;
+   bottom: 0;
+   background-color: rgba(0, 0, 0, 0.5);
+   display: none;
+   /* display: flex; */
+   align-items: center;
+   justify-content: center;
+   z-index: 111111;
+}
+
+.modal .modal-content {
+   background: #f9f9f9;
+   /* padding: 2rem; */
+   border: 0.1rem solid var(--border-color);
+   border-radius: 0.5rem;
+   width: 35rem;
+   height: 42rem;
+   position: relative;
+}
+
+.modal-content .content {
+   padding: 1rem;
+}
+
+.modal-content .image-container {
+   display: flex;
+   gap: 1.5rem;
+   align-items: center;
+}
+
+.modal-content .image-container .small-image {
+   width: 30%;
+   padding: 1rem;
+}
+
+.modal-content .image-container .small-image img {
+   width: 100%;
+   /* padding: 1rem; */
+   border: 0.1rem solid rgba(0, 0, 0, 0.3);
+   cursor: pointer;
+}
+
+.modal-content .image-container .small-image img:hover {
+   background: var(--first-color);
+}
+
+.modal-content .image-container .big-image img {
+   width: 90%;
+}
+
+/* .modal-content .image-container .big-image img:hover {
+   transform: scale(1.05);
+} */
+
+.modal-content .content h3 {
+   font-size: 2rem;
+   /* text-align: center; */
+   color: var(--button-color);
+}
+
+.modal-content .content .stars {
+   /* text-align: center; */
+   font-size: 0.8rem;
+   color: var(--first-color);
+   margin-top: 0.5rem;
+}
+
+.modal-content .content p {
+   font-size: 1rem;
+   color: #666;
+   padding: 1rem 0;
+}
+
+.modal-content .content .price {
+   font-size: 1.5rem;
+   font-weight: bolder;
+   color: var(--first-color);
+   /* text-align: center; */
+}
+
+.modal-content .content .button--modal {
+   margin-top: 0.5rem;
+   border-radius: 0.5rem;
+   cursor: pointer;
+}
+
+/* close button for modal popup */
+.modal-content .content .close-modal {
+   position: absolute;
+   top: 5px;
+   right: 5px;
+   width: 40px;
+   height: 40px;
+   background: url(../img/close.png);
+   background-repeat: no-repeat;
+   background-size: 10px;
+   background-position: center;
+   cursor: pointer;
+   border-radius: 50%;
+   z-index: 10;
+}
+
+/*=============== AUTOMATIC POPUP OFFER ===============*/
 /* add overlay to main component when popup opens */
 .overlay {
    position: fixed;
@@ -1573,6 +1755,10 @@ body.dark-theme {
    .featured__container {
       grid-template-columns: repeat(3, 312px);
       padding-top: 2rem;
+   }
+
+   .featured__container button {
+      padding: 1.2rem;
    }
 
    .story__container .testimonial__container {
