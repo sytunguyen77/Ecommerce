@@ -1180,7 +1180,7 @@ input[type="range"]::-ms-fill-upper {
    background: #f9f9f9;
    /* padding: 2rem; */
    border: 0.1rem solid var(--border-color);
-   border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
    width: 35rem;
    min-height: 42rem;
    position: relative;
@@ -1248,7 +1248,7 @@ input[type="range"]::-ms-fill-upper {
 
 .modal-content .content .button--modal {
    margin-top: 0.5rem;
-   border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
    cursor: pointer;
 }
 
