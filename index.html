@@ -277,7 +277,12 @@
             <h2 class="section__title">Products</h2>
 
             <div class="search-bar">
-               <input type="text" placeholder="Search..." id="find" />
+               <input type="text" placeholder="Search By Name..." id="find" />
+            </div>
+
+            <div class="price-slider-container">
+               <label for="price-slider">Price: $0 - $<span id="price-value">1500</span></label>
+               <input type="range" min="0" max="1500" value="1500" id="price-slider" />
             </div>
 
             <div class="products__container grid products2 product-list">

@@ -32,13 +32,11 @@ const displayProductsOrMessage = (productsToShow) => {
          `;
       });
    } else {
-      const noResultsDiv = document.createElement("div");
-      noResultsDiv.classList.add("no-results");
-      noResultsDiv.textContent = noResultsMessage;
-      noResultsDiv.style.position = "absolute";
-      noResultsDiv.style.left = "50%";
-      noResultsDiv.style.transform = "translateX(-50%)";
-      productList.appendChild(noResultsDiv);
+      productList.innerHTML = `
+         <div class="no-results" style="position: absolute; left: 50%; transform: translateX(-50%);">
+            ${noResultsMessage}
+         </div>
+      `;
    }
 };
 
@@ -59,4 +57,18 @@ searchProduct.addEventListener("keyup", () => {
    let filter = searchProduct.value.toUpperCase();
    let productsToShow = products2.filter((product) => product.name.toUpperCase().includes(filter));
    displayProductsOrMessage(productsToShow);
+});
+
+/*================================= FILTER PRICE ========================= */
+const filterProductsByPrice = (maxPrice) => {
+   let productsToShow = products2.filter((product) => product.price <= maxPrice);
+   displayProductsOrMessage(productsToShow);
+};
+
+// Add an event listener to the price slider
+const priceSlider = document.getElementById("price-slider");
+const priceValue = document.getElementById("price-value");
+priceSlider.addEventListener("input", () => {
+   priceValue.textContent = priceSlider.value;
+   filterProductsByPrice(priceSlider.value);
 });

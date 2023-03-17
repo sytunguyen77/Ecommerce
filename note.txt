@@ -85,3 +85,13 @@ forms2.forEach((form) => {
       }
    };
 });
+
+
+
+ const noResultsDiv = document.createElement("div");
+      noResultsDiv.classList.add("no-results");
+      noResultsDiv.textContent = noResultsMessage;
+      noResultsDiv.style.position = "absolute";
+      noResultsDiv.style.left = "50%";
+      noResultsDiv.style.transform = "translateX(-50%)";
+      productList.appendChild(noResultsDiv);
