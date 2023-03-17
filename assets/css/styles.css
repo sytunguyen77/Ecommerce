@@ -982,8 +982,9 @@ body.dark-theme {
 }
 
 /* Facebook Plugin */
-#fb-customer-chat {
-   transform: translateX(-100%);
+.fb_customer_chat_bounce_in_v2 {
+   right: auto !important;
+   left: 18px !important;
 }
 
 /*=============== SCROLL BAR ===============*/
