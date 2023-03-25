@@ -100,3 +100,4 @@ function clearList() {
    wishlist = [];
    updateWishList();
 }
+
