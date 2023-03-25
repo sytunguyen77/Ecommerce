@@ -160,9 +160,9 @@ forms2.forEach((form) => {
          (!isSignupForm || !cpField.classList.contains("error"))
       ) {
          if (isSignupForm) {
-            alert("Signup successful"); // Show an alert when the signup is successful
+            alert("Sorry! This feature is not yet available"); // Show an alert when the signup is successful
          } else {
-            alert("Login successful"); // Show an alert when the login is successful
+            alert("Sorry! This feature is not yet available"); // Show an alert when the login is successful
          }
 
          window.location.href = "#"; //remove that # and put that url where you want to submit the form data
@@ -233,12 +233,12 @@ forms2.forEach((form) => {
       // Add click event listeners to the buttons
       fbLoginBtn.addEventListener("click", (e) => {
          e.preventDefault(); // Prevent the default behavior of the anchor tag
-         alert("Logged in with Facebook successfully");
+         alert("Sorry! This feature is not yet available");
       });
 
       googleLoginBtn.addEventListener("click", (e) => {
          e.preventDefault(); // Prevent the default behavior of the anchor tag
-         alert("Logged in with Google successfully");
+         alert("Sorry! This feature is not yet available");
       });
    }
 });
