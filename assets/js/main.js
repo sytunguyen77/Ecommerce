@@ -106,7 +106,7 @@ searchBox.addEventListener("click", () => {
    }
 });
 
-/*===== Automatic show popup after 2 seconds of page load =======*/
+/*===== POPUP SHOW AUTIMATICALLY AFTER 2 SECONDS =======*/
 const popup = document.querySelector(".popup");
 const close = document.querySelector(".close");
 const deal = document.querySelector(".deal");
@@ -132,18 +132,17 @@ deal.addEventListener("click", () => {
    document.querySelector(".overlay").remove(); // remove the overlay div
 });
 
-/*=============== SHOW LOGIN ===============*/
+/*=============== LOGIN SHOW ===============*/
 const loginShop = document.getElementById("login-shop");
 loginShop.addEventListener("click", () => {
    window.location.href = "../login.html";
 });
 
-/*=============== SHOW WISHLIST ===============*/
+/*=============== WISHLIST SHOW ===============*/
 const wishlist1 = document.getElementById("wishlist"),
    wishlistShop = document.getElementById("wishlist-shop"),
    wishlistClose = document.getElementById("wishlist-close");
 
-/*===== CART SHOW =====*/
 /* Validate if constant exists */
 if (wishlistShop) {
    wishlistShop.addEventListener("click", () => {
@@ -151,7 +150,7 @@ if (wishlistShop) {
    });
 }
 
-/*===== wishlist HIDDEN =====*/
+/*===== WISHLIST HIDDEN =====*/
 /* Validate if constant exists */
 if (wishlistClose) {
    wishlistClose.addEventListener("click", () => {
@@ -159,12 +158,11 @@ if (wishlistClose) {
    });
 }
 
-/*=============== SHOW CART ===============*/
+/*=============== CART SHOW ===============*/
 const cart1 = document.getElementById("cart"),
    cartShop = document.getElementById("cart-shop"),
    cartClose = document.getElementById("cart-close");
 
-/*===== CART SHOW =====*/
 /* Validate if constant exists */
 if (cartShop) {
    cartShop.addEventListener("click", () => {
@@ -179,6 +177,7 @@ if (cartClose) {
       cart1.classList.remove("show-cart");
    });
 }
+
 /*=============== DARK LIGHT THEME ===============*/
 const themeButton = document.getElementById("theme-button");
 const darkTheme = "dark-theme";
