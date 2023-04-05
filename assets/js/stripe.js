@@ -15,7 +15,7 @@ document.getElementById("checkout").addEventListener("click", function () {
          ],
          mode: "payment",
          successUrl: "https://www.google.com",
-         cancelUrl: "https://www.twitter.com",
+         cancelUrl: "https://sytunguyen77.github.io/myporfolio/",
       })
       .then(function (result) {
          alert(result);
