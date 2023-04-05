@@ -9,11 +9,11 @@ document.getElementById("checkout").addEventListener("click", function () {
       .redirectToCheckout({
          lineItems: [
             {
-               price: "price_1MkrfPFVdPT8iFZdxqD9gwHC",
+               price: "price_1MtQ1kFVdPT8iFZdQbJFj40s",
                quantity: 1,
             },
          ],
-         mode: "subscription",
+         mode: "payment",
          successUrl: "https://www.google.com",
          cancelUrl: "https://www.twitter.com",
       })
