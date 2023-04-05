@@ -1,5 +1,6 @@
 var stripe = Stripe(
    // Stripe Account Required
+   // https://dashboard.stripe.com/test/apikeys
    "pk_test_51MkrFtFVdPT8iFZdIBMtRtFoj3pzdPyGEBK9Tb6T6fw1BvJzoCdY2pD3O1bWyl5dw3Ly3cn5eWGj6HPqf2rnX5S900LwN1jHIe"
 );
 
