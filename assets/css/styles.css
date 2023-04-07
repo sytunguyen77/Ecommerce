@@ -678,7 +678,7 @@ body.dark-theme {
 
 .products__button {
    background-color: var(--button-color);
-   border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
    padding: 0.4rem;
    color: #fff;
    font-size: 1rem;
@@ -690,7 +690,7 @@ body.dark-theme {
 
 .products-wishlist__button {
    background-color: var(--button-color);
-   border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
    padding: 0.4rem;
    color: #fff;
    font-size: 1rem;
@@ -702,7 +702,7 @@ body.dark-theme {
 
 .products-view__button {
    background-color: var(--button-color);
-   border-radius: 0.5rem;
+   /* border-radius: 0.5rem; */
    padding: 0.4rem;
    color: #fff;
    font-size: 1rem;
