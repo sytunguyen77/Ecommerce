@@ -1397,25 +1397,7 @@ input[type="range"]::-ms-fill-upper {
 
 @media screen and (max-width: 767px) {
    .contentBox {
-      width: 300px;
-      height: auto;
-      flex-direction: column;
-   }
-
-   .contentBox .imgBx {
-      height: 200px;
-      transform: translateY(-50px);
-   }
-
-   .contentBox .imgBx::before {
-      background: #fff;
-   }
-
-   .contentBox .content {
-      height: auto;
-      text-align: center;
-      padding: 20px;
-      padding-top: 0;
+      display: none;
    }
 
    .close {
@@ -1944,4 +1926,4 @@ input[type="range"]::-ms-fill-upper {
    .scrollup {
       right: 3rem;
    }
-} ;
+}
