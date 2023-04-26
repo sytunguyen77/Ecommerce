@@ -1396,17 +1396,12 @@ input[type="range"]::-ms-fill-upper {
 }
 
 @media screen and (max-width: 767px) {
-   .contentBox {
+   .overlay {
       display: none;
    }
 
-   .close {
-      top: -50px;
-      right: -10px;
-      background: #f3f3f3 url(../img/close.png);
-      background-repeat: no-repeat;
-      background-size: 10px;
-      background-position: center;
+   .contentBox {
+      display: none;
    }
 
    #myVideo {
