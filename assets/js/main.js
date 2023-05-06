@@ -42,6 +42,11 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
    spaceBetween: 30,
    loop: "true",
 
+   autoplay: {
+      delay: 4000, // time between each slide transition in milliseconds
+      disableOnInteraction: false, // allows autoplay to continue even when the user interacts with the swiper
+   },
+
    navigation: {
       nextEl: ".swiper-button-next",
       prevEl: ".swiper-button-prev",
