@@ -68,7 +68,7 @@
 }
 
 html {
-   scroll-behavior: smooth;
+   scroll-behavior: smooth !important;
 }
 
 body,
@@ -1659,10 +1659,6 @@ input[type="range"]::-ms-fill-upper {
    .nav__btns #theme-button,
    .nav__btns #search-shop {
       display: none;
-   }
-
-   .home__img-bg {
-      margin-right: 1rem;
    }
 
    .modal .modal-content {

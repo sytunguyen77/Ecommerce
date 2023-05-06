@@ -52,6 +52,7 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
       prevEl: ".swiper-button-prev",
    },
 });
+
 /*=============== NEW SWIPER ===============*/
 let newSwiper = new Swiper(".new-swiper", {
    spaceBetween: 24,
@@ -69,6 +70,7 @@ let newSwiper = new Swiper(".new-swiper", {
       },
    },
 });
+
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");
 
