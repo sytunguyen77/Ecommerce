@@ -1,3 +1,6 @@
+onmouseover="this.src='${product.imgSrcSub}'"
+onmouseout="this.src='${product.imgSrc}'"
+
 const forms2 = document.querySelectorAll(".form");
 
 // Loop through login form and signup form

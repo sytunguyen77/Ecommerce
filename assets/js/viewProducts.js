@@ -33,7 +33,7 @@ const displayModal = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart(${product.id})"class="button button--modal">ADD TO CART</a>
+               <a onclick="addToCart(${product.id})" class="button button--modal">ADD TO CART</a>
                <button  class="close-modal" id="close-modal"></button>
             </div>
       </div>
@@ -91,7 +91,66 @@ const displayModal2 = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart2(${product.id})"class="button button--modal">ADD TO CART</a>
+               <a onclick="addToCart2(${product.id})" class="button button--modal">ADD TO CART</a>
+               <button  class="close-modal" id="close-modal"></button>
+            </div>
+      </div>
+   
+   `;
+
+   // Close Button
+   const closeModal = document.getElementById("close-modal");
+   closeModal.addEventListener("click", () => {
+      modal.style.display = "none";
+   });
+
+   // Toggle small images to replace big image
+   const addSmallImageListeners = () => {
+      document.querySelectorAll(".small-image-1").forEach((image) => {
+         image.addEventListener("click", () => {
+            var src = image.getAttribute("src");
+            document.querySelector(".big-image-1").src = src;
+            console.log("success");
+         });
+      });
+   };
+   addSmallImageListeners();
+};
+
+/*================ PRODUCTS DETAILS MODAL FOR NEW ARRIVALS SECTION ==========*/
+const displayModal3 = (id) => {
+   const product = products3.find((p) => p.id === id);
+   const modal = document.getElementById("modal");
+   modal.style.display = "flex";
+
+   modal.innerHTML = `
+       <div class="modal-content">
+           <div class="image-container">
+               <div class="small-image">
+                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="" />
+                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="" />
+                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="" />
+                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="" />
+               </div>
+               <div class="big-image">
+                  <img src="${product.imgSrc}" class="big-image-1" alt="" />
+               </div>
+            </div>
+
+            <div class="content">
+               <h3>${product.name}</h3>
+               <div class="stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="far fa-star"></i>
+               </div>
+               <p>
+                  ${product.description}
+               </p>
+               <div class="price">$${product.price}</div>
+               <a onclick="addToCart3(${product.id})" class="button button--modal">ADD TO CART</a>
                <button  class="close-modal" id="close-modal"></button>
             </div>
       </div>

@@ -20,6 +20,8 @@ function renderProducts() {
             src="${product.imgSrc}"
             alt=""
             class="featured__img"
+            onmouseover="this.src='${product.imgSrcSub}'"
+            onmouseout="this.src='${product.imgSrc}'"
          />
 
          <div class="featured__data">
@@ -87,10 +89,23 @@ function renderProducts() {
                <h3 class="new__title">${product.name}</h3>
                <span class="new__price">$${product.price}</span>
             </div>
-            <button class="button new__button" onclick="addToCart3(${product.id})">ADD TO CART</button>
+            <div class=new__btn-container>
+              <button class="new__button" onclick="addToWishList3(${product.id})">
+                  <i class="fas fa-heart">
+              </i></button>
+
+              <button class="new__button" onclick="addToCart3(${product.id})" >
+                  ADD TO CART
+              </button>
+              
+              <button class="new__button" onclick="displayModal3(${product.id})">
+                  <i class="fa-regular fa-eye">
+              </i></button>
+      
+            </div>
          </article>`;
    });
-   initializeSwiper();
+   initializeSwiper(); //Call the initializeSwiper function after rendering the products (without this the swiper will stop looping at the last slide);
 }
 renderProducts();
 

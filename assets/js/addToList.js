@@ -39,6 +39,22 @@ function addToWishList2(id) {
    updateWishList();
 }
 
+// ADD TO WISHLIST (NEW ARRIVALS SECTION)
+function addToWishList3(id) {
+   // check if wishlist already exist in cart
+   if (wishlist.some((item) => item.id === id)) {
+      alert("Product already in wishlist");
+   } else {
+      const item = products3.find((product) => product.id === id);
+      wishlist.push({
+         ...item,
+         numberOfWishList: 1,
+      });
+   }
+
+   updateWishList();
+}
+
 // update wistlist
 function updateWishList() {
    renderWishListItems();
