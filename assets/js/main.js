@@ -54,41 +54,33 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 });
 
 /*=============== NEW SWIPER ===============*/
-let newSwiper = new Swiper(".new-swiper", {
-   spaceBetween: 24,
-   loop: true,
-   autoplay: {
-      delay: 3000,
-      disableOnInteraction: false,
-   },
+function initializeSwiper() {
+   let newSwiper = new Swiper(".new-swiper", {
+      spaceBetween: 24,
+      loop: true,
+      autoplay: {
+         delay: 3000,
+         disableOnInteraction: false,
+      },
 
-   navigation: {
-      nextEl: ".swiper-button-next",
-      prevEl: ".swiper-button-prev",
-   },
+      navigation: {
+         nextEl: ".swiper-button-next",
+         prevEl: ".swiper-button-prev",
+      },
 
-   breakpoints: {
-      576: {
-         slidesPerView: 2,
+      breakpoints: {
+         576: {
+            slidesPerView: 2,
+         },
+         768: {
+            slidesPerView: 3,
+         },
+         1024: {
+            slidesPerView: 4,
+         },
       },
-      768: {
-         slidesPerView: 3,
-      },
-      1024: {
-         slidesPerView: 4,
-      },
-   },
-
-   on: {
-      slideChange: function () {
-         if (this.isEnd) {
-            setTimeout(() => {
-               this.slideTo(0, 0);
-            }, this.params.autoplay.delay);
-         }
-      },
-   },
-});
+   });
+}
 
 /*=============== SCROLL SECTIONS ACTIVE LINK ===============*/
 const sections = document.querySelectorAll("section[id]");

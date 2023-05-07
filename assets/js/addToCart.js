@@ -90,6 +90,7 @@ function renderProducts() {
             <button class="button new__button" onclick="addToCart3(${product.id})">ADD TO CART</button>
          </article>`;
    });
+   initializeSwiper();
 }
 renderProducts();
 
