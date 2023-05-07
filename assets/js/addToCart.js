@@ -1,6 +1,7 @@
 // SELECT ELEMENTS
 const productsEl = document.querySelector(".products");
 const productsEl2 = document.querySelector(".products2");
+const productsEl3 = document.querySelector(".products3");
 const cartItemsEl = document.querySelector(".cart-items");
 const subtotalEl = document.querySelector(".subtotal");
 const subItemsEl = document.querySelector(".subitem");
@@ -10,6 +11,7 @@ const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 
 // RENDER PRODUCTS
 function renderProducts() {
+   // Featured Section
    products.forEach((product) => {
       productsEl.innerHTML += `
       <article class="featured__card">
@@ -43,6 +45,7 @@ function renderProducts() {
       </article>  
       `;
    });
+   // Product Section
    // the productsEl2.innerHTML in filter.js has overwritten products2 here
    products2.forEach((product) => {
       productsEl2.innerHTML += `
@@ -73,6 +76,19 @@ function renderProducts() {
                      </div>           
             </article>
          `;
+   });
+   // New Arrival Section
+   products3.forEach((product) => {
+      productsEl3.innerHTML += `
+         <article class="new__card swiper-slide">
+            <span class="new__tag">New</span>
+            <img src="${product.imgSrc}" alt="" class="new__img" />
+            <div class="new__data">
+               <h3 class="new__title">${product.name}</h3>
+               <span class="new__price">$${product.price}</span>
+            </div>
+            <button class="button new__button" onclick="addToCart3(${product.id})">ADD TO CART</button>
+         </article>`;
    });
 }
 renderProducts();
@@ -107,6 +123,23 @@ function addToCart2(id) {
       changeNumberOfUnits("plus", id);
    } else {
       const item = products2.find((product) => product.id === id);
+      cart.push({
+         ...item,
+         numberOfUnits: 1,
+      });
+      alert(`${item.name} has been added to your cart!`);
+   }
+   updateCart();
+}
+
+// ADD TO CART (NEW ARRIVALS SECTION)
+function addToCart3(id) {
+   // check if product already exist in cart
+   if (cart.some((item) => item.id === id)) {
+      // alert("Product already in cart");
+      changeNumberOfUnits("plus", id);
+   } else {
+      const item = products3.find((product) => product.id === id);
       cart.push({
          ...item,
          numberOfUnits: 1,

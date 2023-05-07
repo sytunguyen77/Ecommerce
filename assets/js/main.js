@@ -43,7 +43,7 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
    loop: "true",
 
    autoplay: {
-      delay: 4000, // time between each slide transition in milliseconds
+      delay: 6000, // time between each slide transition in milliseconds
       disableOnInteraction: false, // allows autoplay to continue even when the user interacts with the swiper
    },
 
@@ -56,7 +56,16 @@ let testimonialSwiper = new Swiper(".testimonial-swiper", {
 /*=============== NEW SWIPER ===============*/
 let newSwiper = new Swiper(".new-swiper", {
    spaceBetween: 24,
-   loop: "true",
+   loop: true,
+   autoplay: {
+      delay: 3000,
+      disableOnInteraction: false,
+   },
+
+   navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+   },
 
    breakpoints: {
       576: {
@@ -67,6 +76,16 @@ let newSwiper = new Swiper(".new-swiper", {
       },
       1024: {
          slidesPerView: 4,
+      },
+   },
+
+   on: {
+      slideChange: function () {
+         if (this.isEnd) {
+            setTimeout(() => {
+               this.slideTo(0, 0);
+            }, this.params.autoplay.delay);
+         }
       },
    },
 });

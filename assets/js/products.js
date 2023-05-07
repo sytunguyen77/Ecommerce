@@ -205,3 +205,85 @@ const products2 = [
       smallImgSrc_4: "./assets/gallery/no-image.png",
    },
 ];
+
+/*========================== ARRAY LIST FOR NEW ARRIVALS SECTION =======================*/
+const products3 = [
+   {
+      id: 15,
+      name: "SUPEROCEAN HERITAGE",
+      price: 1050,
+      instock: 100,
+      description:
+         "Inspired by the original Superocean from the 1950s, the Superocean Heritage combines iconic design features with a modern touch. Sporty and elegant, the Superocean Heritage is a true embodiment of style at sea. ",
+      imgSrc: "./assets/img/new1.png",
+      smallImgSrc_1: "./assets/img/new1.png",
+      smallImgSrc_2: "./assets/gallery/new-1.1.png",
+      smallImgSrc_3: "./assets/gallery/new-1.2.png",
+      smallImgSrc_4: "./assets/gallery/new-1.3.png",
+   },
+   {
+      id: 16,
+      name: "SUPEROCEAN AUTOMATIC 42",
+      price: 850,
+      instock: 43,
+      description:
+         "Designed by Willy Breitling in the 1940s, the Premier was the brand’s first-ever watch dedicated to style. Featuring elegant details and modern-retro touches, this reinterpretation of the Premier falls no short of its ancestors reputation: it is “a watch of impeccable taste”. ",
+      imgSrc: "./assets/img/new2.png",
+      smallImgSrc_1: "./assets/img/new2.png",
+      smallImgSrc_2: "./assets/gallery/new-2.1.png",
+      smallImgSrc_3: "./assets/gallery/new-2.2.png",
+      smallImgSrc_4: "./assets/gallery/new-2.3.png",
+   },
+   {
+      id: 17,
+      name: "SUPER CHRONOMAT",
+      price: 980,
+      instock: 10,
+      description:
+         "Breitling’s supercharged watch for your every pursuit. The Super Chronomat is inspired by the original 1980s Chronomat that Breitling created for the hotshots of aerobatic squadrons. ",
+      imgSrc: "./assets/img/new3.png",
+      smallImgSrc_1: "./assets/img/new3.png",
+      smallImgSrc_2: "./assets/gallery/new-3.1.png",
+      smallImgSrc_3: "./assets/gallery/new-3.2.png",
+      smallImgSrc_4: "./assets/gallery/new-3.3.png",
+   },
+   {
+      id: 18,
+      name: "NAVITIMER B01",
+      price: 1700,
+      instock: 10,
+      description:
+         "Breitling’s iconic pilot’s chronograph – for the journey. In 1952, Willy Breitling developed a wrist-worn chronograph with a circular slide rule that would allow pilots to perform all necessary flight calculations. ",
+      imgSrc: "./assets/img/new4.png",
+      smallImgSrc_1: "./assets/img/new4.png",
+      smallImgSrc_2: "./assets/gallery/new-4.1.png",
+      smallImgSrc_3: "./assets/gallery/new-4.2.png",
+      smallImgSrc_4: "./assets/gallery/new-4.3.png",
+   },
+   {
+      id: 19,
+      name: "SUPER CHRONOMAT 44",
+      price: 970,
+      instock: 43,
+      description:
+         "This watch embodies the tour de force of design, craftsmanship, and superlative engineering. ",
+      imgSrc: "./assets/img/new5.png",
+      smallImgSrc_1: "./assets/img/new5.png",
+      smallImgSrc_2: "./assets/gallery/new-5.1.png",
+      smallImgSrc_3: "./assets/gallery/new-5.2.png",
+      smallImgSrc_4: "./assets/gallery/new-5.3.png",
+   },
+   {
+      id: 10,
+      name: "SUPER CHRONOMAT B01",
+      price: 1500,
+      instock: 10,
+      description:
+         "Breitling’s supercharged watch for your every pursuit. The Super Chronomat is inspired by the original 1980s Chronomat that Breitling created for the hotshots of aerobatic squadrons. ",
+      imgSrc: "./assets/img/new6.png",
+      smallImgSrc_1: "./assets/img/new6.png",
+      smallImgSrc_2: "./assets/gallery/new-6.1.png",
+      smallImgSrc_3: "./assets/gallery/new-6.2.png",
+      smallImgSrc_4: "./assets/gallery/new-6.3.png",
+   },
+];
