@@ -258,6 +258,10 @@ body.dark-theme {
    position: relative;
 }
 
+.nav__btns #theme-button {
+   display: none;
+}
+
 .nav__badge {
    position: absolute;
    left: 20px;
@@ -1294,7 +1298,7 @@ input[type="range"]::-ms-fill-upper {
    width: 600px;
    height: 400px;
    background: #fff;
-   border-radius: 20px;
+   /* border-radius: 20px; */
    display: flex;
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
