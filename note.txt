@@ -111,3 +111,15 @@ forms2.forEach((form) => {
    --body-color: rgb(252, 252, 252);
    --container-color: rgb(255, 255, 255);
    --border-color: rgb(240, 240, 240);
+
+
+    // Initialize Zooming.js and add an event listener for the big image
+   const zooming = new Zooming();
+
+   const bigImage = document.querySelector(".big-image-1");
+
+   bigImage.style.cursor = "zoom-in";
+
+   bigImage.addEventListener("click", () => {
+      zooming.open(bigImage);
+   });

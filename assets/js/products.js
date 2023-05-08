@@ -26,7 +26,7 @@ const products = [
       description:
          "Designed by Willy Breitling in the 1940s, the Premier was the brand’s first-ever watch dedicated to style. Featuring elegant details and modern-retro touches, this reinterpretation of the Premier falls no short of its ancestors reputation: it is “a watch of impeccable taste”. ",
       imgSrc: "./assets/img/featured2.png",
-      imgSrcSub: "./assets/img/featured2sub.png",
+      imgSrcSub: "./assets/gallery/featured-2.2.png",
       smallImgSrc_1: "./assets/img/featured2.png",
       smallImgSrc_2: "./assets/gallery/featured-2.1.png",
       smallImgSrc_3: "./assets/gallery/featured-2.2.png",
@@ -42,7 +42,7 @@ const products = [
       description:
          "Inspired by the original Superocean from the 1950s, the Superocean Heritage combines iconic design features with a modern touch. Sporty and elegant, the Superocean Heritage is a true embodiment of style at sea. ",
       imgSrc: "./assets/img/featured3.png",
-      imgSrcSub: "./assets/img/featured3sub.png",
+      imgSrcSub: "./assets/gallery/featured-3.2.png",
       smallImgSrc_1: "./assets/img/featured3.png",
       smallImgSrc_2: "./assets/gallery/featured-3.1.png",
       smallImgSrc_3: "./assets/gallery/featured-3.2.png",

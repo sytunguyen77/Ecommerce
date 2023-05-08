@@ -16,13 +16,15 @@ function renderProducts() {
       productsEl.innerHTML += `
       <article class="featured__card">
          <span class="featured__tag">Sale</span>
-         <img
-            src="${product.imgSrc}"
-            alt=""
-            class="featured__img"
-            onmouseover="this.src='${product.imgSrcSub}'"
-            onmouseout="this.src='${product.imgSrc}'"
-         />
+         <div class="featured__img-container">
+            <img
+               src="${product.imgSrc}"
+               alt=""
+               class="featured__img"
+               onmouseover="this.src='${product.imgSrcSub}'"
+               onmouseout="this.src='${product.imgSrc}'"
+            />
+         </div>
 
          <div class="featured__data">
             <h3 class="featured__title">${product.name}</h3>
@@ -52,30 +54,30 @@ function renderProducts() {
    products2.forEach((product) => {
       productsEl2.innerHTML += `
             <article class="products__card">
-                     <img src="${product.imgSrc}" alt="" class="products__img" />
+               <img src="${product.imgSrc}" alt="" class="products__img" />
 
-                     <h3 class="products__title">${product.name}</h3>
-                     <span class="products__price">$${product.price}</span>
+               <h3 class="products__title">${product.name}</h3>
+               <span class="products__price">$${product.price}</span>
 
-                     < class="products__card">
-                     <img src="${product.imgSrc}" alt="" class="products__img" />
+               < class="products__card">
+               <img src="${product.imgSrc}" alt="" class="products__img" />
 
-                     <h3 class="products__title">${product.name}</h3>
-                     <span class="products__price">$${product.price}</span>
+               <h3 class="products__title">${product.name}</h3>
+               <span class="products__price">$${product.price}</span>
 
-                     <div class="products__btn-container">
-                        <button class="products__button" onclick="addToCart2(${product.id})">
-                           <i class="bx bx-shopping-bag"></i>
-                        </button>
+               <div class="products__btn-container">
+                  <button class="products__button" onclick="addToCart2(${product.id})">
+                     <i class="bx bx-shopping-bag"></i>
+                  </button>
 
-                        <button class="products-wishlist__button" onclick="addToWishList2(${product.id})">
-                           <i class="bx bx-heart"></i>
-                        </button>
+                  <button class="products-wishlist__button" onclick="addToWishList2(${product.id})">
+                     <i class="bx bx-heart"></i>
+                  </button>
 
-                        <button class="products-view__button" onclick="displayModal2(${product.id})">
-                           <i class="fa-regular fa-eye"></i>
-                        </button>
-                     </div>           
+                  <button class="products-view__button" onclick="displayModal2(${product.id})">
+                     <i class="fa-regular fa-eye"></i>
+                  </button>
+               </div>           
             </article>
          `;
    });

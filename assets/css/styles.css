@@ -522,6 +522,7 @@ body.dark-theme {
    border: 1px solid var(--border-color);
    overflow-y: hidden;
    transition: 0.3s;
+   cursor: pointer;
 }
 
 .featured__tag {
@@ -1370,20 +1371,28 @@ input[type="range"]::-ms-fill-upper {
    cursor: pointer;
 }
 
+.modal-content-hidden {
+   opacity: 0;
+   pointer-events: none;
+}
 /* close button for modal popup */
 .modal-content .content .close-modal {
    position: absolute;
-   top: 5px;
-   right: 5px;
-   width: 40px;
-   height: 40px;
+   top: 0.3rem;
+   right: 0.3rem;
+   width: 2rem;
+   height: 2rem;
    background: url(../img/close.png);
    background-repeat: no-repeat;
-   background-size: 10px;
+   background-size: 0.9rem;
    background-position: center;
    cursor: pointer;
    border-radius: 50%;
    z-index: 10;
+}
+
+.modal-content .content .close-modal:hover {
+   transform: rotate(180deg);
 }
 
 /*=============== AUTOMATIC POPUP OFFER ===============*/
@@ -1501,17 +1510,21 @@ input[type="range"]::-ms-fill-upper {
 /* Close button for popup */
 .close {
    position: absolute;
-   top: 20px;
-   right: 20px;
-   width: 40px;
-   height: 40px;
+   top: 1.25rem;
+   right: 1.25rem;
+   width: 2.5rem;
+   height: 2.5rem;
    background: #f3f3f3 url(../img/close.png);
    background-repeat: no-repeat;
-   background-size: 10px;
+   background-size: 0.9rem;
    background-position: center;
    cursor: pointer;
    border-radius: 50%;
    z-index: 10;
+}
+
+.close:hover {
+   transform: rotate(180deg);
 }
 
 @media screen and (max-width: 767px) {
@@ -1638,6 +1651,11 @@ input[type="range"]::-ms-fill-upper {
    top: 1.25rem;
    right: 0.9rem;
    cursor: pointer;
+}
+
+.cart__close:hover {
+   transform: rotate(180deg);
+   color: var(--first-color);
 }
 
 .cart__container {
