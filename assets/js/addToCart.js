@@ -15,7 +15,7 @@ function renderProducts() {
    products.forEach((product) => {
       productsEl.innerHTML += `
       <article class="featured__card">
-         <span class="featured__tag">Sale</span>
+         <span class="featured__tag">${product.sale}% OFF</span>
          <div class="featured__img-container">
             <img
                src="${product.imgSrc}"

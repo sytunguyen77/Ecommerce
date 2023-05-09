@@ -3,7 +3,7 @@ const products = [
    {
       id: 0,
       name: "Navitimer",
-      sale: -30,
+      sale: 30,
       price: 1050,
       oldprice: 1300,
       instock: 100,
@@ -19,7 +19,7 @@ const products = [
    {
       id: 1,
       name: "Premier",
-      sale: -20,
+      sale: 15,
       price: 850,
       oldprice: 1000,
       instock: 43,
@@ -35,7 +35,7 @@ const products = [
    {
       id: 2,
       name: "SuperOcean",
-      sale: -10,
+      sale: 11,
       price: 980,
       oldprice: 1100,
       instock: 10,
