@@ -241,8 +241,11 @@ function renderCartItems() {
 
 // remove an item from cart
 function removeItemFromCart(id) {
-   cart = cart.filter((item) => item.id !== id);
-   updateCart();
+   const confirmation = confirm("Are you sure you want to remove this item from your cart?");
+   if (confirmation) {
+      cart = cart.filter((item) => item.id !== id);
+      updateCart();
+   }
 }
 
 // clear all items in the cart
