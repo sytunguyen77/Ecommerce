@@ -585,6 +585,7 @@ body.dark-theme {
 
 .featured__card:hover {
    box-shadow: 0 12px 32px rgba(51, 51, 51, 0.1);
+   /* transform: translateY(-1rem); */
    padding: 2rem 0 3rem 0;
 }
 
@@ -596,6 +597,7 @@ body.dark-theme {
 .featured__card:hover .featured__price {
    margin-bottom: var(--mb-1-5);
 }
+
 /*=============== STORY ===============*/
 .story__container {
    row-gap: 4.5rem;
@@ -615,31 +617,6 @@ body.dark-theme {
    border: 0.1rem solid var(--first-color);
    display: block;
 }
-/* 
-.story__images {
-   position: relative;
-}
-
-.story__images:hover img {
-   transform: scale(1.05);
-   filter: brightness(1.2);
-}
-
-.story__img,
-.story__square {
-   width: 350px;
-}
-
-.story__square {
-   height: 350px;
-   border: 5px solid var(--first-color);
-}
-
-.story__img {
-   position: absolute;
-   left: 4rem;
-   top: -5rem;
-} */
 
 /*=============== PRODUCTS ===============*/
 .products__container {
@@ -1296,7 +1273,7 @@ input[type="range"]::-ms-fill-upper {
 }
 
 .modal .modal-content {
-   background: #f9f9f9;
+   background: var(--container-color);
    /* padding: 2rem; */
    border: 0.1rem solid var(--border-color);
    /* border-radius: 0.5rem; */
