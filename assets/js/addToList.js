@@ -78,7 +78,7 @@ function renderWistListTotal() {
 function renderWishListItems() {
    if (wishlist.length === 0) {
       wishListItemsEl.innerHTML = `
-        <img src="./assets/img/empty_wishlist.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 150px; height: 150px; "/>
+        <img src="./assets/img/empty.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 200px; height: 200px; "/>
         <h3 style="text-align:center">Your Wishlist Is Empty</h3>`;
       clearAllWishListItemsEl.style.display = "none"; // Hide clear button when wishlist is empty
       subWishListEl.style.display = "none";

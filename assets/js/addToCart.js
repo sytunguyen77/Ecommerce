@@ -202,7 +202,8 @@ function renderSubtotal() {
 function renderCartItems() {
    if (cart.length === 0) {
       cartItemsEl.innerHTML = `
-       <img src="./assets/img/emptycart.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 300px; height: 200px;"/>
+       <img src="./assets/img/empty.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 200px; height: 200px;"/>
+       <h3 style="text-align:center">Your Cart Is Empty</h3>
      `;
    } else {
       cartItemsEl.innerHTML = ``; // clear cart element
