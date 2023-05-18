@@ -10,10 +10,10 @@ const displayModal = (id) => {
       <div class="modal-content">
            <div class="image-container">
                <div class="small-image">
-                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="" />
+                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="no-image" />
                </div>
                <div class="big-image">
                   <img src="${product.imgSrc}" class="big-image-1 zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
@@ -79,10 +79,10 @@ const displayModal2 = (id) => {
       <div class="modal-content">
            <div class="image-container">
                <div class="small-image">
-                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="" />
+                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="no-image" />
+                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="no-image" />
                </div>
                <div class="big-image">
                   <img src="${product.imgSrc}" class="big-image-1 zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
@@ -206,3 +206,12 @@ const displayModal3 = (id) => {
       modal.style.display = "none";
    });
 };
+
+/*================ CLOSE THE MODAL IF THE CLICK WAS OUTSIDE OF THE MODAL CONTENT==========*/
+modal.addEventListener("click", (e) => {
+   const modalContent = document.querySelector(".modal-content");
+
+   if (!modalContent.contains(e.target)) {
+      modal.style.display = "none";
+   }
+});
