@@ -11,7 +11,13 @@ updateWishList();
 function addToWishList(id) {
    // check if wishlist already exist in cart
    if (wishlist.some((item) => item.id === id)) {
-      alert("Product already in wishlist");
+      $.toast({
+         heading: "Information",
+         text: "Product already in wishlist",
+         icon: "info",
+         loader: true,
+         loaderBg: "#FFB566",
+      });
    } else {
       const item = products.find((product) => product.id === id);
       wishlist.push({
@@ -27,7 +33,13 @@ function addToWishList(id) {
 function addToWishList2(id) {
    // check if wishlist already exist in cart
    if (wishlist.some((item) => item.id === id)) {
-      alert("Product already in wishlist");
+      $.toast({
+         heading: "Information",
+         text: "Product already in wishlist",
+         icon: "info",
+         loader: true,
+         loaderBg: "#FFB566",
+      });
    } else {
       const item = products2.find((product) => product.id === id);
       wishlist.push({
@@ -43,7 +55,13 @@ function addToWishList2(id) {
 function addToWishList3(id) {
    // check if wishlist already exist in cart
    if (wishlist.some((item) => item.id === id)) {
-      alert("Product already in wishlist");
+      $.toast({
+         heading: "Information",
+         text: "Product already in wishlist",
+         icon: "info",
+         loader: true,
+         loaderBg: "#FFB566",
+      });
    } else {
       const item = products3.find((product) => product.id === id);
       wishlist.push({

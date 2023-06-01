@@ -1,5 +1,4 @@
 /*================ PRODUCTS DETAILS MODAL FOR FEATURED SECTION ==========*/
-// Don't need to loop through array of products2 anymore since we have done that in filter.js and addToCart.js
 // Function to display the modal
 const displayModal = (id) => {
    const product = products.find((p) => p.id === id);

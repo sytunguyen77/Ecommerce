@@ -233,12 +233,23 @@ forms2.forEach((form) => {
       // Add click event listeners to the buttons
       fbLoginBtn.addEventListener("click", (e) => {
          e.preventDefault(); // Prevent the default behavior of the anchor tag
-         alert("Sorry! This feature is not yet available");
+         // alert("Sorry! This feature is not yet available");
+         $.toast({
+            heading: "Sorry!",
+            text: "This feature is not available yet",
+            showHideTransition: "plain",
+            icon: "info",
+         });
       });
 
       googleLoginBtn.addEventListener("click", (e) => {
          e.preventDefault(); // Prevent the default behavior of the anchor tag
-         alert("Sorry! This feature is not yet available");
+         $.toast({
+            heading: "Sorry!",
+            text: "This feature is not available yet",
+            showHideTransition: "plain",
+            icon: "info",
+         });
       });
    }
 });

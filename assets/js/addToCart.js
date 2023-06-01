@@ -127,7 +127,14 @@ function addToCart(id) {
          ...item,
          numberOfUnits: 1,
       });
-      alert(`${item.name} has been added to your cart!`);
+      $.toast({
+         heading: "Success",
+         text: `${item.name} has been added to your cart!`,
+         showHideTransition: "fade",
+         icon: "success",
+         position: "top-left",
+         loaderBg: "#FFB566",
+      });
    }
 
    updateCart();
@@ -145,7 +152,14 @@ function addToCart2(id) {
          ...item,
          numberOfUnits: 1,
       });
-      alert(`${item.name} has been added to your cart!`);
+      $.toast({
+         heading: "Success",
+         text: `${item.name} has been added to your cart!`,
+         showHideTransition: "fade",
+         icon: "success",
+         position: "top-left",
+         loaderBg: "#FFB566",
+      });
    }
    updateCart();
 }
@@ -162,7 +176,14 @@ function addToCart3(id) {
          ...item,
          numberOfUnits: 1,
       });
-      alert(`${item.name} has been added to your cart!`);
+      $.toast({
+         heading: "Success",
+         text: `${item.name} has been added to your cart!`,
+         showHideTransition: "fade",
+         icon: "success",
+         position: "top-left",
+         loaderBg: "#FFB566",
+      });
    }
    updateCart();
 }
