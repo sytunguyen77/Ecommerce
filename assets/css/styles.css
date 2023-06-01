@@ -1274,7 +1274,7 @@ input[type="range"]::-ms-fill-upper {
    /* display: flex; */
    align-items: center;
    justify-content: center;
-   z-index: 111111;
+   z-index: 100;
 }
 
 .modal .modal-content {
