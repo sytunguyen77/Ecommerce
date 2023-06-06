@@ -377,6 +377,9 @@ body.dark-theme {
    left: -75%;
    z-index: 2;
    transform: skew(22deg);
+}
+
+.home__img-bg:hover::after {
    animation: light 2s infinite;
 }
 
@@ -1393,15 +1396,10 @@ input[type="range"]::-ms-fill-upper {
    position: fixed;
    top: 50%;
    left: 50%;
-   transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%) scale(0); /* Popup is shrunk to nothing by default */
+   transition: transform 0.5s ease-in-out;
    z-index: 100;
    display: none;
-   opacity: 0; /* Popup is fully transparent by default */
-   transition: opacity 0.5s ease-in-out;
-}
-
-.hide-popup {
-   opacity: 0;
 }
 
 .popup__container {

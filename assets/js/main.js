@@ -133,8 +133,8 @@ window.onload = function () {
    setTimeout(function () {
       popup.style.display = "block";
       setTimeout(function () {
-         popup.style.opacity = "1"; // Fade in the popup
-      }, 50); // Adding a slight delay ensures that display is set to block before starting the fade-in animation
+         popup.style.transform = "translate(-50%, -50%) scale(1)"; // Expand the popup
+      }, 50); // Adding a slight delay ensures that display is set to block before starting the expand animation
 
       document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`); // insert the overlay div
    }, 2000);
@@ -142,7 +142,7 @@ window.onload = function () {
 
 // Close button onclick
 close.addEventListener("click", () => {
-   popup.style.opacity = "0"; // Fade out the popup
+   popup.style.transform = "translate(-50%, -50%) scale(0)"; // Shrink the popup
    setTimeout(function () {
       popup.style.display = "none";
       document.querySelector(".overlay").remove(); // remove the overlay div
