@@ -125,35 +125,32 @@ searchBox.addEventListener("click", () => {
 });
 
 /*===== POPUP SHOW AUTIMATICALLY AFTER 2 SECONDS =======*/
-const popup = document.querySelector(".popup");
-const close = document.querySelector(".popup__close");
-const deal = document.querySelector(".deal");
+const popupElement = document.querySelector(".popup");
+const closeButton = document.querySelector(".popup__close");
+const dealButton = document.querySelector(".deal");
 
-window.onload = function () {
-   setTimeout(function () {
-      popup.style.display = "block";
-      setTimeout(function () {
-         popup.style.transform = "translate(-50%, -50%) scale(1)"; // Expand the popup
-      }, 50); // Adding a slight delay ensures that display is set to block before starting the expand animation
+function showPopup() {
+   popupElement.style.display = "block";
+   setTimeout(() => {
+      popupElement.style.transform = "translate(-50%, -50%) scale(1)";
+   }, 50);
+   document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`);
+}
 
-      document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`); // insert the overlay div
-   }, 2000);
+function hidePopup() {
+   popupElement.style.transform = "translate(-50%, -50%) scale(0)";
+   setTimeout(() => {
+      popupElement.style.display = "none";
+      document.querySelector(".overlay").remove();
+   }, 500);
+}
+
+window.onload = () => {
+   setTimeout(showPopup, 2000);
 };
 
-// Close button onclick
-close.addEventListener("click", () => {
-   popup.style.transform = "translate(-50%, -50%) scale(0)"; // Shrink the popup
-   setTimeout(function () {
-      popup.style.display = "none";
-      document.querySelector(".overlay").remove(); // remove the overlay div
-   }, 500); // The same duration as your transition
-});
-
-// Deal button onclick
-deal.addEventListener("click", () => {
-   popup.style.display = "none";
-   document.querySelector(".overlay").remove(); // remove the overlay div
-});
+closeButton.addEventListener("click", hidePopup);
+dealButton.addEventListener("click", hidePopup);
 
 /*=============== LOGIN SHOW ===============*/
 const loginShop = document.getElementById("login-shop");
