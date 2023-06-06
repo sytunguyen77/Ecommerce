@@ -1396,9 +1396,15 @@ input[type="range"]::-ms-fill-upper {
    transform: translate(-50%, -50%);
    z-index: 100;
    display: none;
+   opacity: 0; /* Popup is fully transparent by default */
+   transition: opacity 0.5s ease-in-out;
 }
 
-.contentBox {
+.hide-popup {
+   opacity: 0;
+}
+
+.popup__container {
    position: relative;
    width: 600px;
    height: 400px;
@@ -1408,7 +1414,7 @@ input[type="range"]::-ms-fill-upper {
    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.contentBox .imgBx {
+.popup__container .popup__img {
    position: relative;
    width: 300px;
    height: 400px;
@@ -1417,7 +1423,7 @@ input[type="range"]::-ms-fill-upper {
    align-items: center;
 }
 
-.contentBox .imgBx::before {
+.popup__container .popup__img::before {
    content: "";
    position: absolute;
    width: 250px;
@@ -1426,13 +1432,13 @@ input[type="range"]::-ms-fill-upper {
    border-radius: 50%;
 }
 
-.contentBox .imgBx img {
+.popup__container .popup__img img {
    position: relative;
    max-width: 250px;
    z-index: 1;
 }
 
-.contentBox .content {
+.popup__container .popup__content {
    position: relative;
    width: 300px;
    height: 400px;
@@ -1441,30 +1447,30 @@ input[type="range"]::-ms-fill-upper {
    align-items: center;
 }
 
-.contentBox .content h3 {
+.popup__container .popup__content h3 {
    color: #333;
    line-height: 1em;
    font-weight: 300;
    font-size: 2em;
 }
 
-.contentBox .content h2 {
+.popup__container .popup__content h2 {
    font-size: 4em;
    color: var(--first-color);
    line-height: 1em;
 }
 
-.contentBox .content h2 span {
+.popup__container .popup__content h2 span {
    color: #333;
    font-size: 0.75em;
    text-transform: uppercase;
 }
 
-.contentBox .content p {
+.popup__container .popup__content p {
    font-weight: 300;
 }
 
-.contentBox .content a {
+.popup__container .popup__content a {
    display: inline-block;
    padding: 10px 20px;
    background: var(--first-color);
@@ -1474,22 +1480,22 @@ input[type="range"]::-ms-fill-upper {
    border-radius: 10px;
 }
 
-.contentBox .content .expire-time {
+.popup__container .popup__content .expire-time {
    display: flex;
 }
 
-.contentBox .content .expire-time div {
+.popup__container .popup__content .expire-time div {
    position: relative;
    padding: 10px;
    color: #333;
 }
 
-.contentBox .content .expire-time p {
+.popup__container .popup__content .expire-time p {
    font-size: 2.5rem;
 }
 
 /* Close button for popup */
-.close {
+.popup__close {
    position: absolute;
    top: 1.25rem;
    right: 1.25rem;
@@ -1504,7 +1510,7 @@ input[type="range"]::-ms-fill-upper {
    z-index: 10;
 }
 
-.close:hover {
+.popup__close:hover {
    transform: rotate(180deg);
 }
 
@@ -1513,7 +1519,7 @@ input[type="range"]::-ms-fill-upper {
       display: none;
    }
 
-   .contentBox {
+   .popup__container {
       display: none;
    }
 

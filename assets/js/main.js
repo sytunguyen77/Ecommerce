@@ -126,22 +126,27 @@ searchBox.addEventListener("click", () => {
 
 /*===== POPUP SHOW AUTIMATICALLY AFTER 2 SECONDS =======*/
 const popup = document.querySelector(".popup");
-const close = document.querySelector(".close");
+const close = document.querySelector(".popup__close");
 const deal = document.querySelector(".deal");
 
 window.onload = function () {
    setTimeout(function () {
       popup.style.display = "block";
-      document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`); // insert the overlay div
+      setTimeout(function () {
+         popup.style.opacity = "1"; // Fade in the popup
+      }, 50); // Adding a slight delay ensures that display is set to block before starting the fade-in animation
 
-      // Add some time delay to show popup
+      document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`); // insert the overlay div
    }, 2000);
 };
 
 // Close button onclick
 close.addEventListener("click", () => {
-   popup.style.display = "none";
-   document.querySelector(".overlay").remove(); // remove the overlay div
+   popup.style.opacity = "0"; // Fade out the popup
+   setTimeout(function () {
+      popup.style.display = "none";
+      document.querySelector(".overlay").remove(); // remove the overlay div
+   }, 500); // The same duration as your transition
 });
 
 // Deal button onclick
