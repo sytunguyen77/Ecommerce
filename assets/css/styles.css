@@ -1265,7 +1265,7 @@ input[type="range"]::-ms-fill-upper {
    max-width: 12.75rem;
 }
 
-/*=============== MODAL POPUP PRODUCTS ===============*/
+/*====================== MODAL ==================================*/
 .modal {
    position: fixed;
    top: 0;
@@ -1273,94 +1273,92 @@ input[type="range"]::-ms-fill-upper {
    right: 0;
    bottom: 0;
    background-color: rgba(0, 0, 0, 0.5);
-   display: none;
-   /* display: flex; */
+   display: flex;
    align-items: center;
    justify-content: center;
    z-index: 100;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.3s ease;
 }
 
-.modal .modal-content {
+.modal.active {
+   opacity: 1;
+   visibility: visible;
+}
+
+.modal__content {
+   position: relative;
    background: var(--container-color);
-   /* padding: 2rem; */
    border: 0.1rem solid var(--border-color);
-   /* border-radius: 0.5rem; */
    width: 35rem;
    min-height: 42rem;
-   position: relative;
+   transform: translateY(-250px);
+   transition: all 0.5s ease;
 }
 
-.modal-content .content {
+.modal.active .modal__content {
+   transform: translateY(0);
+}
+
+.modal__content .content {
    padding: 1rem;
 }
 
-.modal-content .image-container {
+.modal__content .image-container {
    display: flex;
    gap: 1.5rem;
    align-items: center;
 }
 
-.modal-content .image-container .small-image {
+.modal__content .image-container .small-image {
    width: 30%;
    padding: 1rem;
 }
 
-.modal-content .image-container .small-image img {
+.modal__content .image-container .small-image img {
    width: 100%;
-   /* padding: 1rem; */
    border: 0.1rem solid var(--button-color);
    cursor: pointer;
 }
 
-.modal-content .image-container .small-image img:hover {
+.modal__content .image-container .small-image img:hover {
    background: var(--first-color);
 }
 
-.modal-content .image-container .big-image img {
+.modal__content .image-container .big-image img {
    width: 90%;
 }
 
-/* .modal-content .image-container .big-image img:hover {
-   transform: scale(1.05);
-} */
-
-.modal-content .content h3 {
+.modal__content .content h3 {
    font-size: 2rem;
-   /* text-align: center; */
    color: var(--title-color);
 }
 
-.modal-content .content .stars {
-   /* text-align: center; */
+.modal__content .content .stars {
    font-size: 0.8rem;
    color: var(--first-color);
    margin-top: 0.5rem;
 }
 
-.modal-content .content p {
+.modal__content .content p {
    font-size: 1rem;
    padding: 1rem 0;
 }
 
-.modal-content .content .price {
+.modal__content .content .price {
    font-size: 1.5rem;
    font-weight: bolder;
    color: var(--first-color);
-   /* text-align: center; */
 }
 
-.modal-content .content .button--modal {
+.modal__content .content .button--modal {
    margin-top: 0.5rem;
-   /* border-radius: 0.5rem; */
    cursor: pointer;
 }
 
-.modal-content-hidden {
-   opacity: 0;
-   pointer-events: none;
-}
 /* close button for modal popup */
-.modal-content .content .close-modal {
+.modal__content .content .close-modal {
    position: absolute;
    top: 0.3rem;
    right: 0.3rem;
@@ -1375,11 +1373,11 @@ input[type="range"]::-ms-fill-upper {
    z-index: 10;
 }
 
-.modal-content .content .close-modal:hover {
+.modal__content .content .close-modal:hover {
    transform: rotate(180deg);
 }
 
-/*=============== AUTOMATIC POPUP OFFER ===============*/
+/*======================== POPUP ======================================*/
 /* add overlay to main component when popup opens */
 .overlay {
    position: fixed;
@@ -1396,9 +1394,16 @@ input[type="range"]::-ms-fill-upper {
    top: 50%;
    left: 50%;
    transform: translate(-50%, -50%) scale(0);
-   transition: transform 0.5s ease-in-out;
+   transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
    z-index: 100;
-   display: none;
+   opacity: 0;
+   visibility: hidden;
+}
+
+.popup.active {
+   opacity: 1;
+   visibility: visible;
+   transform: translate(-50%, -50%) scale(1);
 }
 
 .popup__container {
@@ -1503,11 +1508,6 @@ input[type="range"]::-ms-fill-upper {
 
 .popup__close:hover {
    transform: rotate(180deg);
-}
-
-.popup.show {
-   display: block;
-   transform: translate(-50%, -50%) scale(1);
 }
 
 @media screen and (max-width: 767px) {

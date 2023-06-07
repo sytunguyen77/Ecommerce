@@ -3,10 +3,12 @@
 const displayModal = (id) => {
    const product = products.find((p) => p.id === id);
    const modal = document.getElementById("modal");
-   modal.style.display = "flex";
+   setTimeout(function () {
+      modal.classList.add("active");
+   }, 0);
 
    modal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal__content">
            <div class="image-container">
                <div class="small-image">
                   <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
@@ -64,7 +66,7 @@ const displayModal = (id) => {
    // Close Button
    const closeModal = document.getElementById("close-modal");
    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
+      modal.classList.remove("active");
    });
 };
 
@@ -72,10 +74,12 @@ const displayModal = (id) => {
 const displayModal2 = (id) => {
    const product = products2.find((p) => p.id === id);
    const modal = document.getElementById("modal");
-   modal.style.display = "flex";
+   setTimeout(function () {
+      modal.classList.add("active");
+   }, 0);
 
    modal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal__content">
            <div class="image-container">
                <div class="small-image">
                   <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
@@ -133,7 +137,7 @@ const displayModal2 = (id) => {
    // Close Button
    const closeModal = document.getElementById("close-modal");
    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
+      modal.classList.remove("active");
    });
 };
 
@@ -141,10 +145,12 @@ const displayModal2 = (id) => {
 const displayModal3 = (id) => {
    const product = products3.find((p) => p.id === id);
    const modal = document.getElementById("modal");
-   modal.style.display = "flex";
+   setTimeout(function () {
+      modal.classList.add("active");
+   }, 0);
 
    modal.innerHTML = `
-      <div class="modal-content">
+      <div class="modal__content">
            <div class="image-container">
                <div class="small-image">
                   <img src="${product.smallImgSrc_1}" class="small-image-1" alt="" />
@@ -202,15 +208,15 @@ const displayModal3 = (id) => {
    // Close Button
    const closeModal = document.getElementById("close-modal");
    closeModal.addEventListener("click", () => {
-      modal.style.display = "none";
+      modal.classList.remove("active");
    });
 };
 
 /*================ CLOSE THE MODAL IF THE CLICK WAS OUTSIDE OF THE MODAL CONTENT==========*/
 modal.addEventListener("click", (e) => {
-   const modalContent = document.querySelector(".modal-content");
+   const modalContent = document.querySelector(".modal__content");
 
    if (!modalContent.contains(e.target)) {
-      modal.style.display = "none";
+      modal.classList.remove("active");
    }
 });

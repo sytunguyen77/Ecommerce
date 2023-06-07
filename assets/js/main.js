@@ -124,23 +124,19 @@ searchBox.addEventListener("click", () => {
    }
 });
 
-/*===== POPUP SHOW AUTIMATICALLY AFTER 2 SECONDS =======*/
-const popupElement = document.querySelector(".popup");
+/*================ POPUP ================*/
+const popup = document.querySelector(".popup");
 const closeButton = document.querySelector(".popup__close");
 const dealButton = document.querySelector(".deal");
 
 function showPopup() {
-   popupElement.style.display = "block";
-   setTimeout(() => {
-      popupElement.style.transform = "translate(-50%, -50%) scale(1)";
-   }, 50);
+   popup.classList.add("active");
    document.body.insertAdjacentHTML("afterbegin", `<div class="overlay"></div>`);
 }
 
 function hidePopup() {
-   popupElement.style.transform = "translate(-50%, -50%) scale(0)";
+   popup.classList.remove("active");
    setTimeout(() => {
-      popupElement.style.display = "none";
       document.querySelector(".overlay").remove();
    }, 500);
 }
