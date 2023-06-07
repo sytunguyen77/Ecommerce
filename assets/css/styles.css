@@ -1292,7 +1292,6 @@ input[type="range"]::-ms-fill-upper {
    background: var(--container-color);
    border: 0.1rem solid var(--border-color);
    width: 35rem;
-   min-height: 42rem;
    transform: translateY(-250px);
    transition: all 0.5s ease;
 }
