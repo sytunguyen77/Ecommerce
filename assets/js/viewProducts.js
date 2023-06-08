@@ -8,20 +8,20 @@ const displayModal = (id) => {
    }, 0);
 
    modal.innerHTML = `
-      <div class="modal__content">
-           <div class="image-container">
-               <div class="small-image">
-                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="no-image" />
+      <div class="modal__container">
+           <div class="modal__image-wrapper">
+               <div class="modal__image-small">
+                  <img src="${product.smallImgSrc_1}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_2}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_3}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_4}" class="sub__image" alt="no-image" />
                </div>
-               <div class="big-image">
-                  <img src="${product.imgSrc}" class="big-image-1 zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
+               <div class="modal__image-big">
+                  <img src="${product.imgSrc}" class="modal__image-big zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
                </div>
             </div>
 
-            <div class="content">
+            <div class="modal__content">
                <h3>${product.name}</h3>
                <div class="stars">
                   <i class="fas fa-star"></i>
@@ -34,18 +34,18 @@ const displayModal = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart(${product.id})" class="button button--modal">ADD TO CART</a>
-               <button  class="close-modal" id="close-modal"></button>
+               <a onclick="addToCart(${product.id})" class="button modal__button">ADD TO CART</a>
+               <button  class="modal-close" id="modal-close"></button>
             </div>
       </div>
    `;
 
    // Toggle small images to replace big image
    const addSmallImageListeners = () => {
-      document.querySelectorAll(".small-image-1").forEach((image) => {
+      document.querySelectorAll(".sub__image").forEach((image) => {
          image.addEventListener("mouseover", () => {
             var src = image.getAttribute("src");
-            const bigImage = document.querySelector(".big-image-1");
+            const bigImage = document.querySelector(".modal__image-big img");
             bigImage.src = src;
             // Update magnification source
             bigImage.dataset.magnifySrc = src;
@@ -64,7 +64,7 @@ const displayModal = (id) => {
    });
 
    // Close Button
-   const closeModal = document.getElementById("close-modal");
+   const closeModal = document.getElementById("modal-close");
    closeModal.addEventListener("click", () => {
       modal.classList.remove("active");
    });
@@ -79,20 +79,20 @@ const displayModal2 = (id) => {
    }, 0);
 
    modal.innerHTML = `
-      <div class="modal__content">
-           <div class="image-container">
-               <div class="small-image">
-                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="no-image" />
-                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="no-image" />
+      <div class="modal__container">
+           <div class="modal__image-wrapper">
+               <div class="modal__image-small">
+                  <img src="${product.smallImgSrc_1}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_2}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_3}" class="sub__image" alt="no-image" />
+                  <img src="${product.smallImgSrc_4}" class="sub__image" alt="no-image" />
                </div>
-               <div class="big-image">
-                  <img src="${product.imgSrc}" class="big-image-1 zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
+               <div class="modal__image-big">
+                  <img src="${product.imgSrc}" class="modal__image-big zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
                </div>
             </div>
 
-            <div class="content">
+            <div class="modal__content">
                <h3>${product.name}</h3>
                <div class="stars">
                   <i class="fas fa-star"></i>
@@ -105,18 +105,18 @@ const displayModal2 = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart2(${product.id})" class="button button--modal">ADD TO CART</a>
-               <button  class="close-modal" id="close-modal"></button>
+               <a onclick="addToCart2(${product.id})" class="button modal__button">ADD TO CART</a>
+                  <button  class="modal-close" id="modal-close"></button>
             </div>
       </div>
    `;
 
    // Toggle small images to replace big image
    const addSmallImageListeners = () => {
-      document.querySelectorAll(".small-image-1").forEach((image) => {
+      document.querySelectorAll(".sub__image").forEach((image) => {
          image.addEventListener("mouseover", () => {
             var src = image.getAttribute("src");
-            const bigImage = document.querySelector(".big-image-1");
+            const bigImage = document.querySelector(".modal__image-big img");
             bigImage.src = src;
             // Update magnification source
             bigImage.dataset.magnifySrc = src;
@@ -135,7 +135,7 @@ const displayModal2 = (id) => {
    });
 
    // Close Button
-   const closeModal = document.getElementById("close-modal");
+   const closeModal = document.getElementById("modal-close");
    closeModal.addEventListener("click", () => {
       modal.classList.remove("active");
    });
@@ -150,20 +150,20 @@ const displayModal3 = (id) => {
    }, 0);
 
    modal.innerHTML = `
-      <div class="modal__content">
-           <div class="image-container">
-               <div class="small-image">
-                  <img src="${product.smallImgSrc_1}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_2}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_3}" class="small-image-1" alt="" />
-                  <img src="${product.smallImgSrc_4}" class="small-image-1" alt="" />
+      <div class="modal__container">
+           <div class="modal__image-wrapper">
+               <div class="modal__image-small">
+                  <img src="${product.smallImgSrc_1}" class="sub__image" alt="" />
+                  <img src="${product.smallImgSrc_2}" class="sub__image" alt="" />
+                  <img src="${product.smallImgSrc_3}" class="sub__image" alt="" />
+                  <img src="${product.smallImgSrc_4}" class="sub__image" alt="" />
                </div>
-               <div class="big-image">
-                  <img src="${product.imgSrc}" class="big-image-1 zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
+               <div class="modal__image-big">
+                  <img src="${product.imgSrc}" class="modal__image-big zoom id="image" data-magnify-src="${product.imgSrc}" alt="" />
                </div>
             </div>
 
-            <div class="content">
+            <div class="modal__content">
                <h3>${product.name}</h3>
                <div class="stars">
                   <i class="fas fa-star"></i>
@@ -176,18 +176,18 @@ const displayModal3 = (id) => {
                   ${product.description}
                </p>
                <div class="price">$${product.price}</div>
-               <a onclick="addToCart3(${product.id})" class="button button--modal">ADD TO CART</a>
-               <button  class="close-modal" id="close-modal"></button>
+               <a onclick="addToCart3(${product.id})" class="button modal__button">ADD TO CART</a>
+               <button  class="modal-close" id="modal-close"></button>
             </div>
       </div>
    `;
 
    // Toggle small images to replace big image
    const addSmallImageListeners = () => {
-      document.querySelectorAll(".small-image-1").forEach((image) => {
+      document.querySelectorAll(".sub__image").forEach((image) => {
          image.addEventListener("mouseover", () => {
             var src = image.getAttribute("src");
-            const bigImage = document.querySelector(".big-image-1");
+            const bigImage = document.querySelector(".modal__image-big img");
             bigImage.src = src;
             // Update magnification source
             bigImage.dataset.magnifySrc = src;
@@ -206,7 +206,7 @@ const displayModal3 = (id) => {
    });
 
    // Close Button
-   const closeModal = document.getElementById("close-modal");
+   const closeModal = document.getElementById("modal-close");
    closeModal.addEventListener("click", () => {
       modal.classList.remove("active");
    });

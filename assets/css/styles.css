@@ -7,13 +7,14 @@
 
    /*========== Colors ==========*/
    --first-color: rgb(255, 181, 102);
-   --button-color: rgb(61, 61, 61);
-   --button-color-alt: rgb(71, 71, 71);
-   --title-color: rgb(242, 242, 242);
-   --text-color: rgb(191, 191, 191);
-   --body-color: rgb(31, 31, 31);
-   --container-color: rgb(41, 41, 41);
-   --border-color: rgb(51, 51, 51);
+   --button-color: rgb(43, 43, 43);
+   --button-color-alt: rgba(71, 71, 71, 0.899);
+   --title-color: rgb(38, 38, 38);
+   --text-color: rgb(89, 89, 89);
+   --text-color-light: rgb(140, 140, 140);
+   --body-color: rgb(252, 252, 252);
+   --container-color: rgb(255, 255, 255);
+   --border-color: rgb(240, 240, 240);
 
    /*========== Font and typography ==========*/
    /*.5rem = 8px | 1rem = 16px ...*/
@@ -257,7 +258,7 @@ body.dark-theme {
    position: relative;
 }
 
-.nav__btns #theme-button {
+#theme-button {
    display: none;
 }
 
@@ -1286,7 +1287,7 @@ input[type="range"]::-ms-fill-upper {
    visibility: visible;
 }
 
-.modal__content {
+.modal__container {
    position: relative;
    background: var(--container-color);
    border: 0.1rem solid var(--border-color);
@@ -1295,68 +1296,67 @@ input[type="range"]::-ms-fill-upper {
    transition: all 0.5s ease;
 }
 
-.modal.active .modal__content {
+.modal.active .modal__container {
    transform: translateY(0);
 }
 
-.modal__content .content {
+.modal__content {
    padding: 1rem;
 }
 
-.modal__content .image-container {
+.modal__image-wrapper {
    display: flex;
    gap: 1.5rem;
    align-items: center;
 }
-
-.modal__content .image-container .small-image {
+.modal__image-small {
    width: 30%;
    padding: 1rem;
 }
 
-.modal__content .image-container .small-image img {
+.modal__image-small img {
    width: 100%;
    border: 0.1rem solid var(--button-color);
    cursor: pointer;
 }
 
-.modal__content .image-container .small-image img:hover {
+.modal__image-small img:hover {
    background: var(--first-color);
 }
 
-.modal__content .image-container .big-image img {
+.modal__image-big img {
    width: 90%;
 }
 
-.modal__content .content h3 {
+.modal__content h3 {
    font-size: 2rem;
    color: var(--title-color);
 }
 
-.modal__content .content .stars {
+.modal__content .stars {
    font-size: 0.8rem;
    color: var(--first-color);
    margin-top: 0.5rem;
 }
 
-.modal__content .content p {
+.modal__content p {
    font-size: 1rem;
    padding: 1rem 0;
 }
 
-.modal__content .content .price {
+.modal__content .price {
    font-size: 1.5rem;
    font-weight: bolder;
    color: var(--first-color);
 }
 
-.modal__content .content .button--modal {
+.modal__content .modal__button {
    margin-top: 0.5rem;
    cursor: pointer;
 }
 
 /* close button for modal popup */
-.modal__content .content .close-modal {
+.modal__container .modal__content #modal-close {
    position: absolute;
    top: 0.3rem;
    right: 0.3rem;
@@ -1371,7 +1371,7 @@ input[type="range"]::-ms-fill-upper {
    z-index: 10;
 }
 
-.modal__content .content .close-modal:hover {
+.modal__container .modal__content #modal-close:hover {
    transform: rotate(180deg);
 }
 
@@ -1765,14 +1765,14 @@ input[type="range"]::-ms-fill-upper {
       justify-content: center;
    }
 
-   .modal-content .image-container .small-image {
+   .modal__container .modal__image-small {
       width: 80%;
       padding: 1rem;
    }
 }
 
 @media screen and (max-width: 486px) {
-   .modal-content .image-container .small-image {
+   .modal__container .modal__image-small {
       width: 50%;
       padding: 1rem;
    }
@@ -1788,7 +1788,7 @@ input[type="range"]::-ms-fill-upper {
       display: none;
    }
 
-   .modal .modal-content {
+   .modal .modal__container {
       min-height: 30rem;
    }
 }
