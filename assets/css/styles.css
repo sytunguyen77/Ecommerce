@@ -113,8 +113,10 @@ button {
    outline: none;
 }
 
-/*=============== THEME ===============*/
-/*========== Variables Dark theme ==========*/
+/*========== 
+    Color changes in some parts of 
+    the website, in dark theme
+==========*/
 body.dark-theme {
    --first-color: rgb(255, 181, 102);
    --button-color: rgb(61, 61, 61);
@@ -333,7 +335,7 @@ body.dark-theme {
 /* Change background header */
 .scroll-header {
    background-color: var(--body-color);
-   box-shadow: 0 1px 4px hsla(0, 4%, 15%, 0.1);
+   box-shadow: 0 1px 4px rgba(40, 37, 37, 0.1);
 }
 /* Active link */
 .active-link {

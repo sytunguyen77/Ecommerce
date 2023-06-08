@@ -214,7 +214,7 @@ const displayModal3 = (id) => {
 
 /*================ CLOSE THE MODAL IF THE CLICK WAS OUTSIDE OF THE MODAL CONTENT==========*/
 modal.addEventListener("click", (e) => {
-   const modalContent = document.querySelector(".modal__content");
+   const modalContent = document.querySelector(".modal__container");
 
    if (!modalContent.contains(e.target)) {
       modal.classList.remove("active");
