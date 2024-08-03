@@ -1,558 +1,551 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="UTF-8" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== FAVICON ===============-->
-      <link rel="icon" type="image/x-icon" href="assets/img/icon.png" />
+<head>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-      <!--=============== BOXICONS ===============-->
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
+   <!--=============== FAVICON ===============-->
+   <link rel="icon" type="image/x-icon" href="assets/img/icon.png" />
 
-      <!--=============== FONT AWESOME ===============-->
-      <link
-         rel="stylesheet"
-         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
-         integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
-         crossorigin="anonymous"
-         referrerpolicy="no-referrer"
-      />
+   <!--=============== BOXICONS ===============-->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css" />
 
-      <!--=============== SWIPER CSS LIBRARY ===============-->
-      <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
+   <!--=============== FONT AWESOME ===============-->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
+      integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ=="
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-      <!--=============== JQUERY TOAST LIBRARY ===============-->
-      <link
-         rel="stylesheet"
-         type="text/css"
-         href="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css"
-      />
+   <!--=============== SWIPER CSS LIBRARY ===============-->
+   <link rel="stylesheet" href="assets/css/swiper-bundle.min.css" />
 
-      <!--=============== Library for Stripe Checkout ===============-->
-      <script src="https://js.stripe.com/v3/"></script>
+   <!--=============== JQUERY TOAST LIBRARY ===============-->
+   <link rel="stylesheet" type="text/css"
+      href="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.css" />
 
-      <!--=============== MAGNIFYING GLASS JQUERY LIBRARY  ===============-->
-      <script
-         src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-         charset="utf-8"
-      ></script>
+   <!--=============== Library for Stripe Checkout ===============-->
+   <script src="https://js.stripe.com/v3/"></script>
 
-      <!--=============== CSS ===============-->
-      <link rel="stylesheet" href="assets/css/styles.css" />
-      <link rel="stylesheet" href="assets/css/magnify.css" />
+   <!--=============== MAGNIFYING GLASS JQUERY LIBRARY  ===============-->
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
 
-      <title>Ecommerce - Sy</title>
-   </head>
-   <body>
-      <!--==================== HEADER ====================-->
-      <header class="header" id="header">
-         <nav class="nav container">
-            <a href="#" class="nav__logo"> <img src="assets/img/icon.gif" alt="" />Shinpi </a>
+   <!--=============== CSS ===============-->
+   <link rel="stylesheet" href="assets/css/styles.css" />
+   <link rel="stylesheet" href="assets/css/responsive.css" />
+   <link rel="stylesheet" href="assets/css/magnify.css" />
 
-            <div class="nav__menu" id="nav-menu">
-               <ul class="nav__list">
-                  <li class="nav__item">
-                     <a href="#home" class="nav__link active-link">Home</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="#featured" class="nav__link">Featured</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="#products" class="nav__link">Products</a>
-                  </li>
-                  <li class="nav__item">
-                     <a href="#new" class="nav__link">New</a>
-                  </li>
-               </ul>
+   <title>Ecommerce - Sy</title>
+</head>
 
-               <div class="nav__close" id="nav-close">
-                  <i class="bx bx-x"></i>
-               </div>
+<body>
+   <!--==================== HEADER ====================-->
+   <header class="header" id="header">
+      <nav class="nav container">
+         <a href="#" class="nav__logo"> <img src="assets/img/icon.gif" alt="" />Shinpi </a>
+
+         <div class="nav__menu" id="nav-menu">
+            <ul class="nav__list">
+               <li class="nav__item">
+                  <a href="#home" class="nav__link active-link">Home</a>
+               </li>
+               <li class="nav__item">
+                  <a href="#featured" class="nav__link">Featured</a>
+               </li>
+               <li class="nav__item">
+                  <a href="#products" class="nav__link">Products</a>
+               </li>
+               <li class="nav__item">
+                  <a href="#new" class="nav__link">New</a>
+               </li>
+            </ul>
+
+            <div class="nav__close" id="nav-close">
+               <i class="bx bx-x"></i>
             </div>
-
-            <div class="nav__btns">
-               <div class="nav__shop" id="login-shop">
-                  <i class="bx bx-user"></i>
-               </div>
-
-               <div class="nav__shop" id="wishlist-shop">
-                  <i class="bx bx-heart"></i>
-                  <span class="nav__badge total-items-in-wishlist">0</span>
-               </div>
-
-               <div class="nav__shop" id="cart-shop">
-                  <i class="bx bx-shopping-bag"></i>
-                  <span class="nav__badge total-items-in-cart">0</span>
-               </div>
-
-               <i class="bx bx-moon change-theme" id="theme-button"></i>
-
-               <div class="nav__shop search-box" id="search-shop">
-                  <i class="bx bx-search"></i>
-                  <div class="input-box">
-                     <input type="text" placeholder="Search products..." id="search-input" />
-                  </div>
-               </div>
-
-               <div class="nav__toggle" id="nav-toggle">
-                  <i class="bx bx-grid-alt"></i>
-               </div>
-            </div>
-         </nav>
-      </header>
-
-      <!--====================  MODAL ====================-->
-      <div class="modal" id="modal">
-         <div class="modal__container" id="modal__content">
-            <!-- render modal -->
          </div>
+
+         <div class="nav__btns">
+            <div class="nav__shop" id="login-shop">
+               <i class="bx bx-user"></i>
+            </div>
+
+            <div class="nav__shop" id="wishlist-shop">
+               <i class="bx bx-heart"></i>
+               <span class="nav__badge total-items-in-wishlist">0</span>
+            </div>
+
+            <div class="nav__shop" id="cart-shop">
+               <i class="bx bx-shopping-bag"></i>
+               <span class="nav__badge total-items-in-cart">0</span>
+            </div>
+
+            <i class="bx bx-moon change-theme" id="theme-button"></i>
+
+            <div class="nav__shop search-box" id="search-shop">
+               <i class="bx bx-search"></i>
+               <div class="input-box">
+                  <input type="text" placeholder="Search products..." id="search-input" />
+               </div>
+            </div>
+
+            <div class="nav__toggle" id="nav-toggle">
+               <i class="bx bx-grid-alt"></i>
+            </div>
+         </div>
+      </nav>
+   </header>
+
+   <!--====================  MODAL ====================-->
+   <div class="modal" id="modal">
+      <div class="modal__container" id="modal__content">
+         <!-- render modal -->
+      </div>
+   </div>
+
+   <!--==================== WISHLIST ====================-->
+   <div class="wishlist" id="wishlist">
+      <i class="bx bx-x cart__close" id="wishlist-close"></i>
+
+      <h2 class="wishlist__title-center">Your Wishlist</h2>
+
+      <div class="wishlist__container wishlist-items">
+         <!-- render wishlist items here -->
       </div>
 
-      <!--==================== WISHLIST ====================-->
-      <div class="wishlist" id="wishlist">
-         <i class="bx bx-x cart__close" id="wishlist-close"></i>
+      <div class="wishlist__sub">
+         <span class="wishlist__item">0 items</span>
+         <span class="wishlist__clear-button" onclick="clearList()">Clear List</span>
+      </div>
+   </div>
 
-         <h2 class="wishlist__title-center">Your Wishlist</h2>
+   <!--==================== CART ====================-->
+   <div class="cart" id="cart">
+      <i class="bx bx-x cart__close" id="cart-close"></i>
 
-         <div class="wishlist__container wishlist-items">
-            <!-- render wishlist items here -->
-         </div>
+      <h2 class="cart__title-center">Your Cart</h2>
 
-         <div class="wishlist__sub">
-            <span class="wishlist__item">0 items</span>
-            <span class="wishlist__clear-button" onclick="clearList()">Clear List</span>
-         </div>
+      <div class="cart__container cart-items">
+         <!-- render cart items here -->
       </div>
 
-      <!--==================== CART ====================-->
-      <div class="cart" id="cart">
-         <i class="bx bx-x cart__close" id="cart-close"></i>
-
-         <h2 class="cart__title-center">Your Cart</h2>
-
-         <div class="cart__container cart-items">
-            <!-- render cart items here -->
-         </div>
-
-         <div class="cart__prices">
-            <span class="cart__prices-item subitem">0 items</span>
-            <span class="cart__prices-total subtotal">$0</span>
-            <span class="cart__clear-button" onclick="clearCart()">Clear Cart</span>
-         </div>
-
-         <button class="button home__button checkout-btn" id="checkout">CHECKOUT WITH STRIPE</button>
+      <div class="cart__prices">
+         <span class="cart__prices-item subitem">0 items</span>
+         <span class="cart__prices-total subtotal">$0</span>
+         <span class="cart__clear-button" onclick="clearCart()">Clear Cart</span>
       </div>
 
-      <!--==================== MAIN ====================-->
-      <main class="main" id="overlay">
-         <!--==================== HOME ====================-->
-         <section class="home" id="home">
-            <div class="home__container container grid">
-               <div class="home__img-bg">
-                  <img src="assets/img/home.png" alt="" class="home__img" />
-               </div>
+      <button class="button home__button checkout-btn" id="checkout">CHECKOUT WITH STRIPE</button>
+   </div>
 
-               <div class="home__social">
-                  <a href="https://www.facebook.com/" target="_blank" class="home__social-link">Facebook </a>
-                  <a href="https://twitter.com/" target="_blank" class="home__social-link">Twitter </a>
-                  <a href="https://www.instagram.com/" target="_blank" class="home__social-link"
-                     >Instagram
-                  </a>
-               </div>
+   <!--==================== MAIN ====================-->
+   <main class="main" id="overlay">
+      <!--==================== HOME ====================-->
+      <section class="home" id="home">
+         <div class="home__container container grid">
+            <div class="home__img-bg">
+               <img src="assets/img/home.png" alt="" class="home__img" />
+            </div>
 
-               <div class="home__data">
-                  <h1 class="home__title">
-                     LIMITED EDITION <br />
-                     BULLION GOLD
-                  </h1>
-                  <p class="home__description">
-                     A perfectly proportioned timepiece, this timepiece is suited to almost any wrist.
-                  </p>
-                  <div class="home__btns">
-                     <a href="#products" class="button button--small"> Shop Now</a>
-                  </div>
+            <div class="home__social">
+               <a href="https://www.facebook.com/" target="_blank" class="home__social-link">Facebook </a>
+               <a href="https://twitter.com/" target="_blank" class="home__social-link">Twitter </a>
+               <a href="https://www.instagram.com/" target="_blank" class="home__social-link">Instagram
+               </a>
+            </div>
+
+            <div class="home__data">
+               <h1 class="home__title">
+                  LIMITED EDITION <br />
+                  BULLION GOLD
+               </h1>
+               <p class="home__description">
+                  A perfectly proportioned timepiece, this timepiece is suited to almost any wrist.
+               </p>
+               <div class="home__btns">
+                  <a href="#products" class="button button--small"> Shop Now</a>
                </div>
             </div>
-         </section>
+         </div>
+      </section>
 
-         <!--==================== ICONS =======================-->
-         <section class="icon section container">
-            <div class="icons__container grid">
-               <div class="box">
-                  <i class="fas fa-shipping-fast"></i>
-                  <div class="info">
-                     <h3>free delivery</h3>
-                     <span>on all orders</span>
-                  </div>
-               </div>
-
-               <div class="box">
-                  <i class="fas fa-undo"></i>
-                  <div class="info">
-                     <h3>30 days returns</h3>
-                     <span>moneyback guarantee</span>
-                  </div>
-               </div>
-
-               <div class="box">
-                  <i class="fas fa-credit-card"></i>
-                  <div class="info">
-                     <h3>Secure Payments</h3>
-                     <span>Protected By Paypal</span>
-                  </div>
+      <!--==================== ICONS =======================-->
+      <section class="icon section container">
+         <div class="icons__container grid">
+            <div class="box">
+               <i class="fas fa-shipping-fast"></i>
+               <div class="info">
+                  <h3>free delivery</h3>
+                  <span>on all orders</span>
                </div>
             </div>
-         </section>
 
-         <!--==================== FEATURED ====================-->
-         <section class="featured section container" id="featured">
-            <h2 class="section__title">Best Sellers</h2>
-
-            <div class="featured__container grid products">
-               <!-- render products here -->
-            </div>
-         </section>
-
-         <!--==================== STORY ====================-->
-         <section class="story section container">
-            <div class="story__container grid">
-               <div class="story__data">
-                  <h2 class="section__title story__section-title">Our Story</h2>
-
-                  <h1 class="story__title">2023 Watch Hype!</h1>
-
-                  <p class="story__description">
-                     Get ready to be inspired by the latest and greatest watches of this year, now available
-                     in a multitude of stylish and innovative designs at this store. Whether you're looking
-                     for a watch to complete your professional look, a statement piece to show off your style,
-                     or a high-tech gadget to enhance your active lifestyle, you're sure to find it here. So
-                     don't wait any longer, come and explore the amazing selection of watches and find the one
-                     that speaks to you!
-                  </p>
-
-                  <a href="#products" class="button button--small">Discover</a>
+            <div class="box">
+               <i class="fas fa-undo"></i>
+               <div class="info">
+                  <h3>30 days returns</h3>
+                  <span>moneyback guarantee</span>
                </div>
+            </div>
 
-               <!-- <div class="story__images">
+            <div class="box">
+               <i class="fas fa-credit-card"></i>
+               <div class="info">
+                  <h3>Secure Payments</h3>
+                  <span>Protected By Paypal</span>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== FEATURED ====================-->
+      <section class="featured section container" id="featured">
+         <h2 class="section__title">Best Sellers</h2>
+
+         <div class="featured__container grid products">
+            <!-- render products here -->
+         </div>
+      </section>
+
+      <!--==================== STORY ====================-->
+      <section class="story section container">
+         <div class="story__container grid">
+            <div class="story__data">
+               <h2 class="section__title story__section-title">Our Story</h2>
+
+               <h1 class="story__title">2023 Watch Hype!</h1>
+
+               <p class="story__description">
+                  Get ready to be inspired by the latest and greatest watches of this year, now available
+                  in a multitude of stylish and innovative designs at this store. Whether you're looking
+                  for a watch to complete your professional look, a statement piece to show off your style,
+                  or a high-tech gadget to enhance your active lifestyle, you're sure to find it here. So
+                  don't wait any longer, come and explore the amazing selection of watches and find the one
+                  that speaks to you!
+               </p>
+
+               <a href="#products" class="button button--small">Discover</a>
+            </div>
+
+            <!-- <div class="story__images">
                   <img src="assets/img/story.png" alt="" class="story__img" />
                   <div class="story__square"></div>
                </div> -->
 
-               <div class="story__video">
-                  <video id="myVideo" autoplay loop muted playsinline>
-                     <source src="assets/video/media.mp4" type="video/mp4" class="myVideo" />
-                     <source src="mov_bbb.ogg" type="video/ogg" />
-                     Your browser does not support HTML5 video.
-                  </video>
-               </div>
-            </div>
-         </section>
-
-         <!--==================== PRODUCTS ====================-->
-         <section class="products section container" id="products">
-            <h2 class="section__title">Trending Products</h2>
-
-            <div class="search-bar">
-               <input type="text" placeholder="Product Search..." id="find" />
-            </div>
-
-            <div class="price-slider-container">
-               <label for="price-slider">Filter By Price: $0 - $<span id="price-value">1500</span></label>
-               <input type="range" min="0" max="1500" value="1500" id="price-slider" />
-            </div>
-
-            <div class="products__container grid products2 product-list">
-               <!-- render products2 here -->
-            </div>
-         </section>
-
-         <!--==================== TESTIMONIAL ====================-->
-         <section class="testimonial section container">
-            <div class="testimonial__container grid">
-               <div class="swiper testimonial-swiper">
-                  <div class="swiper-wrapper">
-                     <div class="testimonial__card swiper-slide">
-                        <div class="testimonial__quote">
-                           <i class="bx bxs-quote-alt-left"></i>
-                        </div>
-
-                        <p class="testimonial__description">
-                           I recently purchased one of their watches and I have to say, it was the best
-                           decision I've made in a while. The watch has all the latest features and the design
-                           is sleek and stylish.
-                        </p>
-
-                        <h3 class="testimonial__date">April 14. 2022</h3>
-
-                        <div class="testimonial__perfil">
-                           <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img" />
-
-                           <div class="testimonial__perfil-data">
-                              <span class="testimonial__perfil-name">Tokyo</span>
-                              <span class="testimonial__perfil-detail">Verified Customer</span>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div class="testimonial__card swiper-slide">
-                        <div class="testimonial__quote">
-                           <i class="bx bxs-quote-alt-left"></i>
-                        </div>
-
-                        <p class="testimonial__description">
-                           I had been searching for a high-quality watch that wouldn't break the bank, and I'm
-                           so glad I found this company. Their selection is top-notch and always up-to-date
-                           with the latest trends and technology.
-                        </p>
-
-                        <h3 class="testimonial__date">Febuary 17. 2022</h3>
-
-                        <div class="testimonial__perfil">
-                           <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img" />
-
-                           <div class="testimonial__perfil-data">
-                              <span class="testimonial__perfil-name">El Professor</span>
-                              <span class="testimonial__perfil-detail">Verified Customer</span>
-                           </div>
-                        </div>
-                     </div>
-
-                     <div class="testimonial__card swiper-slide">
-                        <div class="testimonial__quote">
-                           <i class="bx bxs-quote-alt-left"></i>
-                        </div>
-
-                        <p class="testimonial__description">
-                           I was hesitant to buy a new watch online, but I decided to take a chance on this
-                           company and I'm so glad I did. The watch I received was even better than I
-                           expected.
-                        </p>
-
-                        <h3 class="testimonial__date">January 7. 2023</h3>
-
-                        <div class="testimonial__perfil">
-                           <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img" />
-
-                           <div class="testimonial__perfil-data">
-                              <span class="testimonial__perfil-name">Berlin </span>
-                              <span class="testimonial__perfil-detail">Verified Customer</span>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-
-                  <div class="swiper-button-next">
-                     <i class="bx bx-right-arrow-alt"></i>
-                  </div>
-                  <div class="swiper-button-prev">
-                     <i class="bx bx-left-arrow-alt"></i>
-                  </div>
-               </div>
-
-               <div class="testimonial__images">
-                  <div class="testimonial__square"></div>
-                  <img src="assets/img/testimonial.png" alt="" class="testimonial__img" />
-               </div>
-            </div>
-         </section>
-
-         <!--==================== NEW ====================-->
-         <section class="new section container" id="new">
-            <h2 class="section__title">New Arrivals</h2>
-
-            <div class="new__container">
-               <div class="swiper new-swiper">
-                  <div class="swiper-wrapper products3">
-                     <!-- render products3 here -->
-                  </div>
-                  <div class="swiper-button-next">
-                     <i class="bx bx-right-arrow-alt"></i>
-                  </div>
-                  <div class="swiper-button-prev">
-                     <i class="bx bx-left-arrow-alt"></i>
-                  </div>
-               </div>
-            </div>
-         </section>
-
-         <!--==================== NEWSLETTER ====================-->
-         <section class="newsletter section container">
-            <div class="newsletter__bg grid">
-               <div>
-                  <h2 class="newsletter__title">
-                     Subscribe Our <br />
-                     Newsletter
-                  </h2>
-                  <p class="newsletter__description">
-                     Don't miss out on your discounts. Subscribe to our email newsletter to get the best
-                     offers, discounts, coupons, gifts and much more.
-                  </p>
-               </div>
-
-               <form action="" class="newsletter__subscribe">
-                  <input type="email" placeholder="Enter your email" class="newsletter__input" />
-                  <button class="button">SUBSCRIBE</button>
-               </form>
-            </div>
-         </section>
-      </main>
-
-      <!--==================== FOOTER ====================-->
-      <footer class="footer section" id="footer">
-         <div class="footer__container container grid">
-            <div class="footer__content">
-               <h3 class="footer__title">Locations</h3>
-
-               <ul class="footer__list">
-                  <li>USA</li>
-                  <li>Germany</li>
-                  <li>Italy</li>
-                  <li>France</li>
-               </ul>
-            </div>
-
-            <div class="footer__content">
-               <h3 class="footer__title">About</h3>
-
-               <ul class="footer__links">
-                  <li>
-                     <a href="#" class="footer__link">Shipping & Returns</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Terms & Conditions</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Refund Policy</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Privacy Policy</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">(253) 285-2840</a>
-                  </li>
-               </ul>
-            </div>
-
-            <div class="footer__content">
-               <h3 class="footer__title">Shop</h3>
-
-               <ul class="footer__links">
-                  <li>
-                     <a href="#" class="footer__link">Watches</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Straps</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Tools & Accessories</a>
-                  </li>
-                  <li>
-                     <a href="#" class="footer__link">Gift Card</a>
-                  </li>
-               </ul>
-            </div>
-
-            <div class="footer__content">
-               <ul class="footer__social">
-                  <img src="assets/img/payment.png" alt="" />
-               </ul>
+            <div class="story__video">
+               <video id="myVideo" autoplay loop muted playsinline>
+                  <source src="assets/video/media.mp4" type="video/mp4" class="myVideo" />
+                  <source src="mov_bbb.ogg" type="video/ogg" />
+                  Your browser does not support HTML5 video.
+               </video>
             </div>
          </div>
+      </section>
 
-         <span class="footer__copy">&#169; Sy Tu. All Rights Reserved</span>
-      </footer>
+      <!--==================== PRODUCTS ====================-->
+      <section class="products section container" id="products">
+         <h2 class="section__title">Trending Products</h2>
 
-      <!--=========================== POPUP ===================================-->
-      <div class="popup">
-         <div class="popup__container">
-            <div class="popup__close"></div>
-            <div class="popup__img">
-               <img src="./assets/img/gift.gif" alt="" />
-            </div>
-            <div class="popup__content">
-               <div>
-                  <h3>Special Offer</h3>
-                  <h2>30<sup>%</sup><span> Off</span></h2>
-                  <div class="expire-time">
-                     <div>
-                        <p id="days">00</p>
-                        <span>Days</span>
+         <div class="search-bar">
+            <input type="text" placeholder="Product Search..." id="find" />
+         </div>
+
+         <div class="price-slider-container">
+            <label for="price-slider">Filter By Price: $0 - $<span id="price-value">1500</span></label>
+            <input type="range" min="0" max="1500" value="1500" id="price-slider" />
+         </div>
+
+         <div class="products__container grid products2 product-list">
+            <!-- render products2 here -->
+         </div>
+      </section>
+
+      <!--==================== TESTIMONIAL ====================-->
+      <section class="testimonial section container">
+         <div class="testimonial__container grid">
+            <div class="swiper testimonial-swiper">
+               <div class="swiper-wrapper">
+                  <div class="testimonial__card swiper-slide">
+                     <div class="testimonial__quote">
+                        <i class="bx bxs-quote-alt-left"></i>
                      </div>
-                     <div>
-                        <p id="hours">00</p>
-                        <span>Hours</span>
-                     </div>
-                     <div>
-                        <p id="minutes">00</p>
-                        <span>Minutes</span>
-                     </div>
-                     <div>
-                        <p id="seconds">00</p>
-                        <span>Seconds</span>
+
+                     <p class="testimonial__description">
+                        I recently purchased one of their watches and I have to say, it was the best
+                        decision I've made in a while. The watch has all the latest features and the design
+                        is sleek and stylish.
+                     </p>
+
+                     <h3 class="testimonial__date">April 14. 2022</h3>
+
+                     <div class="testimonial__perfil">
+                        <img src="assets/img/testimonial1.jpg" alt="" class="testimonial__perfil-img" />
+
+                        <div class="testimonial__perfil-data">
+                           <span class="testimonial__perfil-name">Tokyo</span>
+                           <span class="testimonial__perfil-detail">Verified Customer</span>
+                        </div>
                      </div>
                   </div>
-                  <a href="#featured" class="deal">Get The Deal</a>
+
+                  <div class="testimonial__card swiper-slide">
+                     <div class="testimonial__quote">
+                        <i class="bx bxs-quote-alt-left"></i>
+                     </div>
+
+                     <p class="testimonial__description">
+                        I had been searching for a high-quality watch that wouldn't break the bank, and I'm
+                        so glad I found this company. Their selection is top-notch and always up-to-date
+                        with the latest trends and technology.
+                     </p>
+
+                     <h3 class="testimonial__date">Febuary 17. 2022</h3>
+
+                     <div class="testimonial__perfil">
+                        <img src="assets/img/testimonial2.jpg" alt="" class="testimonial__perfil-img" />
+
+                        <div class="testimonial__perfil-data">
+                           <span class="testimonial__perfil-name">El Professor</span>
+                           <span class="testimonial__perfil-detail">Verified Customer</span>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="testimonial__card swiper-slide">
+                     <div class="testimonial__quote">
+                        <i class="bx bxs-quote-alt-left"></i>
+                     </div>
+
+                     <p class="testimonial__description">
+                        I was hesitant to buy a new watch online, but I decided to take a chance on this
+                        company and I'm so glad I did. The watch I received was even better than I
+                        expected.
+                     </p>
+
+                     <h3 class="testimonial__date">January 7. 2023</h3>
+
+                     <div class="testimonial__perfil">
+                        <img src="assets/img/testimonial3.jpg" alt="" class="testimonial__perfil-img" />
+
+                        <div class="testimonial__perfil-data">
+                           <span class="testimonial__perfil-name">Berlin </span>
+                           <span class="testimonial__perfil-detail">Verified Customer</span>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <div class="swiper-button-next">
+                  <i class="bx bx-right-arrow-alt"></i>
+               </div>
+               <div class="swiper-button-prev">
+                  <i class="bx bx-left-arrow-alt"></i>
                </div>
             </div>
+
+            <div class="testimonial__images">
+               <div class="testimonial__square"></div>
+               <img src="assets/img/testimonial.png" alt="" class="testimonial__img" />
+            </div>
+         </div>
+      </section>
+
+      <!--==================== NEW ====================-->
+      <section class="new section container" id="new">
+         <h2 class="section__title">New Arrivals</h2>
+
+         <div class="new__container">
+            <div class="swiper new-swiper">
+               <div class="swiper-wrapper products3">
+                  <!-- render products3 here -->
+               </div>
+               <div class="swiper-button-next">
+                  <i class="bx bx-right-arrow-alt"></i>
+               </div>
+               <div class="swiper-button-prev">
+                  <i class="bx bx-left-arrow-alt"></i>
+               </div>
+            </div>
+         </div>
+      </section>
+
+      <!--==================== NEWSLETTER ====================-->
+      <section class="newsletter section container">
+         <div class="newsletter__bg grid">
+            <div>
+               <h2 class="newsletter__title">
+                  Subscribe Our <br />
+                  Newsletter
+               </h2>
+               <p class="newsletter__description">
+                  Don't miss out on your discounts. Subscribe to our email newsletter to get the best
+                  offers, discounts, coupons, gifts and much more.
+               </p>
+            </div>
+
+            <form action="" class="newsletter__subscribe">
+               <input type="email" placeholder="Enter your email" class="newsletter__input" />
+               <button class="button">SUBSCRIBE</button>
+            </form>
+         </div>
+      </section>
+   </main>
+
+   <!--==================== FOOTER ====================-->
+   <footer class="footer section" id="footer">
+      <div class="footer__container container grid">
+         <div class="footer__content">
+            <h3 class="footer__title">Locations</h3>
+
+            <ul class="footer__list">
+               <li>USA</li>
+               <li>Germany</li>
+               <li>Italy</li>
+               <li>France</li>
+            </ul>
+         </div>
+
+         <div class="footer__content">
+            <h3 class="footer__title">About</h3>
+
+            <ul class="footer__links">
+               <li>
+                  <a href="#" class="footer__link">Shipping & Returns</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Terms & Conditions</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Refund Policy</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Privacy Policy</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">(253) 285-2840</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer__content">
+            <h3 class="footer__title">Shop</h3>
+
+            <ul class="footer__links">
+               <li>
+                  <a href="#" class="footer__link">Watches</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Straps</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Tools & Accessories</a>
+               </li>
+               <li>
+                  <a href="#" class="footer__link">Gift Card</a>
+               </li>
+            </ul>
+         </div>
+
+         <div class="footer__content">
+            <ul class="footer__social">
+               <img src="assets/img/payment.png" alt="" />
+            </ul>
          </div>
       </div>
 
-      <!--=============== SCROLL UP ===============-->
-      <a href="#" class="scrollup" id="scroll-up">
-         <i class="bx bx-up-arrow-alt scrollup__icon"></i>
-      </a>
+      <span class="footer__copy">&#169; Sy Tu. All Rights Reserved</span>
+   </footer>
 
-      <!--=============== SWIPER JS ===============-->
-      <script src="assets/js/swiper-bundle.min.js"></script>
+   <!--=========================== POPUP ===================================-->
+   <div class="popup">
+      <div class="popup__container">
+         <div class="popup__close"></div>
+         <div class="popup__img">
+            <img src="./assets/img/gift.gif" alt="" />
+         </div>
+         <div class="popup__content">
+            <div>
+               <h3>Special Offer</h3>
+               <h2>30<sup>%</sup><span> Off</span></h2>
+               <div class="expire-time">
+                  <div>
+                     <p id="days">00</p>
+                     <span>Days</span>
+                  </div>
+                  <div>
+                     <p id="hours">00</p>
+                     <span>Hours</span>
+                  </div>
+                  <div>
+                     <p id="minutes">00</p>
+                     <span>Minutes</span>
+                  </div>
+                  <div>
+                     <p id="seconds">00</p>
+                     <span>Seconds</span>
+                  </div>
+               </div>
+               <a href="#featured" class="deal">Get The Deal</a>
+            </div>
+         </div>
+      </div>
+   </div>
 
-      <!--=============== jQuery Toast plugin  ===============-->
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+   <!--=============== SCROLL UP ===============-->
+   <a href="#" class="scrollup" id="scroll-up">
+      <i class="bx bx-up-arrow-alt scrollup__icon"></i>
+   </a>
 
-      <!--=============== MAGNIFYING GLASS JQUERY  ===============-->
-      <script src="assets/js/jquery.magnify.js" charset="utf-8"></script>
+   <!--=============== SWIPER JS ===============-->
+   <script src="assets/js/swiper-bundle.min.js"></script>
 
-      <!--=============== MAIN JS ===============-->
-      <script src="assets/js/main.js"></script>
-      <script src="assets/js/products.js"></script>
-      <script src="assets/js/addToCart.js"></script>
-      <script src="assets/js/addToList.js"></script>
-      <script src="assets/js/filter.js"></script>
-      <script src="assets/js/stripe.js"></script>
-      <script src="assets/js/countDown.js"></script>
-      <script src="assets/js/viewProducts.js"></script>
+   <!--=============== jQuery Toast plugin  ===============-->
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+   <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
 
-      <!-- Messenger Chat Plugin Code -->
-      <div id="fb-root"></div>
+   <!--=============== MAGNIFYING GLASS JQUERY  ===============-->
+   <script src="assets/js/jquery.magnify.js" charset="utf-8"></script>
 
-      <!-- Your Chat Plugin code -->
-      <div id="fb-customer-chat" class="fb-customerchat"></div>
+   <!--=============== MAIN JS ===============-->
+   <script src="assets/js/main.js"></script>
+   <script src="assets/js/products.js"></script>
+   <script src="assets/js/addToCart.js"></script>
+   <script src="assets/js/addToList.js"></script>
+   <script src="assets/js/filter.js"></script>
+   <script src="assets/js/stripe.js"></script>
+   <script src="assets/js/countDown.js"></script>
+   <script src="assets/js/viewProducts.js"></script>
 
-      <script>
-         var chatbox = document.getElementById("fb-customer-chat");
-         chatbox.setAttribute("page_id", "110117278674345");
-         chatbox.setAttribute("attribution", "biz_inbox");
-      </script>
+   <!-- Messenger Chat Plugin Code -->
+   <div id="fb-root"></div>
 
-      <!-- Your SDK code -->
-      <script>
-         window.fbAsyncInit = function () {
-            FB.init({
-               xfbml: true,
-               version: "v16.0",
-            });
-         };
+   <!-- Your Chat Plugin code -->
+   <div id="fb-customer-chat" class="fb-customerchat"></div>
 
-         (function (d, s, id) {
-            var js,
-               fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s);
-            js.id = id;
-            js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-            fjs.parentNode.insertBefore(js, fjs);
-         })(document, "script", "facebook-jssdk");
-      </script>
-   </body>
+   <script>
+      var chatbox = document.getElementById("fb-customer-chat");
+      chatbox.setAttribute("page_id", "110117278674345");
+      chatbox.setAttribute("attribution", "biz_inbox");
+   </script>
+
+   <!-- Your SDK code -->
+   <script>
+      window.fbAsyncInit = function () {
+         FB.init({
+            xfbml: true,
+            version: "v16.0",
+         });
+      };
+
+      (function (d, s, id) {
+         var js,
+            fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) return;
+         js = d.createElement(s);
+         js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
+         fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+   </script>
+</body>
+
 </html>
