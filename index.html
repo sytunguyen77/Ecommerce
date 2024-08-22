@@ -496,57 +496,30 @@
       <i class="bx bx-up-arrow-alt scrollup__icon"></i>
    </a>
 
-   <!--=============== SWIPER JS ===============-->
-   <script src="assets/js/swiper-bundle.min.js"></script>
+
 
    <!--=============== jQuery Toast plugin  ===============-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
    <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
 
    <!--=============== MAGNIFYING GLASS JQUERY  ===============-->
-   <script src="assets/js/jquery.magnify.js" charset="utf-8"></script>
+   <script src="assets/js/vendors/jquery.magnify.js" charset="utf-8"></script>
+
+   <!--=============== SWIPER JS ===============-->
+   <script src="assets/js/vendors/swiper-bundle.min.js"></script>
 
    <!--=============== MAIN JS ===============-->
    <script src="assets/js/main.js"></script>
-   <script src="assets/js/products.js"></script>
-   <script src="assets/js/addToCart.js"></script>
-   <script src="assets/js/addToList.js"></script>
-   <script src="assets/js/filter.js"></script>
-   <script src="assets/js/stripe.js"></script>
-   <script src="assets/js/countDown.js"></script>
-   <script src="assets/js/viewProducts.js"></script>
+   <script src="assets/js/fake-data/products.js"></script>
+   <script src="assets/js/components/addToCart.js"></script>
+   <script src="assets/js/components/addToList.js"></script>
+   <script src="assets/js/components/filter.js"></script>
+   <script src="assets/js/components/viewProducts.js"></script>
+   <script src="assets/js/utils/countDown.js"></script>
+   <script src="assets/js/utils/form.js"></script>
+   <script src="assets/js/vendors/stripe.js"></script>
 
-   <!-- Messenger Chat Plugin Code -->
-   <div id="fb-root"></div>
 
-   <!-- Your Chat Plugin code -->
-   <div id="fb-customer-chat" class="fb-customerchat"></div>
-
-   <script>
-      var chatbox = document.getElementById("fb-customer-chat");
-      chatbox.setAttribute("page_id", "110117278674345");
-      chatbox.setAttribute("attribution", "biz_inbox");
-   </script>
-
-   <!-- Your SDK code -->
-   <script>
-      window.fbAsyncInit = function () {
-         FB.init({
-            xfbml: true,
-            version: "v16.0",
-         });
-      };
-
-      (function (d, s, id) {
-         var js,
-            fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) return;
-         js = d.createElement(s);
-         js.id = id;
-         js.src = "https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js";
-         fjs.parentNode.insertBefore(js, fjs);
-      })(document, "script", "facebook-jssdk");
-   </script>
 </body>
 
 </html>
