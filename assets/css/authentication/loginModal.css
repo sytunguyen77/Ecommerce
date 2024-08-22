@@ -1,4 +1,4 @@
-/*=============== LOGIN MODAL ===============*/
+/* Login Modal */
 .login-modal {
   display: none;
   position: fixed;
@@ -9,24 +9,42 @@
   height: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-modal.show {
+  display: flex;
+  opacity: 1;
 }
 
 .login-modal__content {
   background-color: var(--container-color);
-  margin: 15% auto;
-  padding: 20px;
+  padding: 2rem;
   border: 1px solid var(--border-color);
-  width: 300px;
+  width: 90%;
+  max-width: 400px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.login-modal.show .login-modal__content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
 }
 
 .login-modal__close {
-  color: #aaa;
+  color: var(--text-color);
   float: right;
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .login-modal__close:hover,
@@ -36,40 +54,69 @@
 }
 
 .login-modal__title {
-  margin-bottom: 20px;
+  margin-bottom: 1.5rem;
   color: var(--title-color);
+  font-size: var(--h2-font-size);
+  text-align: center;
 }
 
 .login-modal__form-group {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
 .login-modal__label {
   display: block;
-  margin-bottom: 5px;
+  margin-bottom: 0.5rem;
   color: var(--title-color);
+  font-size: var(--normal-font-size);
 }
 
 .login-modal__input {
   width: 100%;
-  padding: 8px;
+  padding: 0.75rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 4px;
   background-color: var(--body-color);
   color: var(--text-color);
+  font-size: var(--normal-font-size);
+  transition: border-color 0.3s ease;
+}
+
+.login-modal__input:focus {
+  outline: none;
+  border-color: var(--first-color);
 }
 
 .login-modal__submit-btn {
   width: 100%;
-  padding: 10px;
+  padding: 1rem;
   background-color: var(--first-color);
   color: var(--title-color);
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  transition: background-color 0.3s ease;
 }
 
 .login-modal__submit-btn:hover {
   background-color: var(--button-color-alt);
+}
+
+@media screen and (max-width: 768px) {
+  .login-modal__content {
+    width: 95%;
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .login-modal__title {
+    font-size: var(--h3-font-size);
+  }
+
+  .login-modal__input,
+  .login-modal__submit-btn {
+    font-size: var(--small-font-size);
+  }
 }
