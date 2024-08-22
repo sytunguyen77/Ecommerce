@@ -1,0 +1,75 @@
+/*=============== LOGIN MODAL ===============*/
+.login-modal {
+  display: none;
+  position: fixed;
+  z-index: var(--z-fixed);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.login-modal__content {
+  background-color: var(--container-color);
+  margin: 15% auto;
+  padding: 20px;
+  border: 1px solid var(--border-color);
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.login-modal__close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.login-modal__close:hover,
+.login-modal__close:focus {
+  color: var(--first-color);
+  text-decoration: none;
+}
+
+.login-modal__title {
+  margin-bottom: 20px;
+  color: var(--title-color);
+}
+
+.login-modal__form-group {
+  margin-bottom: 15px;
+}
+
+.login-modal__label {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--title-color);
+}
+
+.login-modal__input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--body-color);
+  color: var(--text-color);
+}
+
+.login-modal__submit-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.login-modal__submit-btn:hover {
+  background-color: var(--button-color-alt);
+}

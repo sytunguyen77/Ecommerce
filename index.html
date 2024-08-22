@@ -34,6 +34,8 @@
    <link rel="stylesheet" href="assets/css/global.css" />
    <link rel="stylesheet" href="assets/css/responsive.css" />
    <link rel="stylesheet" href="assets/css/magnify.css" />
+   <link rel="stylesheet" href="assets/css/authentication/loginModal.css" />
+   <link rel="stylesheet" href="assets/css/authentication/registerModal.css" />
 
    <title>Ecommerce - Sy</title>
 </head>
@@ -66,8 +68,20 @@
          </div>
 
          <div class="nav__btns">
+
+            <div class="nav__shop search-box" id="search-shop">
+               <i class="bx bx-search"></i>
+               <div class="input-box">
+                  <input type="text" placeholder="Search products..." id="search-input" />
+               </div>
+            </div>
+
             <div class="nav__shop" id="login-shop">
                <i class="bx bx-user"></i>
+               <div class="user-dropdown">
+                  <a href="#" class="user-dropdown__item">Sign In</a>
+                  <a href="#" class="user-dropdown__item">Register</a>
+               </div>
             </div>
 
             <div class="nav__shop" id="wishlist-shop">
@@ -80,18 +94,8 @@
                <span class="nav__badge total-items-in-cart">0</span>
             </div>
 
-            <i class="bx bx-moon change-theme" id="theme-button"></i>
 
-            <div class="nav__shop search-box" id="search-shop">
-               <i class="bx bx-search"></i>
-               <div class="input-box">
-                  <input type="text" placeholder="Search products..." id="search-input" />
-               </div>
-            </div>
 
-            <div class="nav__toggle" id="nav-toggle">
-               <i class="bx bx-grid-alt"></i>
-            </div>
          </div>
       </nav>
    </header>
@@ -496,7 +500,52 @@
       <i class="bx bx-up-arrow-alt scrollup__icon"></i>
    </a>
 
+   <!-- LOGIN MODAL-->
+   <div id="loginModal" class="login-modal">
+      <div class="login-modal__content">
+         <span class="login-modal__close">&times;</span>
+         <h2 class="login-modal__title">Login</h2>
+         <form id="loginForm" class="login-modal__form">
+            <div class="login-modal__form-group">
+               <label for="email" class="login-modal__label">Email:</label>
+               <input type="email" id="email" name="email" required class="login-modal__input">
+            </div>
+            <div class="login-modal__form-group">
+               <label for="password" class="login-modal__label">Password:</label>
+               <input type="password" id="password" name="password" required class="login-modal__input">
+            </div>
+            <button type="submit" class="login-modal__submit-btn">Sign In</button>
+         </form>
+      </div>
+   </div>
 
+   <!-- REGISTER MODAL-->
+   <div id="registerModal" class="auth-modal">
+      <div class="auth-modal__content">
+         <span class="auth-modal__close">&times;</span>
+         <h2 class="auth-modal__title">Register</h2>
+         <form id="registerForm" class="auth-modal__form">
+            <div class="auth-modal__form-group">
+               <label for="registerName" class="auth-modal__label">Name:</label>
+               <input type="text" id="registerName" name="name" required class="auth-modal__input">
+            </div>
+            <div class="auth-modal__form-group">
+               <label for="registerEmail" class="auth-modal__label">Email:</label>
+               <input type="email" id="registerEmail" name="email" required class="auth-modal__input">
+            </div>
+            <div class="auth-modal__form-group">
+               <label for="registerPassword" class="auth-modal__label">Password:</label>
+               <input type="password" id="registerPassword" name="password" required class="auth-modal__input">
+            </div>
+            <div class="auth-modal__form-group">
+               <label for="registerConfirmPassword" class="auth-modal__label">Confirm Password:</label>
+               <input type="password" id="registerConfirmPassword" name="confirmPassword" required
+                  class="auth-modal__input">
+            </div>
+            <button type="submit" class="auth-modal__submit-btn">Register</button>
+         </form>
+      </div>
+   </div>
 
    <!--=============== jQuery Toast plugin  ===============-->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -514,7 +563,9 @@
    <script src="assets/js/components/addToCart.js"></script>
    <script src="assets/js/components/addToList.js"></script>
    <script src="assets/js/components/filter.js"></script>
-   <script src="assets/js/components/viewProducts.js"></script>
+   <script src="assets/js/components/productModal.js"></script>
+   <script src="assets/js/components/authentication/loginModal.js"></script>
+   <script src="assets/js/components/authentication/registerModal.js"></script>
    <script src="assets/js/utils/countDown.js"></script>
    <script src="assets/js/utils/form.js"></script>
    <script src="assets/js/vendors/stripe.js"></script>

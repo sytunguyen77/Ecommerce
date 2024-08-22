@@ -56,6 +56,45 @@
   color: rgb(38, 38, 38);
 }
 
+/* user dropdown */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: var(--z-fixed);
+}
+
+.user-dropdown__item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-dropdown__item:hover {
+  background-color: var(--first-color);
+  color: var(--title-color);
+}
+
+.show-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.show-dropdown {
+  display: block;
+}
+
 #theme-button {
   display: none;
 }
@@ -1073,7 +1112,7 @@ input[type="range"]::-ms-fill-upper {
   max-width: 12.75rem;
 }
 
-/*====================== MODAL ==================================*/
+/*======================PRODUCT MODAL ==================================*/
 .modal {
   position: fixed;
   top: 0;
