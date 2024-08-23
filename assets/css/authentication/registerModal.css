@@ -1,0 +1,122 @@
+/* Register Modal */
+.auth-modal {
+  display: none;
+  position: fixed;
+  z-index: var(--z-fixed);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-modal.show {
+  display: flex;
+  opacity: 1;
+}
+
+.auth-modal__content {
+  background-color: var(--container-color);
+  padding: 2rem;
+  border: 1px solid var(--border-color);
+  width: 90%;
+  max-width: 400px;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transform: translateY(-50px) scale(0.9);
+  opacity: 0;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.auth-modal.show .auth-modal__content {
+  transform: translateY(0) scale(1);
+  opacity: 1;
+}
+
+.auth-modal__close {
+  color: var(--text-color);
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.auth-modal__close:hover,
+.auth-modal__close:focus {
+  color: var(--first-color);
+  text-decoration: none;
+}
+
+.auth-modal__title {
+  margin-bottom: 1.5rem;
+  color: var(--title-color);
+  font-size: var(--h2-font-size);
+  text-align: center;
+}
+
+.auth-modal__form-group {
+  margin-bottom: 1.5rem;
+}
+
+.auth-modal__label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--title-color);
+  font-size: var(--normal-font-size);
+}
+
+.auth-modal__input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  background-color: var(--body-color);
+  color: var(--text-color);
+  font-size: var(--normal-font-size);
+  transition: border-color 0.3s ease;
+}
+
+.auth-modal__input:focus {
+  outline: none;
+  border-color: var(--first-color);
+}
+
+.auth-modal__submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background-color: var(--first-color);
+  color: var(--title-color);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--normal-font-size);
+  font-weight: var(--font-medium);
+  transition: background-color 0.3s ease;
+}
+
+.auth-modal__submit-btn:hover {
+  background-color: var(--button-color-alt);
+}
+
+@media screen and (max-width: 768px) {
+  .auth-modal__content {
+    width: 95%;
+    max-width: 350px;
+    padding: 1.5rem;
+  }
+
+  .auth-modal__title {
+    font-size: var(--h3-font-size);
+  }
+
+  .auth-modal__input,
+  .auth-modal__submit-btn {
+    font-size: var(--small-font-size);
+  }
+}
