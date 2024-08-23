@@ -1575,3 +1575,40 @@ input[type="range"]::-ms-fill-upper {
 .show-cart {
   right: 0;
 }
+
+.featured__button {
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  position: relative; /* Add this */
+}
+
+.spinner {
+  display: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid #ffffff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  position: absolute; /* Add this */
+  top: 50%; /* Add this */
+  left: 50%; /* Add this */
+  transform: translate(-50%, -50%); /* Add this */
+}
+
+@keyframes spin {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+.featured__button.loading .spinner {
+  display: block;
+}
+
+.featured__button.loading .button-content {
+  visibility: hidden;
+}
