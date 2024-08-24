@@ -11,87 +11,99 @@ const subWishListEl = document.querySelector(".wishlist__item");
 let wishlist = JSON.parse(localStorage.getItem("WISHLIST")) || [];
 updateWishList();
 
+// Reusable function to animate icon
+function animateIcon(icon, toSpin) {
+  const originalClasses = [...icon.classList];
+
+  icon.style.transition = "transform 0.3s, opacity 0.3s";
+  icon.style.transform = toSpin ? "scale(1)" : "scale(0)";
+  icon.style.opacity = toSpin ? "1" : "0";
+
+  setTimeout(() => {
+    icon.className = toSpin
+      ? "fas fa-circle-notch fa-spin"
+      : originalClasses.join(" ");
+    icon.style.transform = "scale(1)";
+    icon.style.opacity = "1";
+  }, 150);
+
+  return originalClasses;
+}
+
+// Reusable function to add item to wishlist
+function addItemToWishlist(id, productArray, button) {
+  const icon = button.querySelector("i");
+  const originalClasses = animateIcon(icon, true);
+  button.disabled = true;
+
+  setTimeout(() => {
+    if (wishlist.some((item) => item.id === id)) {
+      $.toast({
+        heading: "Information",
+        text: "Product already in wishlist",
+        icon: "info",
+        loader: true,
+        loaderBg: "#FFB566",
+      });
+    } else {
+      const item = productArray.find((product) => product.id === id);
+      wishlist.push({ ...item, numberOfWishList: 1 });
+      $.toast({
+        heading: "Success",
+        text: "Item added to your wishlist!",
+        icon: "success",
+        loader: true,
+        loaderBg: "#FFB566",
+      });
+    }
+
+    updateWishList();
+
+    // Revert icon to original state
+    icon.style.transform = "scale(0)";
+    icon.style.opacity = "0";
+
+    setTimeout(() => {
+      icon.className = originalClasses.join(" ");
+      icon.style.transform = "scale(1)";
+      icon.style.opacity = "1";
+      button.disabled = false;
+    }, 150);
+  }, 1000);
+}
+
 // ADD TO WISHLIST (FEATURED SECTION)
 function addToWishList(id) {
-  // check if wishlist already exist in cart
-  if (wishlist.some((item) => item.id === id)) {
-    $.toast({
-      heading: "Information",
-      text: "Product already in wishlist",
-      icon: "info",
-      loader: true,
-      loaderBg: "#FFB566",
-    });
-  } else {
-    const item = products.find((product) => product.id === id);
-    wishlist.push({
-      ...item,
-      numberOfWishList: 1,
-    });
-  }
-
-  updateWishList();
+  addItemToWishlist(id, products, event.target.closest(".featured__button"));
 }
 
 // ADD TO WISHLIST (PRODUCTS SECTION)
 function addToWishList2(id) {
-  // check if wishlist already exist in cart
-  if (wishlist.some((item) => item.id === id)) {
-    $.toast({
-      heading: "Information",
-      text: "Product already in wishlist",
-      icon: "info",
-      loader: true,
-      loaderBg: "#FFB566",
-    });
-  } else {
-    const item = products2.find((product) => product.id === id);
-    wishlist.push({
-      ...item,
-      numberOfWishList: 1,
-    });
-  }
-
-  updateWishList();
+  addItemToWishlist(
+    id,
+    products2,
+    event.target.closest(".products-wishlist__button")
+  );
 }
 
 // ADD TO WISHLIST (NEW ARRIVALS SECTION)
 function addToWishList3(id) {
-  // check if wishlist already exist in cart
-  if (wishlist.some((item) => item.id === id)) {
-    $.toast({
-      heading: "Information",
-      text: "Product already in wishlist",
-      icon: "info",
-      loader: true,
-      loaderBg: "#FFB566",
-    });
-  } else {
-    const item = products3.find((product) => product.id === id);
-    wishlist.push({
-      ...item,
-      numberOfWishList: 1,
-    });
-  }
-
-  updateWishList();
+  addItemToWishlist(id, products3, event.target.closest(".new__button"));
 }
 
-// update wistlist
+// update wishlist
 function updateWishList() {
   renderWishListItems();
-  renderWistListTotal();
-
-  // save wistlist to local storage
+  renderWishListTotal();
   localStorage.setItem("WISHLIST", JSON.stringify(wishlist));
 }
 
 // calculate and render total of wishlist items
-function renderWistListTotal() {
-  let totalWishList = 0;
-  wishlist.forEach((item) => {
-    totalWishList += item.numberOfWishList;
-  });
+function renderWishListTotal() {
+  const totalWishList = wishlist.reduce(
+    (total, item) => total + item.numberOfWishList,
+    0
+  );
   totalItemsInWishListEl.innerHTML = totalWishList;
   subWishListEl.innerHTML = `${totalWishList} items`;
 }
@@ -100,36 +112,35 @@ function renderWistListTotal() {
 function renderWishListItems() {
   if (wishlist.length === 0) {
     wishListItemsEl.innerHTML = `
-        <img src="./assets/img/empty.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 200px; height: 200px; "/>
-        <h3 style="text-align:center">Your wishlist is empty</h3>`;
-    clearAllWishListItemsEl.style.display = "none"; // Hide clear button when wishlist is empty
+      <img src="./assets/img/empty.png" alt="Empty wishlist" style="display: block; margin: 0 auto; width: 200px; height: 200px;"/>
+      <h3 style="text-align:center">Your wishlist is empty</h3>`;
+    clearAllWishListItemsEl.style.display = "none";
     subWishListEl.style.display = "none";
   } else {
-    wishListItemsEl.innerHTML = ``; // clear wishlist element
-    wishlist.forEach((item) => {
-      wishListItemsEl.innerHTML += `
-         <article class="wishlist__card">
-                  <div class="wishlist__box">
-                     <img src="${item.imgSrc}" alt="" class="wishlist__img" />
-                  </div>
-
-                  <div class="wishlist__details">
-                     <h3 class="wishlist__title">${item.name}</h3>
-                     <span class="wishlist__price">$${item.price}</span>
-
-                    <div class="deleteItem" onclick="removeItemFromWishList(${item.id})"><i class="bx bx-trash-alt wishlist__amount-trash "></i></div>
-
-                     </div>
-                  </div>
-         </article>
-    `;
-    });
-    clearAllWishListItemsEl.style.display = "block"; //  Show clear button when there's at least one item in the wishlist
+    wishListItemsEl.innerHTML = wishlist
+      .map(
+        (item) => `
+      <article class="wishlist__card">
+        <div class="wishlist__box">
+          <img src="${item.imgSrc}" alt="" class="wishlist__img" />
+        </div>
+        <div class="wishlist__details">
+          <h3 class="wishlist__title">${item.name}</h3>
+          <span class="wishlist__price">$${item.price}</span>
+          <div class="deleteItem" onclick="removeItemFromWishList(${item.id})">
+            <i class="bx bx-trash-alt wishlist__amount-trash"></i>
+          </div>
+        </div>
+      </article>
+    `
+      )
+      .join("");
+    clearAllWishListItemsEl.style.display = "block";
     subWishListEl.style.display = "block";
   }
 }
 
-// remove item from wislist
+// remove item from wishlist
 function removeItemFromWishList(id) {
   wishlist = wishlist.filter((item) => item.id !== id);
   updateWishList();
