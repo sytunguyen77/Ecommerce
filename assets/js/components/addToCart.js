@@ -11,9 +11,9 @@ const totalItemsInCartEl = document.querySelector(".total-items-in-cart");
 
 // RENDER PRODUCTS
 function renderProducts() {
-   // Featured Section
-   products.forEach((product) => {
-      productsEl.innerHTML += `
+  // Featured Section
+  products.forEach((product) => {
+    productsEl.innerHTML += `
       <article class="featured__card">
          <span class="featured__tag">${product.sale}% OFF</span>
          <div class="featured__img-container">
@@ -48,11 +48,11 @@ function renderProducts() {
          </div>
       </article>  
       `;
-   });
-   // Product Section
-   // the productsEl2.innerHTML in filter.js has overwritten products2 here
-   products2.forEach((product) => {
-      productsEl2.innerHTML += `
+  });
+  // Product Section
+  // the productsEl2.innerHTML in filter.js has overwritten products2 here
+  products2.forEach((product) => {
+    productsEl2.innerHTML += `
             <article class="products__card">
                <img src="${product.imgSrc}" alt="" class="products__img" />
 
@@ -80,10 +80,10 @@ function renderProducts() {
                </div>           
             </article>
          `;
-   });
-   // New Arrival Section
-   products3.forEach((product) => {
-      productsEl3.innerHTML += `
+  });
+  // New Arrival Section
+  products3.forEach((product) => {
+    productsEl3.innerHTML += `
          <article class="new__card swiper-slide">
             <span class="new__tag">New</span>
             <img src="${product.imgSrc}" alt="" class="new__img" />
@@ -106,8 +106,8 @@ function renderProducts() {
       
             </div>
          </article>`;
-   });
-   initializeSwiper(); //Call the initializeSwiper function after rendering the products (without this the swiper will stop looping at the last slide);
+  });
+  initializeSwiper(); //Call the initializeSwiper function after rendering the products (without this the swiper will stop looping at the last slide);
 }
 renderProducts();
 
@@ -117,119 +117,119 @@ updateCart();
 
 // ADD TO CART (FEATURED)
 function addToCart(id) {
-   // check if product already exist in cart
-   if (cart.some((item) => item.id === id)) {
-      // alert("Product already in cart");
-      changeNumberOfUnits("plus", id);
-   } else {
-      const item = products.find((product) => product.id === id);
-      cart.push({
-         ...item,
-         numberOfUnits: 1,
-      });
-      $.toast({
-         heading: "Success",
-         text: `${item.name} has been added to your cart!`,
-         showHideTransition: "fade",
-         icon: "success",
-         position: "top-left",
-         loaderBg: "#FFB566",
-      });
-   }
+  // check if product already exist in cart
+  if (cart.some((item) => item.id === id)) {
+    // alert("Product already in cart");
+    changeNumberOfUnits("plus", id);
+  } else {
+    const item = products.find((product) => product.id === id);
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
+    $.toast({
+      heading: "Success",
+      text: `${item.name} has been added to your cart!`,
+      showHideTransition: "fade",
+      icon: "success",
+      position: "top-left",
+      loaderBg: "#FFB566",
+    });
+  }
 
-   updateCart();
+  updateCart();
 }
 
 // ADD TO CART (PRODUCTS SECTION)
 function addToCart2(id) {
-   // check if product already exist in cart
-   if (cart.some((item) => item.id === id)) {
-      // alert("Product already in cart");
-      changeNumberOfUnits("plus", id);
-   } else {
-      const item = products2.find((product) => product.id === id);
-      cart.push({
-         ...item,
-         numberOfUnits: 1,
-      });
-      $.toast({
-         heading: "Success",
-         text: `${item.name} has been added to your cart!`,
-         showHideTransition: "fade",
-         icon: "success",
-         position: "top-left",
-         loaderBg: "#FFB566",
-      });
-   }
-   updateCart();
+  // check if product already exist in cart
+  if (cart.some((item) => item.id === id)) {
+    // alert("Product already in cart");
+    changeNumberOfUnits("plus", id);
+  } else {
+    const item = products2.find((product) => product.id === id);
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
+    $.toast({
+      heading: "Success",
+      text: `${item.name} has been added to your cart!`,
+      showHideTransition: "fade",
+      icon: "success",
+      position: "top-left",
+      loaderBg: "#FFB566",
+    });
+  }
+  updateCart();
 }
 
 // ADD TO CART (NEW ARRIVALS SECTION)
 function addToCart3(id) {
-   // check if product already exist in cart
-   if (cart.some((item) => item.id === id)) {
-      // alert("Product already in cart");
-      changeNumberOfUnits("plus", id);
-   } else {
-      const item = products3.find((product) => product.id === id);
-      cart.push({
-         ...item,
-         numberOfUnits: 1,
-      });
-      $.toast({
-         heading: "Success",
-         text: `${item.name} has been added to your cart!`,
-         showHideTransition: "fade",
-         icon: "success",
-         position: "top-left",
-         loaderBg: "#FFB566",
-      });
-   }
-   updateCart();
+  // check if product already exist in cart
+  if (cart.some((item) => item.id === id)) {
+    // alert("Product already in cart");
+    changeNumberOfUnits("plus", id);
+  } else {
+    const item = products3.find((product) => product.id === id);
+    cart.push({
+      ...item,
+      numberOfUnits: 1,
+    });
+    $.toast({
+      heading: "Success",
+      text: `${item.name} has been added to your cart!`,
+      showHideTransition: "fade",
+      icon: "success",
+      position: "top-left",
+      loaderBg: "#FFB566",
+    });
+  }
+  updateCart();
 }
 
 // update cart
 function updateCart() {
-   renderCartItems();
-   renderSubtotal();
+  renderCartItems();
+  renderSubtotal();
 
-   // add or remove checkout and clear button
-   if (cart.length > 0) {
-      checkoutBtn.style.display = "block"; // show checkout button
-      clearAllItemsBtn.style.display = "block"; // show clear cart button
-   } else {
-      checkoutBtn.style.display = "none"; // remove checkout button when cart is empty
-      clearAllItemsBtn.style.display = "none"; // hide clear cart button when cart is empty
-   }
+  // add or remove checkout and clear button
+  if (cart.length > 0) {
+    checkoutBtn.style.display = "block"; // show checkout button
+    clearAllItemsBtn.style.display = "block"; // show clear cart button
+  } else {
+    checkoutBtn.style.display = "none"; // remove checkout button when cart is empty
+    clearAllItemsBtn.style.display = "none"; // hide clear cart button when cart is empty
+  }
 
-   // save cart to local storage
-   localStorage.setItem("CART", JSON.stringify(cart));
+  // save cart to local storage
+  localStorage.setItem("CART", JSON.stringify(cart));
 }
 
 // calculate and render subtotal
 function renderSubtotal() {
-   let totalPrice = 0,
-      totalItems = 0;
-   cart.forEach((item) => {
-      totalPrice += item.price * item.numberOfUnits;
-      totalItems += item.numberOfUnits;
-   });
-   subItemsEl.innerHTML = `${totalItems} items`;
-   subtotalEl.innerHTML = `Your Total: $${totalPrice.toFixed()}`;
-   totalItemsInCartEl.innerHTML = totalItems;
+  let totalPrice = 0,
+    totalItems = 0;
+  cart.forEach((item) => {
+    totalPrice += item.price * item.numberOfUnits;
+    totalItems += item.numberOfUnits;
+  });
+  subItemsEl.innerHTML = `${totalItems} items`;
+  subtotalEl.innerHTML = `Your Total: $${totalPrice.toFixed()}`;
+  totalItemsInCartEl.innerHTML = totalItems;
 }
 
 // render cart items
 function renderCartItems() {
-   if (cart.length === 0) {
-      cartItemsEl.innerHTML = `
+  if (cart.length === 0) {
+    cartItemsEl.innerHTML = `
        <img src="./assets/img/empty.png" alt="Empty cart" style="display: block; margin: 0 auto; width: 200px; height: 200px;"/>
        <h3 style="text-align:center">Your cart is empty</h3>
      `;
-   } else {
-      cartItemsEl.innerHTML = ``; // clear cart element
-      cart.forEach((item) => {
-         cartItemsEl.innerHTML += `
+  } else {
+    cartItemsEl.innerHTML = ``; // clear cart element
+    cart.forEach((item) => {
+      cartItemsEl.innerHTML += `
         <article class="cart__card">
             <div class="cart__box">
                <img src="${item.imgSrc}" alt="" class="cart__img" />
@@ -259,40 +259,42 @@ function renderCartItems() {
             </div>
          </article>
     `;
-      });
-   }
+    });
+  }
 }
 
 // remove an item from cart
 function removeItemFromCart(id) {
-   const confirmation = confirm("Are you sure you want to remove this item from your cart?");
-   if (confirmation) {
-      cart = cart.filter((item) => item.id !== id);
-      updateCart();
-   }
+  const confirmation = confirm(
+    "Are you sure you want to remove this item from your cart?"
+  );
+  if (confirmation) {
+    cart = cart.filter((item) => item.id !== id);
+    updateCart();
+  }
 }
 
 // clear all items in the cart
 function clearCart() {
-   cart = [];
-   updateCart();
+  cart = [];
+  updateCart();
 }
 
 // change number of units for an item (increase and decrease)
 function changeNumberOfUnits(action, id) {
-   cart = cart.map((item) => {
-      let numberOfUnits = item.numberOfUnits;
-      if (item.id === id) {
-         if (action === "minus" && numberOfUnits > 1) {
-            numberOfUnits--;
-         } else if (action === "plus" && numberOfUnits < item.instock) {
-            numberOfUnits++;
-         }
+  cart = cart.map((item) => {
+    let numberOfUnits = item.numberOfUnits;
+    if (item.id === id) {
+      if (action === "minus" && numberOfUnits > 1) {
+        numberOfUnits--;
+      } else if (action === "plus" && numberOfUnits < item.instock) {
+        numberOfUnits++;
       }
-      return {
-         ...item,
-         numberOfUnits,
-      };
-   });
-   updateCart();
+    }
+    return {
+      ...item,
+      numberOfUnits,
+    };
+  });
+  updateCart();
 }
