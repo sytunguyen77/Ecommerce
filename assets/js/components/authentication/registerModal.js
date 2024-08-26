@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const confirmPasswordInput = document.getElementById(
     "registerConfirmPassword"
   );
+  const submitButton = form.querySelector("button[type='submit']");
 
   function openModal() {
     modal.style.display = "flex";
@@ -69,8 +70,21 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function validateName(input) {
-    if (input.value.trim() === "") {
+    const name = input.value.trim();
+    if (name === "") {
       showError(input, "Name is required");
+      return false;
+    } else if (name.length < 2) {
+      showError(input, "Name must be at least 2 characters long");
+      return false;
+    } else if (/[0-9]/.test(name)) {
+      showError(input, "Name cannot contain numbers");
+      return false;
+    } else if (!/^[a-zA-Z\s'-]+$/.test(name)) {
+      showError(
+        input,
+        "Name can only contain letters, spaces, hyphens, and apostrophes"
+      );
       return false;
     } else {
       clearError(input);
@@ -131,35 +145,60 @@ document.addEventListener("DOMContentLoaded", function () {
       validateConfirmPassword(passwordInput, confirmPasswordInput) && isValid;
 
     if (isValid) {
-      // Save user data to local storage
-      const userData = {
-        name: nameInput.value.trim(),
-        email: emailInput.value.trim(),
-        password: passwordInput.value, // In a real application, never store passwords in plain text
-      };
+      // Change button text to "Registering..."
+      const originalButtonText = submitButton.textContent;
+      submitButton.textContent = "Registering...";
+      submitButton.disabled = true;
 
-      // Get existing users or initialize an empty array
-      let users = JSON.parse(localStorage.getItem("users")) || [];
+      // Simulate an async operation (e.g., API call)
+      setTimeout(() => {
+        // Save user data to local storage
+        const userData = {
+          name: nameInput.value.trim(),
+          email: emailInput.value.trim(),
+          password: passwordInput.value, // In a real application, never store passwords in plain text
+        };
 
-      // Check if user already exists
-      const existingUser = users.find((user) => user.email === userData.email);
-      if (existingUser) {
-        alert("An account with this email already exists.");
-        return;
-      }
+        // Get existing users or initialize an empty array
+        let users = JSON.parse(localStorage.getItem("users")) || [];
 
-      // Add new user
-      users.push(userData);
+        // Check if user already exists
+        const existingUser = users.find(
+          (user) => user.email === userData.email
+        );
+        if (existingUser) {
+          showError(emailInput, "An account with this email already exists.");
+          submitButton.textContent = originalButtonText;
+          submitButton.disabled = false;
+          return;
+        }
 
-      // Save updated users array
-      localStorage.setItem("users", JSON.stringify(users));
+        // Add new user
+        users.push(userData);
 
-      console.log("Registration successful for email:", userData.email);
-      closeModal();
-      alert("Registration successful! You can now log in.");
+        // Save updated users array
+        localStorage.setItem("users", JSON.stringify(users));
 
-      // Clear the form
-      form.reset();
+        console.log("Registration successful for email:", userData.email);
+        closeModal();
+
+        // Show success toast
+        $.toast({
+          heading: "Success",
+          text: "Registration successful! You can now log in.",
+          showHideTransition: "slide",
+          icon: "success",
+          position: "top-right",
+          hideAfter: 3000,
+        });
+
+        // Clear the form
+        form.reset();
+
+        // Reset button text and enable it
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }, 1000); // Simulate a 1-second delay
     }
   });
 

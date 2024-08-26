@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const form = document.getElementById("loginForm");
   const emailInput = document.getElementById("email");
   const passwordInput = document.getElementById("password");
+  const submitButton = form.querySelector("button[type='submit']");
 
   function openModal() {
     modal.style.display = "flex";
@@ -97,30 +98,51 @@ document.addEventListener("DOMContentLoaded", function () {
     isValid = validatePassword(passwordInput) && isValid;
 
     if (isValid) {
+      // Change button text to "Signing in..."
+      const originalButtonText = submitButton.textContent;
+      submitButton.textContent = "Signing in...";
+      submitButton.disabled = true;
+
       // Get users from local storage
       const users = JSON.parse(localStorage.getItem("users")) || [];
 
       // Check if user exists and password matches
       const user = users.find((u) => u.email === emailInput.value.trim());
 
-      if (user && user.password === passwordInput.value) {
-        console.log("Login successful for email:", emailInput.value);
+      // Simulate an async operation (e.g., API call)
+      setTimeout(() => {
+        if (user && user.password === passwordInput.value) {
+          console.log("Login successful for email:", emailInput.value);
 
-        // Set the current user in local storage
-        localStorage.setItem("currentUser", JSON.stringify(user));
+          // Set the current user in local storage
+          localStorage.setItem("currentUser", JSON.stringify(user));
 
-        closeModal();
-        alert("Login successful!");
+          closeModal();
 
-        // Update UI to show logged-in state (you need to implement this function)
-        updateUIForLoggedInUser(user);
+          // Show success toast
+          $.toast({
+            heading: "Success",
+            text: "Login successful! Welcome back.",
+            showHideTransition: "slide",
+            icon: "success",
+            position: "top-right",
+            hideAfter: 3000,
+          });
 
-        // Clear the form
-        form.reset();
-      } else {
-        showError(emailInput, "Invalid email or password");
-        showError(passwordInput, "Invalid email or password");
-      }
+          // Update UI to show logged-in state
+          updateUIForLoggedInUser(user);
+
+          // Clear the form
+          form.reset();
+        } else {
+          showError(emailInput, "Invalid email or password");
+          showError(passwordInput, "Invalid email or password");
+        }
+
+        // Reset button text and enable it
+        submitButton.textContent = originalButtonText;
+        submitButton.disabled = false;
+      }, 1000); // Simulate a 1-second delay
     }
   });
 
@@ -134,8 +156,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Function to update UI for logged-in user
   function updateUIForLoggedInUser(user) {
-    // This is a placeholder function. Implement the UI changes you want here.
-    // For example:
     const userDropdown = document.querySelector(".user-dropdown");
     if (userDropdown) {
       userDropdown.innerHTML = `
@@ -149,8 +169,21 @@ document.addEventListener("DOMContentLoaded", function () {
         logoutLink.addEventListener("click", function (event) {
           event.preventDefault();
           localStorage.removeItem("currentUser");
-          alert("You have been logged out.");
-          location.reload(); // Reload the page to reset the UI
+
+          // Show logout toast
+          $.toast({
+            heading: "Logged Out",
+            text: "You have been successfully logged out.",
+            showHideTransition: "slide",
+            icon: "info",
+            position: "top-right",
+            hideAfter: 3000,
+          });
+
+          // Delay the page reload
+          setTimeout(() => {
+            location.reload();
+          }, 3000); // Wait for 3 seconds before reloading
         });
       }
     }

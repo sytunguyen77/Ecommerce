@@ -36,7 +36,6 @@ function renderProducts() {
          <div class="featured__btn-container">
             <button class="button featured__button" onclick="addToWishList(${product.id})">
                <i class="fa-regular fa-heart"></i>
-               <div class="spinner"></div>
             </button>
 
             <button class="button featured__button" onclick="addToCart(${product.id}, this)" data-original-text="ADD TO CART">
@@ -90,7 +89,6 @@ function renderProducts() {
             <div class=new__btn-container>
               <button class="new__button" onclick="addToWishList3(${product.id})">
                   <i class="fas fa-heart"></i>
-                  <div class="spinner"></div>
               </button>
 
               <button class="new__button" onclick="addToCart3(${product.id}, this)" data-original-text="ADD TO CART">
@@ -99,7 +97,6 @@ function renderProducts() {
               
               <button class="new__button" onclick="displayModal3(${product.id})">
                   <i class="fa-regular fa-eye"></i>
-                    <div class="spinner"></div>
               </button>
             </div>
          </article>`;
@@ -152,25 +149,33 @@ function addToCart(id, button) {
 
 // ADD TO CART (PRODUCTS SECTION)
 function addToCart2(id) {
-  // check if product already exist in cart
-  if (cart.some((item) => item.id === id)) {
-    changeNumberOfUnits("plus", id);
-  } else {
-    const item = products2.find((product) => product.id === id);
-    cart.push({
-      ...item,
-      numberOfUnits: 1,
-    });
-    $.toast({
-      heading: "Success",
-      text: `${item.name} has been added to your cart!`,
-      showHideTransition: "fade",
-      icon: "success",
-      position: "top-left",
-      loaderBg: "#FFB566",
-    });
-  }
-  updateCart();
+  const button = event.target.closest(".products__button");
+  const icon = button.querySelector("i");
+  const originalClasses = animateIcon(icon, true);
+  button.disabled = true;
+
+  setTimeout(() => {
+    if (cart.some((item) => item.id === id)) {
+      changeNumberOfUnits("plus", id);
+    } else {
+      const item = products2.find((product) => product.id === id);
+      cart.push({
+        ...item,
+        numberOfUnits: 1,
+      });
+      $.toast({
+        heading: "Success",
+        text: `${item.name} has been added to your cart!`,
+        showHideTransition: "fade",
+        icon: "success",
+        position: "top-left",
+        loaderBg: "#FFB566",
+      });
+    }
+    updateCart();
+    restoreIcon(icon, originalClasses);
+    button.disabled = false;
+  }, 1000);
 }
 
 // ADD TO CART (NEW ARRIVALS SECTION)

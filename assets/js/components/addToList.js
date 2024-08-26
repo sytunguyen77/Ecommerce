@@ -12,11 +12,43 @@ const subWishListEl = document.querySelector(".wishlist__item");
 let wishlist = JSON.parse(localStorage.getItem("WISHLIST")) || [];
 updateWishList();
 
+// Reusable function to animate icon
+function animateIcon(icon, toSpin) {
+  const originalClasses = [...icon.classList];
+
+  icon.style.transition = "transform 0.3s, opacity 0.3s";
+  icon.style.transform = "scale(0)";
+  icon.style.opacity = "0";
+
+  setTimeout(() => {
+    icon.classList.remove(...icon.classList);
+    icon.classList.add("fas", "fa-circle-notch", "fa-spin");
+    icon.style.transform = "scale(1)";
+    icon.style.opacity = "1";
+  }, 150);
+
+  return originalClasses;
+}
+
+// Reusable function to restore icon
+function restoreIcon(icon, originalClasses) {
+  icon.style.transform = "scale(0)";
+  icon.style.opacity = "0";
+
+  setTimeout(() => {
+    icon.classList.remove(...icon.classList);
+    icon.classList.add(...originalClasses);
+    icon.style.transform = "scale(1)";
+    icon.style.opacity = "1";
+  }, 150);
+}
+
 // ADD TO WISHLIST (FEATURED SECTION)
-function addToWishList(id, button) {
-  if (button) {
-    button.classList.add("loading");
-  }
+function addToWishList(id) {
+  const button = event.target.closest(".featured__button");
+  const icon = button.querySelector("i");
+  const originalClasses = animateIcon(icon, true);
+  button.disabled = true;
 
   setTimeout(() => {
     if (wishlist.some((item) => item.id === id)) {
@@ -42,16 +74,19 @@ function addToWishList(id, button) {
       });
     }
     updateWishList();
-
-    if (button) {
-      button.classList.remove("loading");
-    }
-  }, 1000); // Simulating a 1-second delay
+    restoreIcon(icon, originalClasses);
+    button.disabled = false;
+  }, 1000);
 }
 
 // ADD TO WISHLIST (PRODUCTS SECTION)
-function addToWishList2(id, button) {
-  handleWishlistLoading(id, button, (id) => {
+function addToWishList2(id) {
+  const button = event.target.closest(".products-wishlist__button");
+  const icon = button.querySelector("i");
+  const originalClasses = animateIcon(icon, true);
+  button.disabled = true;
+
+  setTimeout(() => {
     if (wishlist.some((item) => item.id === id)) {
       $.toast({
         heading: "Information",
@@ -75,12 +110,19 @@ function addToWishList2(id, button) {
       });
     }
     updateWishList();
-  });
+    restoreIcon(icon, originalClasses);
+    button.disabled = false;
+  }, 1000);
 }
 
 // ADD TO WISHLIST (NEW ARRIVALS SECTION)
-function addToWishList3(id, button) {
-  handleWishlistLoading(id, button, (id) => {
+function addToWishList3(id) {
+  const button = event.target.closest(".new__button");
+  const icon = button.querySelector("i");
+  const originalClasses = animateIcon(icon, true);
+  button.disabled = true;
+
+  setTimeout(() => {
     if (wishlist.some((item) => item.id === id)) {
       $.toast({
         heading: "Information",
@@ -104,7 +146,9 @@ function addToWishList3(id, button) {
       });
     }
     updateWishList();
-  });
+    restoreIcon(icon, originalClasses);
+    button.disabled = false;
+  }, 1000);
 }
 
 // update wishlist

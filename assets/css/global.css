@@ -176,18 +176,3 @@ button {
   height: 1px;
   background-color: var(--first-color);
 }
-
-/* Icon Animation Styles */
-.icon-animate {
-  transition: transform 0.3s, opacity 0.3s !important;
-}
-
-.icon-animate.icon-shrink {
-  transform: scale(0);
-  opacity: 0;
-}
-
-.icon-animate.icon-grow {
-  transform: scale(1);
-  opacity: 1;
-}
