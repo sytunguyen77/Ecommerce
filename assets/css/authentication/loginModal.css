@@ -104,6 +104,24 @@
   background-color: var(--button-color-alt);
 }
 
+.login-modal__links {
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.login-modal__link {
+  display: block;
+  color: var(--first-color);
+  font-size: var(--smaller-font-size);
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: color 0.3s ease;
+}
+
+.login-modal__link:hover {
+  color: var(--button-color-alt);
+}
+
 @media screen and (max-width: 768px) {
   .login-modal__content {
     width: 95%;
@@ -119,4 +137,19 @@
   .login-modal__submit-btn {
     font-size: var(--small-font-size);
   }
+
+  .login-modal__link {
+    font-size: var(--tiny-font-size);
+  }
+}
+
+.login-modal__input--error {
+  border-color: #ff3b30;
+}
+
+.login-modal__error {
+  color: #ff3b30;
+  font-size: var(--smaller-font-size);
+  margin-top: 0.25rem;
+  transition: all 0.3s ease;
 }

@@ -2,76 +2,178 @@ document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("registerModal");
   const registerLinks = document.querySelectorAll(".user-dropdown__item");
   const span = modal.querySelector(".auth-modal__close");
+  const form = document.getElementById("registerForm");
+  const nameInput = document.getElementById("registerName");
+  const emailInput = document.getElementById("registerEmail");
+  const passwordInput = document.getElementById("registerPassword");
+  const confirmPasswordInput = document.getElementById(
+    "registerConfirmPassword"
+  );
 
-  console.log("Register links found:", registerLinks.length); // Debugging
-
-  // Function to open the modal
   function openModal() {
-    console.log("Opening modal"); // Debugging
     modal.style.display = "flex";
-    document.body.style.overflow = "hidden"; // Prevent scrolling when modal is open
+    document.body.style.overflow = "hidden";
     setTimeout(() => {
       modal.classList.add("show");
     }, 10);
   }
 
-  // Function to close the modal with animation
   function closeModal() {
-    console.log("Closing modal"); // Debugging
     modal.classList.remove("show");
     setTimeout(() => {
       modal.style.display = "none";
-      document.body.style.overflow = "auto"; // Re-enable scrolling
-    }, 300); // Wait for the animation to complete before hiding the modal
+      document.body.style.overflow = "auto";
+    }, 300);
   }
 
-  // When the user clicks on the "Register" link, open the modal
   registerLinks.forEach((link, index) => {
-    console.log("Link text:", link.textContent.trim()); // Debugging
     if (index === 1 || link.textContent.trim().toLowerCase() === "register") {
-      console.log("Adding click event listener to register link"); // Debugging
       link.addEventListener("click", function (event) {
-        console.log("Register link clicked"); // Debugging
-        event.preventDefault(); // Prevent the default link behavior
+        event.preventDefault();
         openModal();
       });
     }
   });
 
-  // When the user clicks on <span> (x), close the modal
   span.onclick = closeModal;
 
-  // When the user clicks anywhere outside of the modal, close it
   window.onclick = function (event) {
     if (event.target == modal) {
       closeModal();
     }
   };
 
-  // Handle form submission
-  document
-    .getElementById("registerForm")
-    .addEventListener("submit", function (event) {
-      event.preventDefault();
-      const name = document.getElementById("registerName").value;
-      const email = document.getElementById("registerEmail").value;
-      const password = document.getElementById("registerPassword").value;
-      const confirmPassword = document.getElementById(
-        "registerConfirmPassword"
-      ).value;
+  function showError(input, message) {
+    const formGroup = input.closest(".auth-modal__form-group");
+    let errorElement = formGroup.querySelector(".auth-modal__error");
 
-      // Here you would typically validate the input and send the registration data to your server
-      if (password !== confirmPassword) {
-        alert("Passwords do not match!");
+    if (!errorElement) {
+      errorElement = document.createElement("div");
+      errorElement.className = "auth-modal__error";
+      formGroup.appendChild(errorElement);
+    }
+
+    errorElement.textContent = message;
+    input.classList.add("auth-modal__input--error");
+  }
+
+  function clearError(input) {
+    const formGroup = input.closest(".auth-modal__form-group");
+    const errorElement = formGroup.querySelector(".auth-modal__error");
+
+    if (errorElement) {
+      errorElement.textContent = "";
+    }
+
+    input.classList.remove("auth-modal__input--error");
+  }
+
+  function validateName(input) {
+    if (input.value.trim() === "") {
+      showError(input, "Name is required");
+      return false;
+    } else {
+      clearError(input);
+      return true;
+    }
+  }
+
+  function validateEmail(input) {
+    const email = input.value.trim();
+    if (email === "") {
+      showError(input, "Email is required");
+      return false;
+    } else if (!email.includes("@")) {
+      showError(input, "Please enter a valid email address");
+      return false;
+    } else {
+      clearError(input);
+      return true;
+    }
+  }
+
+  function validatePassword(input) {
+    const password = input.value.trim();
+    if (password === "") {
+      showError(input, "Password is required");
+      return false;
+    } else if (password.length < 6) {
+      showError(input, "Password must be at least 6 characters long");
+      return false;
+    } else {
+      clearError(input);
+      return true;
+    }
+  }
+
+  function validateConfirmPassword(passwordInput, confirmPasswordInput) {
+    if (confirmPasswordInput.value.trim() === "") {
+      showError(confirmPasswordInput, "Please confirm your password");
+      return false;
+    } else if (passwordInput.value !== confirmPasswordInput.value) {
+      showError(confirmPasswordInput, "Passwords do not match");
+      return false;
+    } else {
+      clearError(confirmPasswordInput);
+      return true;
+    }
+  }
+
+  form.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    let isValid = true;
+
+    isValid = validateName(nameInput) && isValid;
+    isValid = validateEmail(emailInput) && isValid;
+    isValid = validatePassword(passwordInput) && isValid;
+    isValid =
+      validateConfirmPassword(passwordInput, confirmPasswordInput) && isValid;
+
+    if (isValid) {
+      // Save user data to local storage
+      const userData = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        password: passwordInput.value, // In a real application, never store passwords in plain text
+      };
+
+      // Get existing users or initialize an empty array
+      let users = JSON.parse(localStorage.getItem("users")) || [];
+
+      // Check if user already exists
+      const existingUser = users.find((user) => user.email === userData.email);
+      if (existingUser) {
+        alert("An account with this email already exists.");
         return;
       }
 
-      console.log("Registration attempt with email:", email);
+      // Add new user
+      users.push(userData);
 
-      // For demo purposes, we'll just close the modal and show a success message
+      // Save updated users array
+      localStorage.setItem("users", JSON.stringify(users));
+
+      console.log("Registration successful for email:", userData.email);
       closeModal();
-      alert("Registration successful!");
-    });
+      alert("Registration successful! You can now log in.");
+
+      // Clear the form
+      form.reset();
+    }
+  });
+
+  nameInput.addEventListener("input", () => validateName(nameInput));
+  emailInput.addEventListener("input", () => validateEmail(emailInput));
+  passwordInput.addEventListener("input", () =>
+    validatePassword(passwordInput)
+  );
+  confirmPasswordInput.addEventListener("input", () =>
+    validateConfirmPassword(passwordInput, confirmPasswordInput)
+  );
+
+  // Prevent default browser validation
+  form.setAttribute("novalidate", "");
 });
 
 // Add a global click event listener to check if the register link is clickable
