@@ -501,12 +501,12 @@
    </a>
 
    <!--=============== AUTHENTICATION MODAL ===============-->
-   <div id="authModalsWrapper">
-      <!-- LOGIN MODAL -->
-      <div id="loginModal" class="auth-modal">
-         <div class="auth-modal__content">
-            <span class="auth-modal__close">&times;</span>
-            <h2 class="auth-modal__title">Login</h2>
+   <!-- LOGIN MODAL -->
+   <div id="loginModal" class="auth-modal">
+      <div class="auth-modal__content">
+         <span class="auth-modal__close">&times;</span>
+         <div class="auth-modal__form-wrapper auth-modal__login">
+            <h2 class=" auth-modal__title">Login</h2>
             <form id="loginForm" class="auth-modal__form">
                <div class="auth-modal__form-group">
                   <label for="email" class="auth-modal__label">Email:</label>
@@ -527,11 +527,13 @@
             </div>
          </div>
       </div>
+   </div>
 
-      <!-- REGISTER MODAL -->
-      <div id="registerModal" class="auth-modal">
-         <div class="auth-modal__content">
-            <span class="auth-modal__close">&times;</span>
+   <!-- REGISTER MODAL -->
+   <div id="registerModal" class="auth-modal">
+      <div class="auth-modal__content">
+         <span class="auth-modal__close">&times;</span>
+         <div class="auth-modal__form-wrapper auth-modal__register">
             <h2 class="auth-modal__title">Register</h2>
             <form id="registerForm" class="auth-modal__form">
                <div class="auth-modal__form-group">
