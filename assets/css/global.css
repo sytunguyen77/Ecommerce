@@ -6,7 +6,7 @@
   --header-height: 3.5rem;
 
   /*========== Colors ==========*/
-  --first-color: rgb(255, 181, 102);
+  --first-color: rgb(204, 131, 53);
   --button-color: rgb(61, 61, 61);
   --button-color-alt: rgb(71, 71, 71);
   --title-color: rgb(242, 242, 242);
@@ -175,4 +175,43 @@ button {
   width: 67px;
   height: 1px;
   background-color: var(--first-color);
+}
+
+/* user dropdown */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: var(--z-fixed);
+}
+
+.user-dropdown__item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-dropdown__item:hover {
+  background-color: var(--first-color);
+  color: var(--title-color);
+}
+
+.show-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.show-dropdown {
+  display: block;
 }

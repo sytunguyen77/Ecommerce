@@ -49,7 +49,6 @@
 .auth-modal__close:hover,
 .auth-modal__close:focus {
   color: var(--first-color);
-  text-decoration: none;
 }
 
 .auth-modal__title {
@@ -86,6 +85,16 @@
   border-color: var(--first-color);
 }
 
+.auth-modal__input--error {
+  border-color: #ff3b30;
+}
+
+.auth-modal__error {
+  color: #ff3b30;
+  font-size: var(--smaller-font-size);
+  margin-top: 0.25rem;
+}
+
 .auth-modal__submit-btn {
   width: 100%;
   padding: 1rem;
@@ -108,17 +117,40 @@
   text-align: center;
 }
 
+.auth-modal__link-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.auth-modal__text {
+  color: var(--text-color);
+  font-size: var(--smaller-font-size);
+}
+
 .auth-modal__link {
-  display: block;
   color: var(--first-color);
   font-size: var(--smaller-font-size);
   text-decoration: none;
-  margin-top: 0.5rem;
-  transition: color 0.3s ease;
+  position: relative;
 }
 
-.auth-modal__link:hover {
-  color: var(--button-color-alt);
+.auth-modal__link::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--first-color);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.auth-modal__link:hover::after {
+  transform: scaleX(1);
 }
 
 @media screen and (max-width: 768px) {
@@ -137,18 +169,47 @@
     font-size: var(--small-font-size);
   }
 
-  .auth-modal__link {
+  .auth-modal__link,
+  .auth-modal__text {
     font-size: var(--tiny-font-size);
   }
 }
 
-.auth-modal__input--error {
-  border-color: #ff3b30;
+/* user dropdown */
+.user-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  background-color: var(--container-color);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  padding: 0.5rem 0;
+  min-width: 120px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+  z-index: var(--z-fixed);
 }
 
-.auth-modal__error {
-  color: #ff3b30;
-  font-size: var(--smaller-font-size);
-  margin-top: 0.25rem;
-  transition: all 0.3s ease;
+.user-dropdown__item {
+  display: block;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.user-dropdown__item:hover {
+  background-color: var(--first-color);
+  color: var(--title-color);
+}
+
+.show-dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.show-dropdown {
+  display: block;
 }

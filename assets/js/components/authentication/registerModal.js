@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const modal = document.getElementById("registerModal");
-  const registerLinks = document.querySelectorAll(".user-dropdown__item");
+  const registerDropDown = document.querySelectorAll(".user-dropdown__item");
   const span = modal.querySelector(".auth-modal__close");
   const form = document.getElementById("registerForm");
   const nameInput = document.getElementById("registerName");
@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 300);
   }
 
-  registerLinks.forEach((link, index) => {
+  registerDropDown.forEach((link, index) => {
     if (index === 1 || link.textContent.trim().toLowerCase() === "register") {
       link.addEventListener("click", function (event) {
         event.preventDefault();
