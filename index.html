@@ -36,6 +36,7 @@
    <link rel="stylesheet" href="assets/css/magnify.css" />
    <link rel="stylesheet" href="assets/css/authentication/loginModal.css" />
    <link rel="stylesheet" href="assets/css/authentication/registerModal.css" />
+   <link rel="stylesheet" href="assets/css/authentication/authModal.css" />
 
    <title>Ecommerce - Sy</title>
 </head>
@@ -78,10 +79,10 @@
 
             <div class="nav__shop" id="login-shop">
                <i class="bx bx-user"></i>
-               <div class="user-dropdown">
+               <!-- <div class="user-dropdown">
                   <a href="#" class="user-dropdown__item">Sign In</a>
                   <a href="#" class="user-dropdown__item">Register</a>
-               </div>
+               </div> -->
             </div>
 
             <div class="nav__shop" id="wishlist-shop">
@@ -500,57 +501,73 @@
       <i class="bx bx-up-arrow-alt scrollup__icon"></i>
    </a>
 
-   <!-- LOGIN MODAL-->
-   <div id="loginModal" class="login-modal">
-      <div class="login-modal__content">
-         <span class="login-modal__close">&times;</span>
-         <h2 class="login-modal__title">Login</h2>
-         <form id="loginForm" class="login-modal__form">
-            <div class="login-modal__form-group">
-               <label for="email" class="login-modal__label">Email:</label>
-               <input type="email" id="email" name="email" required class="login-modal__input">
-            </div>
-            <div class="login-modal__form-group">
-               <label for="password" class="login-modal__label">Password:</label>
-               <input type="password" id="password" name="password" required class="login-modal__input">
-            </div>
-            <button type="submit" class="login-modal__submit-btn">Sign In</button>
-         </form>
-         <div class="login-modal__links">
-            <a href="#" id="forgotPassword" class="login-modal__link">Forgot Your Password?</a>
-            <a href="#" id="createAccount" class="login-modal__link">Don't have an account? Create one</a>
-         </div>
-      </div>
-   </div>
 
-   <!-- REGISTER MODAL-->
-   <div id="registerModal" class="auth-modal">
-      <div class="auth-modal__content">
-         <span class="auth-modal__close">&times;</span>
-         <h2 class="auth-modal__title">Register</h2>
-         <form id="registerForm" class="auth-modal__form">
-            <div class="auth-modal__form-group">
-               <label for="registerName" class="auth-modal__label">Name:</label>
-               <input type="text" id="registerName" name="name" required class="auth-modal__input">
+   <!--=============== AUTHENTICATION ===============-->
+   <div class="authentication">
+      <span class="authentication__icon-close">
+         <i class="fas fa-times"></i>
+      </span>
+
+      <div class="authentication__form-box authentication__form-box--login">
+         <h2 class="authentication__title">Login</h2>
+         <form action="#">
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-envelope"></i>
+               </span>
+               <input type="email" class="authentication__input" required>
+               <label class="authentication__input-label">Email</label>
             </div>
-            <div class="auth-modal__form-group">
-               <label for="registerEmail" class="auth-modal__label">Email:</label>
-               <input type="email" id="registerEmail" name="email" required class="auth-modal__input">
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-lock"></i>
+               </span>
+               <input type="password" class="authentication__input" required>
+               <label class="authentication__input-label">Password</label>
             </div>
-            <div class="auth-modal__form-group">
-               <label for="registerPassword" class="auth-modal__label">Password:</label>
-               <input type="password" id="registerPassword" name="password" required class="auth-modal__input">
+            <div class="authentication__remember-forgot">
+               <label><input type="checkbox"> Remember me</label>
+               <a href="#" class="authentication__forgot-link">Forgot Password?</a>
             </div>
-            <div class="auth-modal__form-group">
-               <label for="registerConfirmPassword" class="auth-modal__label">Confirm Password:</label>
-               <input type="password" id="registerConfirmPassword" name="confirmPassword" required
-                  class="auth-modal__input">
+            <button type="submit" class="authentication__submit-btn">Login</button>
+            <div class="authentication__switch">
+               <p>Don't have an account? <a href="#" class="authentication__switch-link register-link">Register</a></p>
             </div>
-            <button type="submit" class="auth-modal__submit-btn">Register</button>
          </form>
-         <div class="auth-modal__links">
-            <a href="#" id="signInLink" class="auth-modal__link">Already have an account? Sign In </a>
-         </div>
+      </div>
+
+      <div class="authentication__form-box authentication__form-box--register">
+         <h2 class="authentication__title">Registration</h2>
+         <form action="#">
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-user"></i>
+               </span>
+               <input type="text" class="authentication__input" required>
+               <label class="authentication__input-label">Username</label>
+            </div>
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-envelope"></i>
+               </span>
+               <input type="email" class="authentication__input" required>
+               <label class="authentication__input-label">Email</label>
+            </div>
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-lock"></i>
+               </span>
+               <input type="password" class="authentication__input" required>
+               <label class="authentication__input-label">Password</label>
+            </div>
+            <div class="authentication__remember-forgot">
+               <label><input type="checkbox"> I agree to the terms & conditions</label>
+            </div>
+            <button type="submit" class="authentication__submit-btn">Register</button>
+            <div class="authentication__switch">
+               <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
+            </div>
+         </form>
       </div>
    </div>
 
@@ -573,6 +590,7 @@
    <script src="assets/js/components/productModal.js"></script>
    <script src="assets/js/components/authentication/loginModal.js"></script>
    <script src="assets/js/components/authentication/registerModal.js"></script>
+   <script src="assets/js/components/authentication/authModal.js"></script>
    <script src="assets/js/utils/countDown.js"></script>
    <script src="assets/js/vendors/stripe.js"></script>
    <script src="assets/js/vendors/tawkto.js"></script>
