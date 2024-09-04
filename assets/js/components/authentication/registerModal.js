@@ -1,113 +1,122 @@
-document.addEventListener("DOMContentLoaded", function () {
-  const authentication = document.querySelector(".authentication");
-  const loginLink = document.querySelector(".login-link");
-  const registerLink = document.querySelector(".register-link");
-  const loginShop = document.querySelector("#login-shop");
-  const iconClose = document.querySelector(".authentication__icon-close");
-  const registerForm = document.querySelector(
-    ".authentication__form-box--register form"
+// Get the registration form and submit button
+const registrationForm = document.querySelector(
+  ".authentication__form-box--register form"
+);
+const submitBtn = registrationForm.querySelector(".authentication__submit-btn");
+
+// Function to validate the form
+function validateForm(event) {
+  event.preventDefault();
+  let isValid = true;
+
+  // Get all input fields
+  const inputFields = registrationForm.querySelectorAll(
+    ".authentication__input"
   );
-  const loginForm = document.querySelector(
-    ".authentication__form-box--login form"
-  );
 
-  registerLink.addEventListener("click", () => {
-    authentication.classList.add("authentication--active");
-  });
+  inputFields.forEach((field) => {
+    const inputBox = field.closest(".authentication__input-box");
+    let errorMessage = inputBox.querySelector(".error-message");
 
-  loginLink.addEventListener("click", () => {
-    authentication.classList.remove("authentication--active");
-  });
+    // Check if the field is empty
+    if (field.value.trim() === "") {
+      isValid = false;
+      inputBox.classList.add("error");
 
-  loginShop.addEventListener("click", () => {
-    authentication.classList.add("authentication--active-popup");
-    document.body.style.overflow = "hidden";
-  });
-
-  iconClose.addEventListener("click", () => {
-    authentication.classList.remove("authentication--active-popup");
-    authentication.classList.remove("authentication--active");
-    document.body.style.overflow = "";
-    clearAllErrors();
-  });
-
-  function validateForm(e) {
-    e.preventDefault();
-    let isValid = true;
-
-    this.querySelectorAll(".authentication__input").forEach((input) => {
-      if (input.value.trim() === "") {
-        let errorMessage = getErrorMessage(input);
-        showError(input, errorMessage);
-        isValid = false;
-      } else {
-        clearError(input);
+      // Create specific error messages based on the field name
+      let errorText;
+      switch (field.name) {
+        case "fullName":
+          errorText = "Full name is required";
+          break;
+        case "email":
+          errorText = "Email address is required";
+          break;
+        case "password":
+          errorText = "Password is required";
+          break;
+        case "confirmPassword":
+          errorText = "Password confirmation is required";
+          break;
+        default:
+          errorText = "This field is required";
       }
-    });
 
-    if (isValid) {
-      console.log("Form is valid, proceed with submission");
-      // Add your form submission logic here
+      if (!errorMessage) {
+        errorMessage = document.createElement("span");
+        errorMessage.className = "error-message";
+        inputBox.appendChild(errorMessage);
+      }
+      errorMessage.textContent = errorText;
+      errorMessage.style.display = "block";
+    } else {
+      inputBox.classList.remove("error");
+      if (errorMessage) {
+        errorMessage.style.display = "none";
+      }
     }
-  }
+  });
 
-  function getErrorMessage(input) {
-    const inputBox = input.closest(".authentication__input-box");
-    const label = inputBox.querySelector(".authentication__input-label");
-    let fieldName = label
-      ? label.textContent.trim()
-      : input.placeholder || "Field";
-
-    fieldName = fieldName.replace(/:$/, "");
-
-    return `${fieldName} is required`;
-  }
-
-  function showError(input, message) {
-    const inputBox = input.closest(".authentication__input-box");
-    inputBox.classList.add("error");
-    let error = inputBox.querySelector(".error-message");
-
-    if (!error) {
-      error = document.createElement("div");
-      error.className = "error-message";
-      inputBox.appendChild(error);
+  // Check if passwords match
+  const password = registrationForm.querySelector('input[name="password"]');
+  const confirmPassword = registrationForm.querySelector(
+    'input[name="confirmPassword"]'
+  );
+  if (
+    password.value !== confirmPassword.value &&
+    password.value !== "" &&
+    confirmPassword.value !== ""
+  ) {
+    isValid = false;
+    const confirmPasswordBox = confirmPassword.closest(
+      ".authentication__input-box"
+    );
+    let errorMessage = confirmPasswordBox.querySelector(".error-message");
+    if (!errorMessage) {
+      errorMessage = document.createElement("span");
+      errorMessage.className = "error-message";
+      confirmPasswordBox.appendChild(errorMessage);
     }
-
-    error.textContent = message;
-    // Force a reflow to ensure the transition works
-    error.offsetHeight;
-    error.style.opacity = "1";
-    error.style.maxHeight = "50px";
+    errorMessage.textContent = "Passwords do not match";
+    errorMessage.style.display = "block";
+    confirmPasswordBox.classList.add("error");
   }
 
-  function clearError(input) {
-    const inputBox = input.closest(".authentication__input-box");
+  // Check if terms and conditions are accepted
+  const termsCheckbox = registrationForm.querySelector(
+    'input[type="checkbox"]'
+  );
+  if (!termsCheckbox.checked) {
+    isValid = false;
+    const termsBox = termsCheckbox.closest(".authentication__remember-forgot");
+    let errorMessage = termsBox.querySelector(".error-message");
+    if (!errorMessage) {
+      errorMessage = document.createElement("span");
+      errorMessage.className = "error-message";
+      termsBox.appendChild(errorMessage);
+    }
+    errorMessage.textContent = "You must agree to the terms and conditions";
+    errorMessage.style.display = "block";
+  }
+
+  // If the form is valid, you can submit it here
+  if (isValid) {
+    console.log("Form is valid and can be submitted");
+    // Add your form submission logic here
+  }
+}
+
+// Add event listener to the submit button
+submitBtn.addEventListener("click", validateForm);
+
+// Add event listeners to input fields to clear errors on input
+registrationForm.querySelectorAll(".authentication__input").forEach((input) => {
+  input.addEventListener("input", function () {
+    const inputBox = this.closest(".authentication__input-box");
     inputBox.classList.remove("error");
-    const error = inputBox.querySelector(".error-message");
-    if (error) {
-      error.style.opacity = "0";
-      error.style.maxHeight = "0";
-      setTimeout(() => error.remove(), 300); // Remove after transition
+    const errorMessage = inputBox.querySelector(".error-message");
+    if (errorMessage) {
+      errorMessage.style.display = "none";
     }
-  }
-
-  function clearAllErrors() {
-    document
-      .querySelectorAll(".authentication__input-box")
-      .forEach((inputBox) => {
-        inputBox.classList.remove("error");
-        const error = inputBox.querySelector(".error-message");
-        if (error) {
-          error.remove();
-        }
-      });
-  }
-
-  registerForm.addEventListener("submit", validateForm);
-  loginForm.addEventListener("submit", validateForm);
-
-  document.querySelectorAll(".authentication__input").forEach((input) => {
-    input.addEventListener("input", () => clearError(input));
   });
 });
