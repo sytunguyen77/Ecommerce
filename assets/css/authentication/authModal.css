@@ -35,6 +35,7 @@
   padding: 40px;
 }
 
+/* authentication login */
 .authentication__form-box--login {
   transition: transform 0.18s ease;
   transform: translateX(0);
@@ -45,6 +46,7 @@
   transform: translateX(-400px);
 }
 
+/* authentication register */
 .authentication__form-box--register {
   position: absolute;
   transition: none;
@@ -54,6 +56,23 @@
 .authentication--active .authentication__form-box--register {
   transition: transform 0.18s ease;
   transform: translateX(0);
+}
+
+/* authentication forgot password */
+.authentication__form-box--forgot-password {
+  position: absolute;
+  transition: none;
+  transform: translateX(400px);
+}
+
+.authentication--forgot-password .authentication__form-box--forgot-password {
+  transition: transform 0.18s ease;
+  transform: translateX(0);
+}
+
+.authentication--forgot-password .authentication__form-box--login {
+  transition: none;
+  transform: translateX(-400px);
 }
 
 .authentication__icon-close {

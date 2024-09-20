@@ -507,7 +507,7 @@
       <span class="authentication__icon-close">
          <i class="fas fa-times"></i>
       </span>
-
+      <!-- Login -->
       <div class="authentication__form-box authentication__form-box--login">
          <h2 class="authentication__title">Login</h2>
          <form action="#">
@@ -535,7 +535,7 @@
             </div>
          </form>
       </div>
-
+      <!-- Register -->
       <div class="authentication__form-box authentication__form-box--register">
          <h2 class="authentication__title">Registration</h2>
          <form action="#">
@@ -570,6 +570,23 @@
             <button type="submit" class="authentication__submit-btn">Register</button>
             <div class="authentication__switch">
                <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
+            </div>
+         </form>
+      </div>
+      <!-- Forgot password -->
+      <div class="authentication__form-box authentication__form-box--forgot-password">
+         <h2 class="authentication__title">Forgot Password</h2>
+         <form action="#">
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-envelope"></i>
+               </span>
+               <input type="email" class="authentication__input" required>
+               <label class="authentication__input-label">Email</label>
+            </div>
+            <button type="submit" class="authentication__submit-btn">Reset Password</button>
+            <div class="authentication__switch">
+               <p>Remember your password? <a href="#" class="authentication__switch-link login-link">Login</a></p>
             </div>
          </form>
       </div>
