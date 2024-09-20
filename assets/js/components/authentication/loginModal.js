@@ -89,23 +89,54 @@ function loginUser() {
 function updateUIForLoggedInUser(user) {
   const loginShop = document.querySelector("#login-shop");
   loginShop.innerHTML = `
-    <i class="bx bx-user"></i>
+    <i class="bx bxs-user"></i>
     <div class="user-dropdown">
-      <span>${user.fullName}</span>
-      <a href="#" class="user-dropdown__item" onclick="logoutUser()">Logout</a>
+      <a href="#" class="user-dropdown__item">Welcome, ${user.fullName}</a>
+      <a href="#" class="user-dropdown__item" onclick="logoutUser(event)">Logout</a>
     </div>
   `;
   // Close the authentication modal
-  document
-    .querySelector(".authentication")
-    .classList.remove("authentication--active-popup");
+  const authentication = document.querySelector(".authentication");
+  authentication.classList.remove("authentication--active-popup");
+
+  // Restore scrolling
+  document.body.style.overflow = "";
+
+  // Remove all existing event listeners
+  loginShop.replaceWith(loginShop.cloneNode(true));
+
+  // Re-select the loginShop element as it has been replaced
+  const newLoginShop = document.querySelector("#login-shop");
+
+  // Add new event listener for dropdown toggle
+  newLoginShop.addEventListener("click", toggleDropdown);
+}
+
+// Function to toggle dropdown
+function toggleDropdown(event) {
+  event.preventDefault();
+  event.stopPropagation();
+  const dropdown = document.querySelector(".user-dropdown");
+  dropdown.classList.toggle("show-dropdown");
 }
 
 // Function to log out the user
-function logoutUser() {
+function logoutUser(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
   localStorage.removeItem("currentUser");
   const loginShop = document.querySelector("#login-shop");
   loginShop.innerHTML = '<i class="bx bx-user"></i>';
+
+  // Remove all existing event listeners
+  loginShop.replaceWith(loginShop.cloneNode(true));
+
+  // Re-select the loginShop element and add the showLoginForm event listener
+  const newLoginShop = document.querySelector("#login-shop");
+  newLoginShop.addEventListener("click", showLoginForm);
+
   $.toast({
     heading: "Success",
     text: "Logged out successfully",
@@ -113,6 +144,24 @@ function logoutUser() {
     loader: true,
     loaderBg: "#FFB566",
   });
+}
+
+// Function to show login form
+function showLoginForm(event) {
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
+  const authentication = document.querySelector(".authentication");
+  authentication.classList.add("authentication--active-popup");
+  document.body.style.overflow = "hidden";
+}
+
+// Function to close login form
+function closeLoginForm() {
+  const authentication = document.querySelector(".authentication");
+  authentication.classList.remove("authentication--active-popup");
+  document.body.style.overflow = "";
 }
 
 // Function to show error message
@@ -146,6 +195,14 @@ function validateEmail(email) {
   return re.test(String(email).toLowerCase());
 }
 
+// Close dropdown when clicking outside
+document.addEventListener("click", function (event) {
+  const dropdown = document.querySelector(".user-dropdown");
+  if (dropdown && !event.target.closest("#login-shop")) {
+    dropdown.classList.remove("show-dropdown");
+  }
+});
+
 // Add event listener to the login submit button
 loginSubmitBtn.addEventListener("click", validateLoginForm);
 
@@ -159,7 +216,22 @@ loginForm.querySelectorAll(".authentication__input").forEach((input) => {
 // Check if user is already logged in on page load
 document.addEventListener("DOMContentLoaded", () => {
   const currentUser = JSON.parse(localStorage.getItem("currentUser"));
+  const loginShop = document.querySelector("#login-shop");
+
   if (currentUser) {
     updateUIForLoggedInUser(currentUser);
+  } else {
+    loginShop.innerHTML = '<i class="bx bx-user"></i>';
+    // Remove all existing event listeners
+    loginShop.replaceWith(loginShop.cloneNode(true));
+    // Re-select the loginShop element and add the showLoginForm event listener
+    const newLoginShop = document.querySelector("#login-shop");
+    newLoginShop.addEventListener("click", showLoginForm);
+  }
+
+  // Add event listener for the close button
+  const closeButton = document.querySelector(".authentication__icon-close");
+  if (closeButton) {
+    closeButton.addEventListener("click", closeLoginForm);
   }
 });

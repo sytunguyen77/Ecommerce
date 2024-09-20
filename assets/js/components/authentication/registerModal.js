@@ -82,28 +82,77 @@ function validateForm(event) {
     confirmPasswordBox.classList.add("error");
   }
 
-  // Check if terms and conditions are accepted
-  const termsCheckbox = registrationForm.querySelector(
-    'input[type="checkbox"]'
-  );
-  if (!termsCheckbox.checked) {
-    isValid = false;
-    const termsBox = termsCheckbox.closest(".authentication__remember-forgot");
-    let errorMessage = termsBox.querySelector(".error-message");
-    if (!errorMessage) {
-      errorMessage = document.createElement("span");
-      errorMessage.className = "error-message";
-      termsBox.appendChild(errorMessage);
-    }
-    errorMessage.textContent = "You must agree to the terms and conditions";
-    errorMessage.style.display = "block";
-  }
-
-  // If the form is valid, you can submit it here
+  // If the form is valid, register the user
   if (isValid) {
-    console.log("Form is valid and can be submitted");
-    // Add your form submission logic here
+    registerUser();
   }
+}
+
+// Function to check if email already exists
+function emailExists(email) {
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  return users.some((user) => user.email === email);
+}
+
+// Function to register the user
+function registerUser() {
+  const fullName = registrationForm.querySelector(
+    'input[name="fullName"]'
+  ).value;
+  const email = registrationForm.querySelector('input[name="email"]').value;
+  const password = registrationForm.querySelector(
+    'input[name="password"]'
+  ).value;
+
+  // Add loading circle
+  const originalText = submitBtn.textContent;
+  submitBtn.innerHTML =
+    '<i class="fas fa-circle-notch fa-spin"></i> Registering...';
+  submitBtn.disabled = true;
+
+  // Simulate API call with setTimeout
+  setTimeout(() => {
+    if (emailExists(email)) {
+      // Show error toast if email already exists
+      $.toast({
+        heading: "Error",
+        text: "Email already exists. Please use a different email.",
+        icon: "error",
+        loader: true,
+        loaderBg: "#ff6b6b",
+      });
+      // Restore button state
+      submitBtn.innerHTML = originalText;
+      submitBtn.disabled = false;
+      return;
+    }
+
+    // Here you would typically send this data to your server
+    // For this example, we'll just store it in localStorage
+    const users = JSON.parse(localStorage.getItem("users")) || [];
+    users.push({ fullName, email, password });
+    localStorage.setItem("users", JSON.stringify(users));
+
+    // Show success toast
+    $.toast({
+      heading: "Success",
+      text: "Registration successful",
+      icon: "success",
+      loader: true,
+      loaderBg: "#9EC600",
+    });
+
+    // Reset the form
+    registrationForm.reset();
+
+    // Switch to login form
+    const authentication = document.querySelector(".authentication");
+    authentication.classList.remove("authentication--active");
+
+    // Restore button state
+    submitBtn.innerHTML = originalText;
+    submitBtn.disabled = false;
+  }, 1000); // Simulate 1 second delay for API call
 }
 
 // Add event listener to the submit button
