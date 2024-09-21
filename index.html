@@ -34,11 +34,7 @@
    <link rel="stylesheet" href="assets/css/global.css" />
    <link rel="stylesheet" href="assets/css/responsive.css" />
    <link rel="stylesheet" href="assets/css/magnify.css" />
-<<<<<<< Updated upstream
    <link rel="stylesheet" href="assets/css/authentication/authModal.css" />
-=======
-   <link rel="stylesheet" href="assets/css/authentication/authentication.css" />
->>>>>>> Stashed changes
 
    <title>Shinpi Ecommerce Shop</title>
 </head>
@@ -81,13 +77,10 @@
 
             <div class="nav__shop" id="login-shop">
                <i class="bx bx-user"></i>
-<<<<<<< Updated upstream
                <div class="user-dropdown">
                   <a href="#" class="user-dropdown__item"></a>
                   <a href="#" class="user-dropdown__item"></a>
                </div>
-=======
->>>>>>> Stashed changes
             </div>
 
             <div class="nav__shop" id="wishlist-shop">
@@ -506,218 +499,218 @@
       <i class="bx bx-up-arrow-alt scrollup__icon"></i>
    </a>
 
-<<<<<<< Updated upstream
-
-   <!--=============== AUTHENTICATION ===============-->
-   <div class="authentication">
-      <span class="authentication__icon-close">
-         <i class="fas fa-times"></i>
-      </span>
-      <!-- Login -->
-      <div class="authentication__form-box authentication__form-box--login">
-         <h2 class="authentication__title">Login</h2>
-         <form action="#">
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-envelope"></i>
-               </span>
-               <input type="email" class="authentication__input" required>
-               <label class="authentication__input-label">Email</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" required>
-               <label class="authentication__input-label">Password</label>
-            </div>
-            <div class="authentication__remember-forgot">
-               <label><input type="checkbox"> Remember me</label>
-               <a href="#" class="authentication__forgot-link">Forgot Password?</a>
-            </div>
-            <button type="submit" class="authentication__submit-btn">Login</button>
-            <div class="authentication__switch">
-               <p>Don't have an account? <a href="#" class="authentication__switch-link register-link">Register</a></p>
-            </div>
-         </form>
+   <<<<<<< Updated upstream <!--===============AUTHENTICATION===============-->
+      <div class="authentication">
+         <span class="authentication__icon-close">
+            <i class="fas fa-times"></i>
+         </span>
+         <!-- Login -->
+         <div class="authentication__form-box authentication__form-box--login">
+            <h2 class="authentication__title">Login</h2>
+            <form action="#">
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="email" class="authentication__input" required>
+                  <label class="authentication__input-label">Email</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" required>
+                  <label class="authentication__input-label">Password</label>
+               </div>
+               <div class="authentication__remember-forgot">
+                  <label><input type="checkbox"> Remember me</label>
+                  <a href="#" class="authentication__forgot-link">Forgot Password?</a>
+               </div>
+               <button type="submit" class="authentication__submit-btn">Login</button>
+               <div class="authentication__switch">
+                  <p>Don't have an account? <a href="#" class="authentication__switch-link register-link">Register</a>
+                  </p>
+               </div>
+            </form>
+         </div>
+         <!-- Register -->
+         <div class="authentication__form-box authentication__form-box--register">
+            <h2 class="authentication__title">Registration</h2>
+            <form action="#">
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-user"></i>
+                  </span>
+                  <input type="text" class="authentication__input" name="fullName" required>
+                  <label class="authentication__input-label">Full Name</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="email" class="authentication__input" name="email" required>
+                  <label class="authentication__input-label">Email</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" name="password" required>
+                  <label class="authentication__input-label">Password</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" name="confirmPassword" required>
+                  <label class="authentication__input-label">Confirm Password</label>
+               </div>
+               <button type="submit" class="authentication__submit-btn">Register</button>
+               <div class="authentication__switch">
+                  <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
+               </div>
+            </form>
+         </div>
+         <!-- Forgot password -->
+         <div class="authentication__form-box authentication__form-box--forgot-password">
+            <h2 class="authentication__title">Reset Password</h2>
+            <form action="#">
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="email" class="authentication__input" name="email">
+                  <label class="authentication__input-label">Email</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" name="newPassword">
+                  <label class="authentication__input-label">New Password</label>
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" name="confirmNewPassword">
+                  <label class="authentication__input-label">Confirm New Password</label>
+               </div>
+               <button type="submit" class="authentication__submit-btn">Reset Password</button>
+               <div class="authentication__switch">
+                  <p>Remember your password? <a href="#" class="authentication__switch-link login-link">Login</a></p>
+               </div>
+            </form>
+         </div>
       </div>
-      <!-- Register -->
-      <div class="authentication__form-box authentication__form-box--register">
-         <h2 class="authentication__title">Registration</h2>
-         <form action="#">
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-user"></i>
-               </span>
-               <input type="text" class="authentication__input" name="fullName" required>
-               <label class="authentication__input-label">Full Name</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-envelope"></i>
-               </span>
-               <input type="email" class="authentication__input" name="email" required>
-               <label class="authentication__input-label">Email</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" name="password" required>
-               <label class="authentication__input-label">Password</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" name="confirmPassword" required>
-               <label class="authentication__input-label">Confirm Password</label>
-            </div>
-            <button type="submit" class="authentication__submit-btn">Register</button>
-            <div class="authentication__switch">
-               <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
-            </div>
-         </form>
-      </div>
-      <!-- Forgot password -->
-      <div class="authentication__form-box authentication__form-box--forgot-password">
-         <h2 class="authentication__title">Reset Password</h2>
-         <form action="#">
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-envelope"></i>
-               </span>
-               <input type="email" class="authentication__input" name="email">
-               <label class="authentication__input-label">Email</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" name="newPassword">
-               <label class="authentication__input-label">New Password</label>
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" name="confirmNewPassword">
-               <label class="authentication__input-label">Confirm New Password</label>
-            </div>
-            <button type="submit" class="authentication__submit-btn">Reset Password</button>
-            <div class="authentication__switch">
-               <p>Remember your password? <a href="#" class="authentication__switch-link login-link">Login</a></p>
-            </div>
-         </form>
-      </div>
-   </div>
-=======
-   <!--=============== AUTHENTICATION ===============-->
-   <div class="authentication">
-      <span class="authentication__icon-close">
-         <i class="fas fa-times"></i>
-      </span>
+      =======
+      <!--=============== AUTHENTICATION ===============-->
+      <div class="authentication">
+         <span class="authentication__icon-close">
+            <i class="fas fa-times"></i>
+         </span>
 
-      <!-- Login Form -->
-      <div class="authentication__form-box authentication__form-box--login">
-         <h2 class="authentication__title">Login</h2>
-         <form action="loginForm">
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-envelope"></i>
-               </span>
-               <input type="email" class="authentication__input">
-               <label class="authentication__input-label">Email</label>
-               <div class="authentication__error-message"></div> <!-- Error message placeholder -->
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input">
-               <label class="authentication__input-label">Password</label>
-               <div class="authentication__error-message"></div> <!-- Error message placeholder -->
-            </div>
-            <div class="authentication__remember-forgot">
-               <label><input type="checkbox"> Remember me</label>
-               <a href="#" class="authentication__forgot-link">Forgot Password?</a>
-            </div>
-            <button type="submit" class="authentication__submit-btn">Login</button>
-            <div class="authentication__switch">
-               <p>Don't have an account? <a href="#" class="authentication__switch-link register-link">Register</a></p>
-            </div>
-         </form>
+         <!-- Login Form -->
+         <div class="authentication__form-box authentication__form-box--login">
+            <h2 class="authentication__title">Login</h2>
+            <form action="loginForm">
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="email" class="authentication__input">
+                  <label class="authentication__input-label">Email</label>
+                  <div class="authentication__error-message"></div> <!-- Error message placeholder -->
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input">
+                  <label class="authentication__input-label">Password</label>
+                  <div class="authentication__error-message"></div> <!-- Error message placeholder -->
+               </div>
+               <div class="authentication__remember-forgot">
+                  <label><input type="checkbox"> Remember me</label>
+                  <a href="#" class="authentication__forgot-link">Forgot Password?</a>
+               </div>
+               <button type="submit" class="authentication__submit-btn">Login</button>
+               <div class="authentication__switch">
+                  <p>Don't have an account? <a href="#" class="authentication__switch-link register-link">Register</a>
+                  </p>
+               </div>
+            </form>
+         </div>
+
+         <!-- Registration Form -->
+         <div class="authentication__form-box authentication__form-box--register">
+            <h2 class="authentication__title">Registration</h2>
+            <form action="registerForm">
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-user"></i>
+                  </span>
+                  <input type="text" class="authentication__input" required>
+                  <label class="authentication__input-label">Username</label>
+                  <div class="authentication__error-message"></div> <!-- Error message placeholder -->
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-envelope"></i>
+                  </span>
+                  <input type="email" class="authentication__input" required>
+                  <label class="authentication__input-label">Email</label>
+                  <div class="authentication__error-message"></div> <!-- Error message placeholder -->
+               </div>
+               <div class="authentication__input-box">
+                  <span class="authentication__input-icon">
+                     <i class="fas fa-lock"></i>
+                  </span>
+                  <input type="password" class="authentication__input" required>
+                  <label class="authentication__input-label">Password</label>
+                  <div class="authentication__error-message"></div> <!-- Error message placeholder -->
+               </div>
+               <div class="authentication__remember-forgot">
+                  <label><input type="checkbox"> I agree to the terms & conditions</label>
+               </div>
+               <button type="submit" class="authentication__submit-btn">Register</button>
+               <div class="authentication__switch">
+                  <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
+               </div>
+            </form>
+         </div>
       </div>
 
-      <!-- Registration Form -->
-      <div class="authentication__form-box authentication__form-box--register">
-         <h2 class="authentication__title">Registration</h2>
-         <form action="registerForm">
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-user"></i>
-               </span>
-               <input type="text" class="authentication__input" required>
-               <label class="authentication__input-label">Username</label>
-               <div class="authentication__error-message"></div> <!-- Error message placeholder -->
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-envelope"></i>
-               </span>
-               <input type="email" class="authentication__input" required>
-               <label class="authentication__input-label">Email</label>
-               <div class="authentication__error-message"></div> <!-- Error message placeholder -->
-            </div>
-            <div class="authentication__input-box">
-               <span class="authentication__input-icon">
-                  <i class="fas fa-lock"></i>
-               </span>
-               <input type="password" class="authentication__input" required>
-               <label class="authentication__input-label">Password</label>
-               <div class="authentication__error-message"></div> <!-- Error message placeholder -->
-            </div>
-            <div class="authentication__remember-forgot">
-               <label><input type="checkbox"> I agree to the terms & conditions</label>
-            </div>
-            <button type="submit" class="authentication__submit-btn">Register</button>
-            <div class="authentication__switch">
-               <p>Already have an account? <a href="#" class="authentication__switch-link login-link">Login</a></p>
-            </div>
-         </form>
-      </div>
-   </div>
+      >>>>>>> Stashed changes
 
->>>>>>> Stashed changes
+      <!--=============== jQuery Toast plugin  ===============-->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
 
-   <!--=============== jQuery Toast plugin  ===============-->
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-   <script src="https://cdn.jsdelivr.net/npm/jquery-toast-plugin@1.3.2/dist/jquery.toast.min.js"></script>
+      <!--=============== MAGNIFYING GLASS JQUERY  ===============-->
+      <script src="assets/js/vendors/jquery.magnify.js" charset="utf-8"></script>
 
-   <!--=============== MAGNIFYING GLASS JQUERY  ===============-->
-   <script src="assets/js/vendors/jquery.magnify.js" charset="utf-8"></script>
+      <!--=============== SWIPER JS ===============-->
+      <script src="assets/js/vendors/swiper-bundle.min.js"></script>
 
-   <!--=============== SWIPER JS ===============-->
-   <script src="assets/js/vendors/swiper-bundle.min.js"></script>
-
-   <!--=============== MAIN JS ===============-->
-   <script src="assets/js/main.js"></script>
-   <script src="assets/js/fake-data/products.js"></script>
-   <script src="assets/js/components/addToCart.js"></script>
-   <script src="assets/js/components/addToList.js"></script>
-   <script src="assets/js/components/filter.js"></script>
-   <script src="assets/js/components/productModal.js"></script>
-<<<<<<< Updated upstream
-   <script src="assets/js/components/authentication/loginModal.js"></script>
-   <script src="assets/js/components/authentication/registerModal.js"></script>
-   <script src="assets/js/components/authentication/resetPasswordModal.js"></script>
-   <script src="assets/js/components/authentication/authModal.js"></script>
-=======
-   <script src="assets/js/components/authentication/login.js"></script>
->>>>>>> Stashed changes
-   <script src="assets/js/utils/countDown.js"></script>
-   <script src="assets/js/vendors/stripe.js"></script>
-   <script src="assets/js/vendors/tawkto.js"></script>
+      <!--=============== MAIN JS ===============-->
+      <script src="assets/js/main.js"></script>
+      <script src="assets/js/fake-data/products.js"></script>
+      <script src="assets/js/components/addToCart.js"></script>
+      <script src="assets/js/components/addToList.js"></script>
+      <script src="assets/js/components/filter.js"></script>
+      <script src="assets/js/components/productModal.js"></script>
+      <<<<<<< Updated upstream <script src="assets/js/components/authentication/loginModal.js">
+         </script>
+         <script src="assets/js/components/authentication/registerModal.js"></script>
+         <script src="assets/js/components/authentication/resetPasswordModal.js"></script>
+         <script src="assets/js/components/authentication/authModal.js"></script>
+         =======
+         <script src="assets/js/components/authentication/login.js"></script>
+         >>>>>>> Stashed changes
+         <script src="assets/js/utils/countDown.js"></script>
+         <script src="assets/js/vendors/stripe.js"></script>
+         <script src="assets/js/vendors/tawkto.js"></script>
 
 
 </body>
