@@ -154,23 +154,6 @@ window.onload = () => {
 closeButton.addEventListener("click", hidePopup);
 dealButton.addEventListener("click", hidePopup);
 
-/*=============== USERDROPDOWN SHOW ===============*/
-document.addEventListener("DOMContentLoaded", function () {
-  const userIcon = document.querySelector("#login-shop");
-  const dropdown = document.querySelector(".user-dropdown");
-
-  userIcon.addEventListener("click", function (e) {
-    e.stopPropagation();
-    dropdown.classList.toggle("show-dropdown");
-  });
-
-  document.addEventListener("click", function (e) {
-    if (!userIcon.contains(e.target)) {
-      dropdown.classList.remove("show-dropdown");
-    }
-  });
-});
-
 /*=============== WISHLIST SHOW ===============*/
 const wishlist1 = document.getElementById("wishlist"),
   wishlistShop = document.getElementById("wishlist-shop"),
