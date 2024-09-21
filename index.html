@@ -34,8 +34,6 @@
    <link rel="stylesheet" href="assets/css/global.css" />
    <link rel="stylesheet" href="assets/css/responsive.css" />
    <link rel="stylesheet" href="assets/css/magnify.css" />
-   <!-- <link rel="stylesheet" href="assets/css/authentication/loginModal.css" />
-   <link rel="stylesheet" href="assets/css/authentication/registerModal.css" /> -->
    <link rel="stylesheet" href="assets/css/authentication/authModal.css" />
 
    <title>Ecommerce - Sy</title>
@@ -575,14 +573,28 @@
       </div>
       <!-- Forgot password -->
       <div class="authentication__form-box authentication__form-box--forgot-password">
-         <h2 class="authentication__title">Forgot Password</h2>
+         <h2 class="authentication__title">Reset Password</h2>
          <form action="#">
             <div class="authentication__input-box">
                <span class="authentication__input-icon">
                   <i class="fas fa-envelope"></i>
                </span>
-               <input type="email" class="authentication__input" required>
+               <input type="email" class="authentication__input" name="email">
                <label class="authentication__input-label">Email</label>
+            </div>
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-lock"></i>
+               </span>
+               <input type="password" class="authentication__input" name="newPassword">
+               <label class="authentication__input-label">New Password</label>
+            </div>
+            <div class="authentication__input-box">
+               <span class="authentication__input-icon">
+                  <i class="fas fa-lock"></i>
+               </span>
+               <input type="password" class="authentication__input" name="confirmNewPassword">
+               <label class="authentication__input-label">Confirm New Password</label>
             </div>
             <button type="submit" class="authentication__submit-btn">Reset Password</button>
             <div class="authentication__switch">
@@ -611,6 +623,7 @@
    <script src="assets/js/components/productModal.js"></script>
    <script src="assets/js/components/authentication/loginModal.js"></script>
    <script src="assets/js/components/authentication/registerModal.js"></script>
+   <script src="assets/js/components/authentication/resetPasswordModal.js"></script>
    <script src="assets/js/components/authentication/authModal.js"></script>
    <script src="assets/js/utils/countDown.js"></script>
    <script src="assets/js/vendors/stripe.js"></script>

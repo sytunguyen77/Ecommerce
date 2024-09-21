@@ -50,9 +50,68 @@ function validateForm(event) {
       errorMessage.textContent = errorText;
       errorMessage.style.display = "block";
     } else {
-      inputBox.classList.remove("error");
-      if (errorMessage) {
-        errorMessage.style.display = "none";
+      // Validate email
+      if (field.name === "email") {
+        const emailRegex = /@/;
+        if (!emailRegex.test(field.value)) {
+          isValid = false;
+          inputBox.classList.add("error");
+          if (!errorMessage) {
+            errorMessage = document.createElement("span");
+            errorMessage.className = "error-message";
+            inputBox.appendChild(errorMessage);
+          }
+          errorMessage.textContent = "Email isn't valid";
+          errorMessage.style.display = "block";
+        } else {
+          inputBox.classList.remove("error");
+          if (errorMessage) {
+            errorMessage.style.display = "none";
+          }
+        }
+      }
+
+      // Validate full name
+      if (field.name === "fullName") {
+        const nameRegex = /^(?=.*[A-Z])(?!.*\d)[A-Za-z\s]+$/;
+        if (!nameRegex.test(field.value)) {
+          isValid = false;
+          inputBox.classList.add("error");
+          if (!errorMessage) {
+            errorMessage = document.createElement("span");
+            errorMessage.className = "error-message";
+            inputBox.appendChild(errorMessage);
+          }
+          errorMessage.textContent =
+            "Name must include an uppercase letter and no numbers";
+          errorMessage.style.display = "block";
+        } else {
+          inputBox.classList.remove("error");
+          if (errorMessage) {
+            errorMessage.style.display = "none";
+          }
+        }
+      }
+
+      // Validate password
+      if (field.name === "password") {
+        const passwordRegex = /^(?=.*\d)(?=.*[A-Z])(?=.*[!@#$%^&*])/;
+        if (!passwordRegex.test(field.value)) {
+          isValid = false;
+          inputBox.classList.add("error");
+          if (!errorMessage) {
+            errorMessage = document.createElement("span");
+            errorMessage.className = "error-message";
+            inputBox.appendChild(errorMessage);
+          }
+          errorMessage.textContent = "Password doesn't meet requirements";
+          errorMessage.style.display = "block";
+        } else {
+          inputBox.classList.remove("error");
+          if (errorMessage) {
+            errorMessage.style.display = "none";
+          }
+        }
       }
     }
   });
