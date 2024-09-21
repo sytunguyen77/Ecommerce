@@ -127,15 +127,6 @@ function logoutUser(event) {
     event.stopPropagation();
   }
   localStorage.removeItem("currentUser");
-  const loginShop = document.querySelector("#login-shop");
-  loginShop.innerHTML = '<i class="bx bx-user"></i>';
-
-  // Remove all existing event listeners
-  loginShop.replaceWith(loginShop.cloneNode(true));
-
-  // Re-select the loginShop element and add the showLoginForm event listener
-  const newLoginShop = document.querySelector("#login-shop");
-  newLoginShop.addEventListener("click", showLoginForm);
 
   $.toast({
     heading: "Success",
@@ -144,6 +135,11 @@ function logoutUser(event) {
     loader: true,
     loaderBg: "#FFB566",
   });
+
+  // Refresh the page after a short delay
+  setTimeout(() => {
+    window.location.reload();
+  }, 1000); // 1 second delay to allow the toast message to be seen
 }
 
 // Function to show login form
